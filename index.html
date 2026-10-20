@@ -8295,14 +8295,8 @@ h1,h2,h3,.sd-sh h2,.sd-empty p,.pr-d,.sd-isl .lb b{text-wrap:balance}p,small{tex
 .sd-app .sd-up12 .ua{display:flex;flex-wrap:wrap;gap:8px 12px}
 .sd-app .sd-up12 .ua>*{min-height:44px}
 .sd-app[data-mode="space"] .sd-up.sd-up12{background:var(--sd-card);color:var(--sd-ink)}
-/* the brain and the seven units share one side, the chosen unit's detail the other — the brain no longer pushes the data away */
-@container ptapp (min-width:1101px){
- .sd-app .sd-ins .sd-brainw{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);grid-template-areas:"brain panel" "units panel";gap:16px 24px;align-items:start}
- .sd-app .sd-ins .sd-brainw>.sd-bhead{grid-area:brain;justify-self:center;width:100%;max-width:360px}
- .sd-app .sd-ins .sd-brainw>.sd-blg{grid-area:units;margin:0}
- .sd-app .sd-ins .sd-brainw>.sd-blg>li{flex:1 1 100%}
- .sd-app .sd-ins .sd-brainw>.sd-up{grid-area:panel}
-}
+/* round 13 (owner: «عقل الفطن مرفوض — النسخة القديمة كانت أجمل وأكثر تناسقًا»): round 12's small brain beside a column of units is gone; the
+   round-10 layout is back — the big brain with the chosen unit's panel beside it, the seven units in a grid under both */
 
 /* ---------- round 12 (owner's review §10): اختباراتي — a quiet summary line, then the filters and the log with row lines, not row cards ---------- */
 .sd-app .sd-tests12 .sd-stats.sd-stats12{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 32px;margin:0;padding:12px 16px;border-radius:16px;border:1px solid var(--sd-line);background:var(--sd-card);box-shadow:none;list-style:none}
@@ -8504,6 +8498,136 @@ h1,h2,h3,.sd-sh h2,.sd-empty p,.pr-d,.sd-isl .lb b{text-wrap:balance}p,small{tex
 }
 /* round 12 (agents: errors F1): the fallback root keeps its order inside Arabic (isolated LTR, as rule 4 asks) — student pages; the public site is frozen */
 .sd-app .arsq-f,.sd-mod .arsq-f{display:inline-block;direction:ltr;unicode-bidi:isolate}
+
+/* ---------- round 13 (owner's notes + brief §5): الرئيسية — her Fitn and a line under the greeting; the book opens first; a parent's message floats ---------- */
+.sd-app .sd-hello13 .who{align-items:center}
+.sd-app .sd-hello13 .tx{gap:4px}
+.sd-app .sd-hello13 .tx>p{font:600 16px/1.6 var(--f-ui);color:var(--sd-ink2)}
+.sd-app .sd-task12 .sd-tdflat>.sd-todo2 li{min-height:0;padding:8px 12px}
+.sd-app .sd-task12 .sd-tdflat>.sd-todo2 .sd-tklnk{order:2;min-height:44px;padding:0 16px;border-radius:12px;background:var(--sd-cta);box-shadow:0 4px 12px var(--sd-ctash);color:#fff;font:800 14px/1 var(--f-ui)}
+.sd-app .sd-task12 .sd-tdflat>.sd-todo2 .sd-tklnk svg{width:16px;height:16px}
+.sd-app .sd-task12 .sd-tdflat>.sd-todo2 .sd-tk{min-height:44px;border-radius:12px;font-weight:600}
+.sd-app .sd-task12>.row{align-items:center}
+.sd-app .sd-task12>.row>.sd-lnk{flex:none;min-height:44px;display:inline-flex;align-items:center;gap:4px}
+.sd-app .sd-task12 .sd-carry{margin:0}
+.sd-app .sd-task12 .sd-carry>summary span{color:inherit;font-weight:600}
+.sd-app .sd-pmwrap{position:sticky;z-index:60;inset-block-start:64px;height:0;display:flex;align-items:flex-start;justify-content:center;padding:0 16px}
+.sd-app .sd-pmpop{width:min(520px,100%);margin-top:8px;display:flex;align-items:center;gap:12px;padding:12px 8px 12px 16px;border-radius:16px;border:1px solid #F2D58A;background:#FFF8E6;box-shadow:0 12px 32px rgba(30,20,80,.18);color:var(--sd-ink)}
+.sd-app .sd-pmpop .f{flex:none;width:40px;height:40px}
+.sd-app .sd-pmpop .f .sd-fz{width:40px;height:40px}
+.sd-app .sd-pmpop .tx{flex:1;min-width:0;display:grid;gap:4px}
+.sd-app .sd-pmpop small{display:inline-flex;align-items:center;gap:4px;font:800 14px/1.4 var(--f-ui);color:#8A5A00}
+.sd-app .sd-pmpop small svg{width:16px;height:16px}
+.sd-app .sd-pmpop p{margin:0;font:800 16px/1.6 var(--f-ui);color:#2A2470}
+.sd-app .sd-pmpop .sd-x{flex:none;display:grid;place-items:center;width:44px;height:44px;min-width:44px;padding:0;border:0;border-radius:12px;background:none;box-shadow:none;color:#6B5A2E;font:600 24px/1 var(--f-ui);cursor:pointer}
+.sd-app .sd-pmpop .sd-x:hover{background:rgba(0,0,0,.06)}
+@media (prefers-reduced-motion:no-preference){.sd-app .sd-pmpop{animation:sdPmIn .3s ease-out}}
+@keyframes sdPmIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+@container ptapp (max-width:760px){
+ .sd-app .sd-hello13 .tx>p{font-size:14px}
+ .sd-app .sd-task12 .sd-tdflat>.sd-todo2 .sd-tklnk{flex:1 1 auto;justify-content:center}
+}
+
+/* round 13: آخر اختباراتك — rows split by a line, no fills */
+.sd-app .sd-rec.sd-rec13{gap:0}
+.sd-app .sd-rec.sd-rec13 li+li{border-top:1px solid var(--sd-line)}
+.sd-app .sd-rec.sd-rec13 a{display:flex;align-items:center;gap:12px;min-height:56px;padding:8px 4px;border-radius:0;background:none}
+.sd-app .sd-rec.sd-rec13 a:hover{background:var(--sd-soft)}
+.sd-app .sd-rec.sd-rec13 .t{flex:1;min-width:0;display:grid;gap:4px}
+.sd-app .sd-rec.sd-rec13 .t b{font:600 16px/1.4 var(--f-ui);color:var(--sd-ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sd-app .sd-rec.sd-rec13 .t small{font:600 14px/1.4 var(--f-ui);color:var(--sd-mut)}
+.sd-app .sd-rec.sd-rec13 em{flex:none;font:800 16px/1 var(--f-ui);font-style:normal;color:var(--sd-ink)}
+.sd-app .sd-rec.sd-rec13 a>svg{display:block;flex:none;width:16px;height:16px;color:var(--sd-mut)}
+/* round 13: بطاقة الخطأ — one quiet source line; the acts in one row */
+.sd-app .sd-ecard13 .src{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;padding:0;border:0;font:600 14px/1.6 var(--f-ui);color:var(--sd-mut)}
+.sd-app .sd-ecard13 .src>span{display:inline-flex;align-items:center;gap:8px}
+.sd-app .sd-ecard13 .src>span+span::before{content:"·";color:var(--sd-mut)}
+.sd-app .sd-ecard13 .src>span:nth-child(2){color:var(--sd-ink);font-weight:800}
+.sd-app .sd-ecard13 .src .ud{width:8px;height:8px;border-radius:999px;background:var(--c)}
+.sd-app .sd-ecard13 .src>b{display:inline-flex;align-items:center;gap:4px;margin-inline-start:auto;padding:0 8px;border-radius:999px;font:800 14px/1.6 var(--f-ui)}
+.sd-app .sd-ecard13 .src>b.noc{background:var(--sd-nob);color:var(--sd-no)}
+.sd-app .sd-ecard13 .src>b.okc{background:var(--sd-okb);color:var(--sd-ok)}
+.sd-app .sd-ecard13 .src>b svg{width:16px;height:16px}
+.sd-app .sd-ecard13>footer.nt .sd-eqh{margin-top:-4px}
+@container ptapp (max-width:760px){ .sd-app .sd-ecard13 .src>b{margin-inline-start:0} .sd-app .sd-ecard13>footer.nt>*{order:2} .sd-app .sd-ecard13>footer.nt>.sd-go{order:0} .sd-app .sd-ecard13>footer.nt .sd-eqh{order:1;margin:0 0 8px;text-align:start} }
+/* round 13: تفاصيل القياس — three separate facts: what was measured, how she answered, how the indicator is made */
+.sd-app .sd-up12 .sd-uhw13{display:grid;gap:8px;margin:0 0 8px}
+.sd-app .sd-up12 .sd-uhw13>div{display:grid;gap:4px}
+.sd-app .sd-up12 .sd-uhw13 dt{font:800 14px/1.6 var(--f-ui);color:var(--sd-ink)}
+.sd-app .sd-up12 .sd-uhw13 dd{margin:0;font:600 14px/1.8 var(--f-ui);color:var(--sd-ink2)}
+/* round 13: the balance log carries the purchases — a receipt link on their rows; the riyal amount reads right to left */
+.sd-app .sd-wlog li{grid-template-columns:40px minmax(0,1fr) auto auto}
+.sd-app .sd-wlog li .sd-lnk2{min-height:44px}
+.sd-app .sd-wlog .buy em{direction:rtl;color:var(--sd-ink)}
+.sd-app .sd-wal7>.sd-pk7f{margin:16px 0 0}
+/* round 13: packs — the cards alone; the course as one quiet line; an ended plan named on its card */
+.sd-app .sd-packs13:empty{display:none}
+.sd-app .sd-pk13c{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;margin:0 0 16px;font:600 16px/1.6 var(--f-ui);color:var(--sd-ink2)}
+.sd-app .sd-pk13c>svg{width:16px;height:16px;color:var(--sd-mut)}
+.sd-app .sd-pk13c .sd-lnk2{min-height:44px}
+.sd-app .sd-minetag.sd-endtag{background:#5B5675!important;color:#fff} /* the green «باقتك الحالية» is forced (proto-r7 «.sd-minetag{…!important}»); an ended plan is grey */
+@container ptapp (max-width:760px){ .sd-app .sd-wlog li{grid-template-columns:32px minmax(0,1fr) auto} .sd-app .sd-wlog li .sd-lnk2{grid-column:2/-1;justify-self:start;min-height:44px} }
+/* round 13 (owner: «زي سفير الفطن خلّه بالوسط ومتناسق»): one centred column — the Fitn in the outfit whole (not cut by its box), the tag, the name,
+   one line, then the progress at a fixed width; the same on the phone */
+.sd-app .sd-inv9 .amb.amb13{display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:12px;padding:24px;text-align:center}
+.sd-app .sd-inv9 .amb13 .stage{width:128px;height:128px;overflow:visible;display:grid;place-items:center}
+.sd-app .sd-inv9 .amb13 .stage .sd-fz{width:120px;height:120px}
+.sd-app .sd-inv9 .amb13 .tx{display:grid;justify-items:center;gap:8px;max-width:560px}
+.sd-app .sd-inv9 .amb13 .tx .k{justify-self:center}
+.sd-app .sd-inv9 .amb13 h3{font-size:24px;margin:0}
+.sd-app .sd-inv9 .amb13 .pg{display:flex;align-items:center;gap:12px;width:min(320px,100%)}
+.sd-app .sd-inv9 .amb13 .pg .bar{flex:1}
+@container ptapp (max-width:760px){
+ .sd-app .sd-inv9 .amb.amb13{grid-template-columns:minmax(0,1fr);padding:16px}
+ .sd-app .sd-inv9 .amb13 .stage{width:104px;height:104px}
+ .sd-app .sd-inv9 .amb13 .stage .sd-fz{width:96px;height:96px}
+ .sd-app .sd-inv9 .amb13 h3{font-size:19px}
+}
+/* round 13 (owner: «صفحة ولي الأمر تحتاج تنظيم من حيث الطلبات والطلب الجديد»): one section — the three asks as compact rows (icon, name, price),
+   then «طلباتك» with their state; no tall cards with two words in them */
+.sd-app .sd-p13ask{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.sd-app .sd-p13ask .sd-p9a{display:flex;align-items:center;justify-items:normal;gap:12px;min-height:64px;padding:8px 12px}
+.sd-app .sd-p13ask .sd-p9a .ic{margin:0;flex:none}
+.sd-app .sd-p13ask .sd-p9a .t{flex:1;min-width:0;display:grid;gap:4px;text-align:start}
+.sd-app .sd-p13ask .sd-p9a>svg:last-child{flex:none;width:16px;height:16px;color:var(--sd-mut)}
+.sd-app .sd-p13h{margin:24px 0 8px;font:800 16px/1.6 var(--f-ui);color:var(--sd-ink)}
+.sd-app .sd-ferr13{display:block;margin:4px 0 0;font:600 14px/1.6 var(--f-ui);color:var(--sd-no)}
+.sd-app [data-sdpph2][aria-invalid="true"]{box-shadow:inset 0 0 0 2px var(--sd-no)}
+@container ptapp (max-width:760px){ .sd-app .sd-p13ask{grid-template-columns:minmax(0,1fr)} }
+/* round 13 (brief §7): ملاحظاتي — the lesson notes as one list, text first, where it was written under it, the acts last */
+.sd-app .sd-nl13s{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.sd-app .sd-nl13{display:grid;gap:8px;padding:12px 16px;border-radius:16px;border:1px solid var(--sd-line);background:var(--sd-card)}
+.sd-app .sd-nl13>p{margin:0;font:600 16px/1.8 var(--f-ui);color:var(--sd-ink);white-space:pre-wrap;overflow-wrap:anywhere}
+.sd-app .sd-nl13>textarea{width:100%;min-height:88px;padding:8px 12px;border-radius:12px;border:1px solid var(--sd-v);background:var(--sd-card);color:var(--sd-ink);font:600 16px/1.8 var(--f-ui);resize:vertical;box-sizing:border-box}
+.sd-app .sd-nl13 .src{display:flex;flex-wrap:wrap;gap:4px 8px;font:600 14px/1.6 var(--f-ui);color:var(--sd-mut)}
+.sd-app .sd-nl13 .src>span+span::before{content:"·";margin-inline-end:8px}
+.sd-app .sd-nl13>footer{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.sd-app .sd-nl13>footer>*{min-height:44px}
+.sd-app .sd-nl13.ed{border-color:var(--sd-v)}
+.sd-app .sd-nl13 mark{background:#FFE9A8;color:inherit;border-radius:8px}
+/* round 13: the comparison card — both tests' facts; a difference only between like tests */
+.sd-app .sd-tcmp .two{display:grid;gap:8px;margin:8px 0;padding:0;list-style:none}
+.sd-app .sd-tcmp .two li{display:grid;grid-template-columns:auto 1fr;gap:0 8px;align-items:baseline}
+.sd-app .sd-tcmp .two b{font:800 16px/1.4 var(--f-ui);color:var(--sd-ink)}
+.sd-app .sd-tcmp .two span{font:800 16px/1.4 var(--f-ui);color:var(--sd-ink);justify-self:end}
+.sd-app .sd-tcmp .two small{grid-column:1/-1;font:600 14px/1.4 var(--f-ui);color:var(--sd-mut)}
+.sd-app .sd-tcmp>p{margin:0;font:600 14px/1.6 var(--f-ui);color:var(--sd-ink2)}
+/* round 13: مستواي on the phone — the hero as one row */
+@container ptapp (max-width:760px){
+ .sd-app .sd-lvl7 .sd-lhero{grid-template-columns:auto minmax(0,1fr);justify-items:start;text-align:start;gap:16px;padding:16px}
+ .sd-app .sd-lvl7 .sd-lhero .ring{width:96px;height:96px}
+ .sd-app .sd-lvl7 .sd-lhero .ring .f{width:80px;height:80px}
+ .sd-app .sd-lvl7 .sd-lhero .ring .sd-fz{width:64px;height:56px}
+ .sd-app .sd-lvl7 .sd-lhero .big{font-size:40px}
+ .sd-app .sd-lvl7 .sd-lhero .rk{margin:4px 0 8px}
+ .sd-app .sd-lvl7 .sd-lhero .rk b{font-size:19px}
+ .sd-app .sd-lvl7 .sd-lhero .tx{width:100%;min-width:0}
+}
+.sd-app .sd-lvx>.sd-wnote{margin:16px 0}
+/* round 13 (brief §5-ب: «١٨٠–٢٢٠ بكسل للحالة البسيطة»): the task card tighter — the 44px links keep their touch size but stop adding height */
+.sd-app .sd-task12{gap:8px}
+.sd-app .sd-task12>header .sd-tsall,.sd-app .sd-task12>.row>.sd-lnk{margin-block:-8px}
+.sd-app .sd-task12>.row h2{line-height:1.3}
 /* ==== /ux10 ==== */
 /* ==== land9: generated — a phone held sideways uses the phone layout (do not edit by hand) ==== */
 @media (pointer:coarse) and (max-height:500px) and (orientation:landscape){
@@ -8874,6 +8998,29 @@ h1,h2,h3,.sd-sh h2,.sd-empty p,.pr-d,.sd-isl .lb b{text-wrap:balance}p,small{tex
  .sd-app .sd-brainw>.sd-blg{order:2}
  .sd-app .sd-brainw>.sd-up{order:3}
 
+
+ .sd-app .sd-hello13 .tx>p{font-size:14px}
+ .sd-app .sd-task12 .sd-tdflat>.sd-todo2 .sd-tklnk{flex:1 1 auto;justify-content:center}
+
+ .sd-app .sd-ecard13 .src>b{margin-inline-start:0} .sd-app .sd-ecard13>footer.nt>*{order:2} .sd-app .sd-ecard13>footer.nt>.sd-go{order:0} .sd-app .sd-ecard13>footer.nt .sd-eqh{order:1;margin:0 0 8px;text-align:start} 
+ .sd-app .sd-wlog li{grid-template-columns:32px minmax(0,1fr) auto} .sd-app .sd-wlog li .sd-lnk2{grid-column:2/-1;justify-self:start;min-height:44px} 
+
+ .sd-app .sd-inv9 .amb.amb13{grid-template-columns:minmax(0,1fr);padding:16px}
+ .sd-app .sd-inv9 .amb13 .stage{width:104px;height:104px}
+ .sd-app .sd-inv9 .amb13 .stage .sd-fz{width:96px;height:96px}
+ .sd-app .sd-inv9 .amb13 h3{font-size:19px}
+
+ .sd-app .sd-p13ask{grid-template-columns:minmax(0,1fr)} 
+
+ .sd-app .sd-lvl7 .sd-lhero{grid-template-columns:auto minmax(0,1fr);justify-items:start;text-align:start;gap:16px;padding:16px}
+ .sd-app .sd-lvl7 .sd-lhero .ring{width:96px;height:96px}
+ .sd-app .sd-lvl7 .sd-lhero .ring .f{width:80px;height:80px}
+ .sd-app .sd-lvl7 .sd-lhero .ring .sd-fz{width:64px;height:56px}
+ .sd-app .sd-lvl7 .sd-lhero .big{font-size:40px}
+ .sd-app .sd-lvl7 .sd-lhero .rk{margin:4px 0 8px}
+ .sd-app .sd-lvl7 .sd-lhero .rk b{font-size:19px}
+ .sd-app .sd-lvl7 .sd-lhero .tx{width:100%;min-width:0}
+
 }
 @container ptapp (min-width:761px) and (max-width:900px){
 
@@ -9242,6 +9389,29 @@ h1,h2,h3,.sd-sh h2,.sd-empty p,.pr-d,.sd-isl .lb b{text-wrap:balance}p,small{tex
  .sd-app .sd-brainw{display:flex;flex-direction:column}
  .sd-app .sd-brainw>.sd-blg{order:2}
  .sd-app .sd-brainw>.sd-up{order:3}
+
+
+ .sd-app .sd-hello13 .tx>p{font-size:14px}
+ .sd-app .sd-task12 .sd-tdflat>.sd-todo2 .sd-tklnk{flex:1 1 auto;justify-content:center}
+
+ .sd-app .sd-ecard13 .src>b{margin-inline-start:0} .sd-app .sd-ecard13>footer.nt>*{order:2} .sd-app .sd-ecard13>footer.nt>.sd-go{order:0} .sd-app .sd-ecard13>footer.nt .sd-eqh{order:1;margin:0 0 8px;text-align:start} 
+ .sd-app .sd-wlog li{grid-template-columns:32px minmax(0,1fr) auto} .sd-app .sd-wlog li .sd-lnk2{grid-column:2/-1;justify-self:start;min-height:44px} 
+
+ .sd-app .sd-inv9 .amb.amb13{grid-template-columns:minmax(0,1fr);padding:16px}
+ .sd-app .sd-inv9 .amb13 .stage{width:104px;height:104px}
+ .sd-app .sd-inv9 .amb13 .stage .sd-fz{width:96px;height:96px}
+ .sd-app .sd-inv9 .amb13 h3{font-size:19px}
+
+ .sd-app .sd-p13ask{grid-template-columns:minmax(0,1fr)} 
+
+ .sd-app .sd-lvl7 .sd-lhero{grid-template-columns:auto minmax(0,1fr);justify-items:start;text-align:start;gap:16px;padding:16px}
+ .sd-app .sd-lvl7 .sd-lhero .ring{width:96px;height:96px}
+ .sd-app .sd-lvl7 .sd-lhero .ring .f{width:80px;height:80px}
+ .sd-app .sd-lvl7 .sd-lhero .ring .sd-fz{width:64px;height:56px}
+ .sd-app .sd-lvl7 .sd-lhero .big{font-size:40px}
+ .sd-app .sd-lvl7 .sd-lhero .rk{margin:4px 0 8px}
+ .sd-app .sd-lvl7 .sd-lhero .rk b{font-size:19px}
+ .sd-app .sd-lvl7 .sd-lhero .tx{width:100%;min-width:0}
 
 }
 /* ==== /land9 ==== */
@@ -24151,7 +24321,7 @@ const G=(m,f)=>GEN()==='f'?f:m;
    banners and toasts too — speaks to a girl in the feminine. Only a command counts: a word at the start of a sentence or after «—، : « ( !»,
    or joined to a command by و/ف («اضغط أي جزيرة وافتح…»), so «خالد غيّر اللعبة» stays as it is. Question content and the exam are never touched. */
 const GF_M=(()=>{ const m={}; `اضغط اضغطي|قل قولي|شيل شيلي|شغّل شغّلي|شغل شغلي|وقّف وقّفي|وقف وقفي|بدّل بدّلي|بدل بدلي|اطلب اطلبي|حط حطي|اختار اختاري|أهد أهدي|أنشئ أنشئي|حلّل حلّلي|حلل حللي|اختر اختاري|ادع ادعي|ادعُ ادعي|ابدأ ابدئي|جرّب جرّبي|جرب جربي|شوف شوفي|كمّل كمّلي|ارجع ارجعي|اكتب اكتبي|افتح افتحي|تدرّب تدرّبي|راجع راجعي|ادخل ادخلي|العب العبي|اشحن اشحني|ادفع ادفعي|سجّل سجّلي|خذ خذي|تعال تعالي|انضم انضمي|اطلب اطلبي|أرسل أرسلي|أضف أضيفي|انسخ انسخي|شارك شاركي|غيّر غيّري|احفظ احفظي|اقرأ اقرئي|ركّز ركّزي|تابع تابعي|ذاكر ذاكري|حدّد حدّدي|اطلع اطلعي|خلّص خلّصي|اسأل اسألي|تأكّد تأكّدي|استمر استمري|اقترح اقترحي|ثبّت ثبّتي|فعّل فعّلي|ادرس ادرسي|حمّل حمّلي|اعرف اعرفي|قيّم قيّمي|بلّغ بلّغي|أكمل أكملي|أكّد أكّدي|اترك اتركي|عدّل عدّلي|احذف احذفي|اكتم اكتمي|ارفع ارفعي|اشتر اشتري|اربح اربحي|اجمع اجمعي|وفّر وفّري|امسح امسحي|أعد أعيدي|ابحث ابحثي|اسحب اسحبي|اعرض اعرضي|استعمل استعملي|اربط اربطي|نزّل نزّلي|افهم افهمي|لاحظ لاحظي|توقّف توقّفي|ابعث ابعثي|اقفل اقفلي|سكّر سكّري|اختبر اختبري|اشترك اشتركي|ادعه ادعيه|ادعها ادعيها|دخّله دخّليه|دخّلها دخّليها|خلّه خلّيه|خلّها خلّيها|طلّعه طلّعيه|طلّعها طلّعيها|أضفه أضيفيه|أضفها أضيفيها|اختره اختاريه|اخترها اختاريها|قيّمنا قيّمينا|عرّفنا عرّفينا|بلّغنا بلّغينا|علّمنا علّمينا|خبّرنا خبّرينا|ادخله ادخليه|كبّر كبّري|صغّر صغّري|تمرّن تمرّني|حاول حاولي|انتبه انتبهي|انتظر انتظري|صوّر صوّري|حطّ حطّي|ضيف ضيفي|اسمع اسمعي|ارسم ارسمي|اشرح اشرحي|فكّر فكّري|ألغِ ألغي|الغ الغي|اقرا اقري|ادخلها ادخليها`.split('|').forEach(p=>{ const [a,b]=p.split(' '); m[a.replace(/[ً-ِْ]/g,'')]=b; }); return m; })();
-const GF_SKIP='.wq-stem,.wq-op,.sd-lplay .box,.katex,[data-nogf],.sd-qnote p,.sd-gncard h3,.sd-gncard>p,.sd-cnotes .ls p,.sd-lnotes .ls p,.sd-nopen p,script,style,.sd-rev,input,textarea,[contenteditable="true"]';
+const GF_SKIP='.wq-stem,.wq-op,.sd-lplay .box,.katex,[data-nogf],.sd-nl13>p,.sd-pmpop p,.sd-qnote p,.sd-gncard h3,.sd-gncard>p,.sd-cnotes .ls p,.sd-lnotes .ls p,.sd-nopen p,script,style,.sd-rev,input,textarea,[contenteditable="true"]';
 const GF_P=/[—\-–،,.:;«»"()!؟?\n|·•+…]/;
 const GF_PH=[['لأنك ما تضمنها','لأنكِ ما تضمنينها'],['كم تشحن؟','كم تشحنين؟'],['عشان تذاكر','عشان تذاكرين'],['أنت تحدد المدة','أنتِ تحددين المدة'],['وتعرف مستواك','وتعرفين مستواك'],['تكسبها أو تشحنها وتشتري فيها','تكسبينها أو تشحنينها وتشترين فيها'],['اللي اخترته','اللي اخترتِه'],['اطلبي تنضم','اطلبي تنضمين'],['رجوع لحساب الطالب','رجوع لحساب الطالبة'],['تقدر تغيّر رأيك','تقدرين تغيّرين رأيك']];
 const GF_PHR=GF_PH.map(([m,f])=>[new RegExp(m.replace(/[?؟]/g,'\\$&')+'(?![\u0600-\u06FF])','g'),f]); /* whole words only — the feminine must not match again (it would grow forever) */
@@ -24403,7 +24573,7 @@ const sideRestore=()=>{ const go2=()=>{ const sd=$('.sd-side'); if(sd&&SIDESC) s
 const shell=(S,grid)=>{ const id=cur(); syncPts(); setTimeout(sideRestore,0); if(lobbyLive()) setTimeout(netStart,0); else if(RT.main) setTimeout(netStop,0); if(S.solo) return soloShell(S,grid); const nv=ALL.some(a=>a[0]===id)?id:{wallet:'packs',packs2:'packs',level:'lobby'}[id]||S.nav, ph=PT[id]?`<header class="sd-ph"><h1>${PT[id][0]}</h1>${PT[id][1]?`<p>${PT[id][1]}</p>`:''}</header>${id==='packs'||id==='wallet'?`<nav class="sd-ptab" aria-label="اشتراكي ورصيدي"><a data-go="packs" tabindex="0" class="${id==='packs'?'on':''}"${id==='packs'?' aria-current="page"':''}>${IC('star')}اشتراكي</a><a data-go="wallet" tabindex="0" class="${id==='wallet'?'on':''}"${id==='wallet'?' aria-current="page"':''}>${LI.wallet}رصيدي <b>${NUM(coins())}</b></a></nav>`:''}`:'';
  return `<div class="sd-app" data-stage="${stage()}" data-sub="${sub()}" data-scr="${esc(id)}" data-mode="${mode()}" data-font="${((S0().stu.pref||{}).font)||'m'}">${modeBg(mode())}<aside class="sd-side"><a class="sd-brand pt-brand2" data-go="coursepub" tabindex="0" title="صفحة الدورة العامة" aria-label="دورة الفطن للقدرات الكمي — صفحة الدورة">${BRAND()}</a>${sideNav(nv)}
   <a class="sd-ext" data-go="coursepub" tabindex="0">${LI.ext}<span>صفحة الدورة</span></a></aside>
- <div class="sd-cont">${topBar(id)}<main class="sd-main">${ph}${grid}${revBar()}</main>
+ <div class="sd-cont">${topBar(id)}${pmsgPop()}<main class="sd-main">${ph}${grid}${revBar()}</main>
   <nav class="sd-bot" aria-label="التنقل السريع">${BOT.map(([id,t,i])=>id==='create'?`<a href="#create" class="mid${nv==='create'?' on':''}" data-go="create" aria-label="أنشئ اختبار"${nv==='create'?' aria-current="page"':''}><span>${IC(i)}</span>${t}</a>`:id[0]==='@'?`<a data-sdt="more" data-sdg="${id.slice(1)}" role="button" aria-expanded="false" tabindex="0" class="${(id==='@learn'?NAVL.filter(x=>x[0]!=='create'):NAV2).some(x=>x[0]===nv)?'on':''}">${ic(i)}<span>${t}</span></a>`:`<a href="#${id}" data-go="${id}" class="${nv===id?'on':''}"${nv===id?' aria-current="page"':''}>${ic(i)}<span>${t}${id==='course'&&!hasCourse()?`<i class="sd-lk" aria-label="مقفلة">${LI.lock}</i>`:''}</span></a>`).join('')}</nav>
   <div class="sd-sheet" role="dialog" aria-modal="true" aria-label="كل الأقسام" hidden><div class="sd-sheet-bd" data-sdt="more"></div><div class="sd-sheet-in"><span class="grip" aria-hidden="true"></span><button type="button" class="sd-shx" data-sdt="more">${IC('x')}إغلاق</button><div class="sd-shg" data-g="learn"><b class="h">تعلّمي</b>${NAVL.map(x=>navA(x,nv)).join('')}</div><div class="sd-shg" data-g="acct"><b class="h">حسابي</b><div class="sd-shw"><span>${CNI(20)}<b>${NUM(coins())}</b> عملة</span><span>المستوى ${AR(LV().n)} — ${LV().rank}</span></div>${NAV2.map(x=>navA(x,nv)).join('')}<a role="button" tabindex="0" class="sd-ni" data-sdhelp>${ic('bulb')}<span>مساعدة وتواصل</span></a></div></div></div>
  </div></div>`; };
@@ -24448,8 +24618,9 @@ const datePicker=()=>{ let tm=st().user.examTime||'', sel=exDate(), off=sel?Math
     if(t.closest('[data-sddpok]')){ if(!sel) return toast('اضغط يوم اختبارك'); setExam(sel); st().user.examTime=tm; save(); closeMod(); toast('اعتمدنا موعدك — '+fdate(sel)); rerender(); } }); },'sd-mdate'); };
 /* the top bar's two small dialogs: rate the platform, report a mistake (CHG-2 C2-25: where they go) */
 /* SYS-Q4 «مساعدة وتواصل»: next to «بلّغ عن خطأ» — the three answers people look for, then a person */
+/* round 13 (brief §12, round-12 leftover): an answer that points to a place opens it — «افتحي «أخطائي»» under it, not «اذهبي إلى…» */
 const helpDlg=()=>openMod(`<header class="sd-mh2"><span class="ic">${IC('bulb')}</span><div><h2 id="sdHpT">مساعدة وتواصل</h2><p>${G('اختر','اختاري')} سؤالك — أو ${G('كلّمنا','كلّمينا')} مباشرة.</p></div><button type="button" class="sd-x" data-sdmx aria-label="سكّر">×</button></header>
- <div class="sd-help">${[['كيف أبدأ كل يوم؟',`من الرئيسية: «جلسة اليوم» — زر واحد يوديك للخطوة الجاية: درسك، ثم اختبار قصير، ثم ٥ من أخطائك.`],['وين ألقى أخطائي؟',`في «أخطائي»: كل سؤال غلطت فيه، ${G('وتقدر','وتقدرين')} تختبر نفسك عليها من جديد.`],['كيف أدفع أو أطلب من ولي أمري؟','من «باقاتي»: بالبطاقة، أو بعملاتك، أو «اطلب من ولي أمرك» ويوصله الطلب على جواله.']].map(([q,a])=>`<details><summary>${q}${LI.down}</summary><p>${a}</p></details>`).join('')}</div>
+ <div class="sd-help">${[['كيف أبدأ كل يوم؟',`من الرئيسية: «مهمة اليوم» — زر واحد يوديك للخطوة الجاية: درسك، ثم اختبار قصير، ثم ٥ من أخطائك.`,'home','الرئيسية'],['وين ألقى أخطائي؟',`في «أخطائي»: كل سؤال ${G('غلطت','غلطتِ')} فيه، ${G('وتقدر','وتقدرين')} ${G('تختبر','تختبرين')} نفسك عليها من جديد.`,'errors','أخطائي'],['كيف أدفع؟',`من «اشتراكي ورصيدي»: بالبطاقة أو بعملاتك، وكل عملية بإيصالها في «سجل الرصيد».`,'packs','اشتراكي ورصيدي'],['كيف أطلب من ولي أمري؟',`من «ولي الأمر»: ${G('اختر','اختاري')} وش ${G('تبي','تبين')} ويوصله الطلب على جواله ويدفع من صفحته.`,'parent','ولي الأمر']].map(([q,a,g,n])=>`<details><summary>${q}${LI.down}</summary><p>${a}</p><button type="button" class="sd-lnk2" data-sdmxgo="${g}">${G('افتح','افتحي')} «${n}»${LI.chev}</button></details>`).join('')}</div>
  <p class="sd-hsim">قنوات الدعم تتفعّل مع الإطلاق — في هذي النسخة الزرّان تجربة وما يرسلون شي.</p><footer class="sd-mf"><button type="button" class="sd-wa" data-sdhwa>${LI.wa}واتساب الدعم (تجربة)</button><button type="button" class="sd-gh2" data-sdhml>${LI.mail}البريد (تجربة)</button></footer>`,box=>{ box.setAttribute('aria-labelledby','sdHpT'); box.addEventListener('click',e=>{ if(e.target.closest('[data-sdhwa]')) toast('تجربة: في النسخة الحقيقية يفتح واتساب الدعم — ما أرسلنا شي'); if(e.target.closest('[data-sdhml]')) toast('تجربة: في النسخة الحقيقية يفتح بريد الدعم — ما أرسلنا شي'); }); },'sd-msm');
 const rateDlg=()=>{ let v=0; const LB=['اختر عدد النجوم','ما عجبتني','تحتاج شغل','لا بأس','حلوة','ممتازة!'];
  const body=()=>`<header class="sd-mh2"><span class="ic">${IC('star')}</span><div><h2 id="sdRtT">قيّم تجربتك مع الفطن</h2><p>رأيك يوصل لفريق الفطن مباشرة.</p></div><button type="button" class="sd-x" data-sdmx aria-label="سكّر">×</button></header>
@@ -24476,7 +24647,8 @@ if(!window.__sdWired){ window.__sdWired=1;
   if(t.closest('[data-sdrate]')){ e.preventDefault(); closeAll(); S0().stu.rated=Date.now(); save(); const c=$('.sd-rateask'); if(c) c.remove(); rateDlg(); return; }
   if(t.closest('[data-sdrateno]')){ e.preventDefault(); S0().stu.rateLater=Date.now(); save(); const c=$('.sd-rateask'); if(c) c.remove(); return; }
   const ag=t.closest('[data-sdachgo]'); if(ag){ e.preventDefault(); storyDlg(ag.closest('[data-sdach]').dataset.sdach); return; }
-  const ax=t.closest('[data-sdachx]'); if(ax){ e.preventDefault(); const R=REC(), k=ax.closest('[data-sdach]').dataset.sdach; R.achSeen=Object.assign(R.achSeen||{},{[k]:1}); save(); rerender(); return; }
+  if(t.closest('[data-sdpmx]')){ e.preventDefault(); const s=S0(), m=lastMsg(); s.stu.pthx=s.stu.pthx||{}; if(m) s.stu.pthx[who()]=m.at; save(); const c=$('.sd-pmwrap'); if(c) c.remove(); return; }
+  const ax=t.closest('[data-sdachx]'); if(ax){ e.preventDefault(); const R=REC(); R.achSeen=Object.assign(R.achSeen||{},...achList().map(a=>({[a.k]:1}))); save(); const c=ax.closest('[data-sdach]'); if(c) c.remove(); return; } /* round 13: × hid one and showed the next — now it puts all waiting ones aside */
   const bk=t.closest('[data-sdbook]'); if(bk){ e.preventDefault(); const [a,b]=bk.dataset.sdbook.split('-'); toast(`كتاب التأسيس يفتح على صفحة ${AR(a)} — ${G('ذاكر','ذاكري')} لين صفحة ${AR(b)}`); return; }
   if(t.closest('[data-sdhelp]')){ e.preventDefault(); closeAll(); helpDlg(); return; }
   if(t.closest('[data-sdreport]')){ e.preventDefault(); closeAll(); reportDlg(); return; }
@@ -24558,8 +24730,10 @@ const revBar=()=>`<div class="sd-rev" role="group" aria-label="أداة مراج
  ${who()==='real'&&(REC().attempts.length||REC().lessons.length)?`<button type="button" class="sd-lnk2" data-sdreset>ابدأ من جديد</button>`:''}
  ${who()==='real'?`<span class="sd-revlob">${IC('users')}${(()=>{ try{ return sessionStorage.getItem('pt.pid'); }catch(e){ return null; } })()?'هذا التبويب: <b>الطالب الثاني</b>':'جرّب اللوبي الحقيقي مع نفسك: افتح الرابط في جهاز ثاني، أو'} <button type="button" class="sd-lnk2" data-sdpid>${(()=>{ try{ return sessionStorage.getItem('pt.pid'); }catch(e){ return null; } })()?'رجوع للطالب الأول':'طالب ثاني في هذا التبويب'}</button></span>`:''}
  <span class="sd-revlob">${LI.users||IC('users')}<button type="button" class="sd-lnk2" data-sdlobdemo>جرّب اللوبي بأصحاب عيّنة</button><small>يدخلون معك، ويضغطون «جاهز»، وتبدأ اللعبة فعلًا</small></span></div>`;
-const pmsgCard=()=>{ const m=lastMsg(), s=S0(); if(!m||parSt()!=='linked'||(s.stu.pthx||{})[who()]>=m.at) return '';
- return `<section class="sd-pmsg" aria-label="رسالة من ولي أمرك"><span class="f">${FZ('plain','happy','wave','sd-fz')}</span><div class="tx"><small>${LI.mail}رسالة من ${esc(m.from)}</small><p>${esc(m.t)}</p></div><button type="button" class="sd-gh2 sm" data-sdpthx>${LI.heart}شكرًا</button></section>`; };
+/* round 13 (owner: «خل رسالة تحفيز ولي الأمر تظهر كرسالة أول ما الطالب يفتح الواجهة وفيها زر × يقفلها وخلاص»): a message that floats over whatever
+   page opens first, until she closes it; × only puts it aside (nothing is sent to the parent). The home card is gone. */
+const pmsgPop=()=>{ const m=lastMsg(), s=S0(); if(!m||parSt()!=='linked'||(s.stu.pthx||{})[who()]>=m.at) return '';
+ return `<div class="sd-pmwrap"><section class="sd-pmpop" role="region" aria-labelledby="sdPmT"><span class="f">${FZ('plain','happy','wave','sd-fz')}</span><div class="tx"><small id="sdPmT">${LI.mail}رسالة من ${esc(m.from)}</small><p>${esc(m.t)}</p></div><button type="button" class="sd-x" data-sdpmx aria-label="سكّر الرسالة">×</button></section></div>`; };
 const ptsChip=()=>{ const L=LV(); return `<button type="button" class="sd-chip2 sd-lvc" data-go="level" aria-label="المستوى ${AR(L.n)} — ${L.rank}"><i class="ic">${RKI(L.r,22)}</i><span><b>${L.rank} — المستوى ${AR(L.n)}</b><small class="xpl">${XPI(12)}${NUM(L.xp)} خبرة — باقي ${NUM(L.need-L.into)} للمستوى ${AR(L.n+1)}</small><i class="xpbar" aria-hidden="true"><u style="width:${L.pct}%"></u></i></span></button><button type="button" class="sd-chip2 sd-cnc" data-go="wallet" aria-label="رصيدك ${NUM(coins())} عملة"><i class="ic">${CNI(22)}</i><span><b>${NUM(coins())}</b><small>عملة</small></span></button>`; };
 const exChip=()=>{ const ex=exDate(); return `<button type="button" class="sd-chip2${ex?'':' no'}" data-sddate aria-label="${ex?`باقي على اختبارك ${pl(days(),YW)}`:'حدّد موعد اختبارك'}"><i class="ic">${LI.cal}</i><span>${ex?`<b>${AR(days())}</b><small>${days()===1?'يوم على اختبارك':days()>=3&&days()<=10?'أيام على اختبارك':'يومًا على اختبارك'}</small>`:`<b class="t">موعد اختبارك</b><small>اضغط وحدّده</small>`}</span></button>`; };
 /* round 7 (owner: «ترحب بسارة: أهلًا سارة، وش سويتِ اليوم» — not «سارة ورتبتك»): a greeting and one line from what he really did today */
@@ -24585,7 +24759,9 @@ const dateCard=()=>{ const ex=exDate(); /* audit UX-02 (round 11): two short lin
 /* round 12 (owner's human-use review §6.1–2): «أهلًا سارة» with the streak as a small fact beside it, the date opposite — no avatar and no standing
    line that grades her day without evidence */
 const stkMini=()=>{ const n=STRK().now; return n?`<button type="button" class="sd-stk12" data-sdstreak aria-label="سلسلتك ${pl(n,YW)} — ${G('افتح','افتحي')} سجلها">${ic('flame')}<span>${pl(n,YW)}</span></button>`:''; };
-const hello=()=>`<header class="sd-hello2 sd-hello10 sd-hello11 sd-hello12"><div class="who"><div class="tx"><div class="hl"><h1>أهلًا ${NAME()}</h1>${stage()==='post'?stkMini():''}</div>${stage()==='new'?`<p>${helloLine()}</p>`:''}</div></div>${dateCard()}</header>`;
+/* round 13 (owner: «اهلا سارة حط تحتها شيء بسيط تعبيري لها + الشخصية الرئيسية اللي تختارها»): her own Fitn (the look she picked in the lobby) beside
+   the greeting, and under it one short line drawn from what she did today (helloLine — never a grade without facts) */
+const hello=()=>`<header class="sd-hello2 sd-hello10 sd-hello11 sd-hello12 sd-hello13"><div class="who"><span class="av">${ME('happy','wave','sd-fz')}</span><div class="tx"><div class="hl"><h1>أهلًا ${NAME()}</h1>${stage()==='post'?stkMini():''}</div><p>${helloLine()}</p></div></div>${dateCard()}</header>`;
 const heroBox=o=>`<section class="sd-hero" style="--c:${o.c||'var(--sd-v)'}" aria-labelledby="sdHrT"><div class="tx"><span class="k">${o.k}</span><h2 id="sdHrT">${esc(o.t)}</h2><p>${o.d}</p>
  ${o.w!==undefined?`<div class="pw"><span class="pr" aria-hidden="true"><u style="width:${o.w}%"></u></span><b>${AR(o.w)}٪</b></div>`:''}<div class="ac"><button type="button" class="sd-go lg" ${o.at}>${o.b}${LI.chev}</button>${o.b2?`<button type="button" class="sd-gh2 lg" ${o.b2[1]}>${o.b2[0]}</button>`:''}</div></div><span class="f">${ME('happy','wave','sd-fz')}</span></section>`;
 /* the quick test (owner 2026-10-16): course → «كمّل درسك» first, and a white «اختبار سريع على الدروس اللي وصلت لها»; bank → ١٠ random questions */
@@ -24601,7 +24777,7 @@ const sessSteps=()=>{ const t=TODAY(), R=REC(), td=x=>!!x&&MS.dayKey(x)===t, A=R
  const qt=A.some(a=>a.step==='qt'?ans(a)>=a.need:a.kind!=='errors'&&a.kind!=='diag'&&a.kind!=='skill'&&ans(a)>=10), ev=A.some(a=>a.kind==='errors'&&a.status==='submitted'&&ans(a)>=(a.need||a.items.length))||(!E.length&&qt);
  const LJ=C?lastClip(P.u,P.l):0, LN=C?clips(P.u,P.l).length:0, LR=C?(R0=>R0.last&&R0.u===P.u&&R0.l===P.l)(resumeAt()):false;
  return [C?{k:'les',t:'درس اليوم',h:`${LR?G('كمّل','كمّلي'):G('ابدأ','ابدئي')} ${esc(CM[P.u][3][P.l][0])}`,d:`${LN>1?`المقطع ${AR(LJ+1)} من ${AR(LN)}، `:''}${modName(P.u)}`,done:R.lessons.some(x=>td(x.at)),b:LR&&LN>1?G('كمّل المقطع','كمّلي المقطع'):LR?G('كمّل الدرس','كمّلي الدرس'):G('ابدأ الدرس','ابدئي الدرس'),at:`data-sdunit="${P.u}" data-sdles="${P.l}" data-sdclip="${lastClip(P.u,P.l)}"`}:null, /* audit BUG-03: the same clip the course card resumes */
-  (()=>{ const {nd,nt}=planCount(); return nt?{k:'pl',t:'صفحات اليوم من خطتك',h:'صفحات اليوم',d:`${nd>=nt?'خلّصتها كلها':`${AR(nd)} من ${AR(nt)}`}`,done:nd>=nt,b:`${LI.book}${G('افتح صفحات اليوم','افتحي صفحات اليوم')}`,at:'data-sdplango'}:null; })(),
+  (()=>{ const {nd,nt}=planCount(); return nt?{k:'pl',t:'صفحات اليوم من خطتك',h:'صفحات اليوم',d:nd>=nt?G('خلّصتها كلها','خلّصتِها كلها'):`إجمالي اليوم: ${G('خلّصت','خلّصتِ')} ${AR(nd)} من ${pl(nt,BNW)}`,done:nd>=nt,b:`${LI.book}${G('افتح صفحات اليوم','افتحي صفحات اليوم')}`,at:'data-sdplango'}:null; })(),
   qt||QN?{k:'qt',t:'اختبار قصير',d:`${pl(qt?10:QN,['سؤال واحد','سؤالين','أسئلة','سؤالًا'])}، ${pl(qt?10:QN,MW)}، ${C?'على الدروس اللي وصلت لها':'من كل البنك'}${isFree()&&QN<10&&!qt?' — اللي باقي من حدّك اليوم':''}`,done:qt,b:G('ابدأ الاختبار','ابدئي الاختبار'),at:`data-sdquick="${C?'les':'all'}"`}:null,
   isFree()?null:{k:'ev',t:E.length===1?'راجع خطأك':E.length===2?'راجع خطأين':`راجع ${AR(Math.min(5,E.length||5))} أخطاء`,d:E.length?`${pl(Math.min(5,E.length),['خطأ واحد','خطأين','أخطاء','أخطاء'])} من أخطائك — ${E.length===1?G('تجاوبه','تجاوبينه'):G('تجاوبها','تجاوبينها')} من جديد`:'ما عندك أخطاء مفتوحة 👏',done:ev,b:G('ابدأ المراجعة','ابدئي المراجعة'),at:'data-sdsev'}].filter(Boolean); };
 const sessHero=()=>{ const S=sessSteps(), nx=S.find(s=>!s.done), STK=STRK(), nd=S.filter(s=>s.done).length;
@@ -24611,7 +24787,7 @@ const sessHero=()=>{ const S=sessSteps(), nx=S.find(s=>!s.done), STK=STRK(), nd=
  /* round 12 (owner's review §6.3–4): the act is the title («كمّلي درس …»), one line under it, one button that says what happens; «الخطوة ٢ من ٤» is the
     quiet progress and the whole task opens on request; when the plan's pages ARE the act, they are rows — each book with «افتح الكتاب» and its tick */
  return `<section class="sd-hero sd-sess sd-task10 sd-task11 sd-task12" aria-labelledby="sdHrT"><header><span class="k">مهمة اليوم</span><span class="pg">الخطوة ${AR(S.indexOf(nx)+1)} من ${AR(S.length)}</span><button type="button" class="sd-lnk2 sm sd-tsall" data-sdtsall aria-expanded="false" aria-controls="sdTsAll">كل الخطوات</button></header>${all}
-  <div class="row"><div class="tx"><h2 id="sdHrT">${nx.h||nx.t}</h2><p>${nx.d}</p></div>${nx.k==='pl'?'':`<button type="button" class="sd-go" ${nx.at}>${nx.b}</button>`}</div>
+  <div class="row"><div class="tx"><h2 id="sdHrT">${nx.h||nx.t}</h2><p>${nx.d}</p></div>${nx.k==='pl'?more('الأسبوع كامل','data-sdgotab="plan"'):`<button type="button" class="sd-go" ${nx.at}>${nx.b}</button>`}</div>
   ${nx.k==='pl'?todaySec(true,'flat'):S.some(s2=>s2.k==='pl')?todaySec(false,false):''}</section>`;
  };
 /* round 9 part 2 (audit 37 §3.8) — «شارك إنجازك»: a new rank, 7 days in a row, a score of 90٪ or more, a unit finished — each becomes a story-sized
@@ -24643,7 +24819,7 @@ const hero=()=>{ const g=stage();
  return heroBox({k:G('جاهز؟','جاهزة؟'),t:G('اختبر نفسك اليوم','اختبري نفسك اليوم'),d:isFree()?`باقي لك اليوم ${pl(freeLeft(),QW)} مجانًا`:`١٠ أسئلة من كل البنك، أو ${G('اختر','اختاري')} ${G('بنفسك','بنفسكِ')}`,b:`اختبار سريع: ${pl(isFree()?Math.max(1,Math.min(10,freeLeft())):10,QW)}`,at:'data-sdquick="all"',b2:[G('اختر بنفسك','اختاري بنفسك'),'data-go="create"']}); };
 const quick=k=>{ if(isFree()&&freeLeft()<1) return lockDlg('pro'); const pool=k==='les'?reachedQs():CT.qs; runTest(pickN(pool,10),k==='les'?'اختبار سريع على دروسك':'اختبار سريع','quick',true,{step:'qt'}); };
 /* today's plan on the home page: the same facts as دورتي */
-const tdIn=(title,sub,body,open,nd,nt,prim)=>prim==='flat'?`<div class="sd-today sd-tdflat">${body}<footer><small>${sub}</small>${more('الأسبوع كامل','data-sdgotab="plan"')}</footer></div>`:`<details class="sd-today sd-tdin${prim?' prim':''}"${open?' open':''}><summary>${LI.book}<b>${prim?`<span class="o">${G('افتح صفحات اليوم','افتحي صفحات اليوم')}</span><span class="c">${title}</span>`:title}</b><span class="n">${AR(nd)} من ${AR(nt)}</span>${LI.down}</summary>${body}<footer><small>${sub}</small>${more('الأسبوع كامل','data-sdgotab="plan"')}</footer></details>`;
+const tdIn=(title,sub,body,open,nd,nt,prim)=>prim==='flat'?`<div class="sd-today sd-tdflat">${body}</div>`:`<details class="sd-today sd-tdin${prim?' prim':''}"${open?' open':''}><summary>${LI.book}<b>${prim?`<span class="o">${G('افتح صفحات اليوم','افتحي صفحات اليوم')}</span><span class="c">${title}</span>`:title}</b><span class="n">${AR(nd)} من ${AR(nt)}</span>${LI.down}</summary>${body}<footer><small>${sub}</small>${more('الأسبوع كامل','data-sdgotab="plan"')}</footer></details>`;
 const todaySec=(open,prim)=>{ const k=TODAY(), mine=planMode()==='mine';
 /* «خطتي» removed in round 8 */ if(mine){ const {t:tt,d}=mineToday();
   return tt.length?tdIn('قائمة صفحات اليوم',`خطتي — ${fdate(new Date())}`,`<ol class="sd-todo2">${tt.map(it=>tdRow(!!it.at,`data-sdmt="${k}|${it.id}"`,itTxt(it),itSize(it),it.b)).join('')}</ol>`,open,d,tt.length,prim):''; }
@@ -24651,10 +24827,18 @@ const todaySec=(open,prim)=>{ const k=TODAY(), mine=planMode()==='mine';
 const pds=x.st==='done'&&!plan().sched?[x.pds[x.pds.length-1]]:x.pds, last=pds[pds.length-1], cr=pds.slice(0,-1); let nd=0, nt=0;
  const rowsOf=(pd,tag)=>{ const its=items(pd), tk=pdTicks(pd).map(t=>t.item); nd+=its.filter((_,i)=>tk.includes(i)).length; nt+=its.length; return its.map(([b,t,d],i)=>tdRow(tk.includes(i),`data-sdtk="${pd}.${i}"`,t.replace(/^كتاب [^:]+: /,''),d,b,(tag?`<i class="sd-from">يوم ${AR(pd+1)}</i>`:'')+itLink(pd,i,b))).join(''); };
  const main=rowsOf(last), carry=cr.map(pd=>rowsOf(pd,1)).join('');
- return tdIn('قائمة صفحات اليوم',`خطة الفطن — اليوم ${AR(plan().di+1)} من ${AR(plan().L)}`,`<ol class="sd-todo2">${main}</ol>${cr.length?`<details class="sd-carry"><summary>${IC('clock')}<b>اللي فاتك</b><span>${pl(cr.length,['يوم واحد','يومين','أيام','يومًا'])} انضافت لليوم</span>${LI.down}</summary><ol class="sd-todo2 sm">${carry}</ol></details>`:''}`,open,nd,nt,prim); };
+ return tdIn('قائمة صفحات اليوم',`خطة الفطن — اليوم ${AR(plan().di+1)} من ${AR(plan().L)}`,`<ol class="sd-todo2">${main}</ol>${cr.length?`<details class="sd-carry"><summary>${IC('clock')}<b>اللي فاتك من ${pl(cr.length,['يوم واحد','يومين','أيام','يومًا'])}</b><span>${left(cr)||G('خلّصته','خلّصتِه')}</span>${LI.down}</summary><ol class="sd-todo2 sm">${carry}</ol></details>`:''}`,open,nd,nt,prim); };
+/* round 13 (owner's brief §5-ب): the plan's counter names its unit — a «بند» is one row (a page range, a set of questions or a model test) — and what
+   was carried from missed days says the work it really is (pages and questions still open), not only how many days were added */
+const BNW=['بند واحد','بندين','بنود','بندًا'];
+const left=pds=>{ let pg=0, q=0; pds.forEach(pd=>{ const p=PLAN[pd]; if(!p) return; const tk=pdTicks(pd).map(x=>x.item), K=[p[0]?'f':null,p[1]?'c':null,p[2]?'x':null].filter(Boolean);
+  K.forEach((k,i)=>{ if(tk.includes(i)) return; if(k==='f'){ const [a,b]=p[0].split('-'); pg+=+b-+a+1; } else if(k==='c') q+=p[1][2]-p[1][1]+1; else q+=50; }); });
+ return [pg?pl(pg,['صفحة واحدة','صفحتين','صفحات','صفحة']):'',q?pl(q,['سؤال واحد','سؤالين','أسئلة','سؤالًا']):''].filter(Boolean).join(' و'); };
 const tdRow=(on,attr,t,d,b,extra)=>`<li class="${on?'ok':''}"><span class="bk" style="--b:${BOOK[b][1]}">كتاب ${BOOK[b][0]}</span><div class="t"><b>${esc(t)}</b><small>${esc(d)}</small></div><button type="button" class="sd-tk" ${attr} aria-pressed="${on}" aria-label="${on?'خلصتها — اضغط ترجعها':'علّمها خلصت'}: ${esc(t)}"><i>${IC('check')}</i><span>${on?G('خلّصتها','خلّصتِها'):G('خلّصتها؟','خلّصتِها؟')}</span></button>${extra||''}</li>`;
 const tdBar=(n,t)=>`<div class="sd-tdbar"><span class="pr" aria-hidden="true"><u style="width:${t?Math.round(n*100/t):0}%"></u></span><b>${n>=t&&t?`خلّصت صفحات اليوم ✓`:`${AR(n)} من ${AR(t)}`}</b></div>`;
-const recentSec=()=>{ const r=testRows().slice(0,3); return sec('آخر اختباراتك',r.length?`<ul class="sd-rec">${r.map(x=>`<li><a data-sdtan="${x.id}" tabindex="0" role="button"><b>${tName(x)}</b><span>${esc(about(x))}</span><em class="sc ${sevC(x.p)}">${AR(x.ok)} من ${AR(x.n)}</em>${LI.chev}</a></li>`).join('')}</ul>`:`<p class="sd-mut">ما اختبرت للحين — اختبارك الأول يطلع هنا.</p>`,{act:r.length?more('كلها','data-go="tests"'):''}); };
+/* round 13 (owner: «آخر الاختبارات يبغالها تبسيط، مزعجة للعين»): plain rows on the card, split by a line — what the test was, then its number and day
+   in small grey; the score in the text colour (no green blocks, no grey pills) */
+const recentSec=()=>{ const r=testRows().slice(0,3); return sec('آخر اختباراتك',r.length?`<ul class="sd-rec sd-rec13">${r.map(x=>`<li><a data-sdtan="${x.id}" tabindex="0" role="button" aria-label="${esc(about(x))}، ${tName(x)}: ${AR(x.ok)} صح من ${AR(x.n)}"><span class="t"><b>${esc(about(x))}</b><small>${tName(x)} · ${fdate(tDate(x))}</small></span><em>${AR(x.ok)} من ${AR(x.n)}</em>${LI.chev}</a></li>`).join('')}</ul>`:`<p class="sd-mut">ما اختبرت للحين — اختبارك الأول يطلع هنا.</p>`,{act:r.length?more('كلها','data-go="tests"'):''}); };
 /* three quick numbers — what matters stands out by size and one coloured sign, not by colouring everything (owner: «تمييز لا تلوين») */
 const goalOf=()=>S0().stu.goal||85; /* SYS-Q2: the score she aims for (settings) */
 const glances=()=>{ const M=MZ(), ex=exDate(), d=ex?days():0, r=rdy(), goal=goalOf(), need=d?Math.max(0,Math.ceil((goal-r)/Math.max(1,Math.ceil(d/7)))):0, SS=sessSteps(), sn=SS.filter(s=>s.done).length, nx=SS.find(s=>!s.done);
@@ -24685,11 +24869,10 @@ const promo=()=>`<a class="sd-promo" data-go="coursepub" tabindex="0"><span clas
 const sthome={n:'لوحة الطالب',h:()=>{ const g=stage(), C=hasCourse();
  /* round 12 (owner's review §5.11, §6): before the first diagnostic — the diagnostic alone (no offers, no unmeasured numbers); after it — the task,
     the two glances, the challenge, an achievement when one happens, the parent's message, and the invite as a quiet last line */
- return `<div class="sd-home sd-home10 sd-home12">${hello()}${hero()}${g==='post'?glances():''}${g==='post'?qdaySec():''}${g==='post'?achBar():''}${pmsgCard()}${C&&g!=='new'&&S0().stu.wk9?planSec():''}${isFree()&&g==='post'?freeLine():''}${!C&&g==='post'?recentSec():''}${!C&&g==='post'?promo():''}${g==='post'?invCard():''}</div>`; },
+ return `<div class="sd-home sd-home10 sd-home12">${hello()}${hero()}${g==='post'?glances():''}${g==='post'?qdaySec():''}${g==='post'?achBar():''}${C&&g!=='new'&&S0().stu.wk9?planSec():''}${isFree()&&g==='post'?freeLine():''}${!C&&g==='post'?recentSec():''}${!C&&g==='post'?promo():''}${g==='post'?invCard():''}</div>`; },
  on:el=>{ const swap=(sel,html)=>{ const o=$(sel,el); if(o) o.outerHTML=html; };
   planWire(el,()=>{ swap('.sd-sess',hero()); swap('.sd-gl',glances()); swap('.sd-hello2',hello()); });
   el.addEventListener('click',e=>{ const s=S0(), t=e.target;
-   if(t.closest('[data-sdpthx]')){ s.stu.pthx=s.stu.pthx||{}; s.stu.pthx[who()]=lastMsg().at; save(); const c=$('.sd-pmsg',el); if(c) c.remove(); toast('وصل شكرك لولي أمرك ❤'); return; }
    if(t.closest('[data-sddiag]')){ runDiag(); return; }
    const qk=t.closest('[data-sdquick]'); if(qk){ quick(qk.dataset.sdquick); return; }
    if(t.closest('[data-sdsev]')){ const L=errItems().slice(0,5); if(L.length) errQuiz(L,L.length===1?'راجع خطأك':L.length===2?'راجع خطأين':`راجع ${AR(L.length)} أخطاء`,'ev'); return; }
@@ -25014,18 +25197,26 @@ const stunit={n:'الدرس',h:()=>{ if(!hasCourse()) return lockedCourse(); con
 /* ===================== ملاحظاتي (owner 2026-10-16): the course's notes, lesson by lesson («ملاحظات درس …»), each at its minute;
    for the bank, a notes log of its own — on a question or free (owner: «يسجل ملاحظاته على أخطاء تتكرر»). ===================== */
 const bnoteQ=n=>n.qid&&QM[n.qid];
+/* round 13: the search is this tab's — a miss names the other tabs that have the word */
+const elsewhere=()=>{ const s=S0(), q=s.stu.nq||'', R=q?qRx(q,'i'):null, r=REC(); if(!R) return ''; const N={les:hasCourse()?r.notes.filter(n=>R.test(n.text)).length:0,q:(r.bnotes||[]).filter(n=>bnoteQ(n)&&R.test(n.text)).length,gen:(r.bnotes||[]).filter(n=>!bnoteQ(n)&&R.test((n.title||'')+' '+n.text)).length}, T={les:'على دروسي',q:'على أسئلتي',gen:'ملاحظات عامة'};
+ const o=Object.keys(N).filter(k=>k!==(s.stu.ntab||'')&&N[k]).map(k=>`<button type="button" class="sd-lnk2" data-sdntab="${k}">«${T[k]}» (${AR(N[k])})</button>`); return o.length?` موجودة في: ${o.join('، ')}`:''; };
 const stnotes={n:'ملاحظاتي',h:()=>{ if(isFree()) return `<div class="sd-locked">${empty('notes','ملاحظاتك للمشتركين','سجّل ملاحظاتك على الدروس والأسئلة وارجع لها متى ما تبي.',`<button type="button" class="sd-go" data-sdlock="pro" data-sdlockw="notes">${LI.lock}افتحها</button>`)}</div>`;
  const s=S0(), T0=[...(hasCourse()?[['les','على دروسي','play']]:[]),['q','على أسئلتي','notes'],['gen','ملاحظات عامة','type']], tab=T0.some(x=>x[0]===s.stu.ntab)?s.stu.ntab:T0[0][0], q=s.stu.nq||'', R=q?qRx(q,'i'):null, r=REC();
  const cnt0={les:r.notes.length,q:(r.bnotes||[]).filter(n=>bnoteQ(n)).length,gen:(r.bnotes||[]).filter(n=>!bnoteQ(n)).length};
  const tabs=`<div class="sd-ttabs ${T0.length===3?'three':'two'}" role="tablist" aria-label="ملاحظاتي">${T0.map(([k,t,i])=>`<button type="button" role="tab" data-sdntab="${k}" aria-selected="${tab===k}">${ic(i)}${t}${cnt0[k]?` <small class="n">${AR(cnt0[k])}</small>`:''}</button>`).join('')}</div>`;
  let body='';
  /* round 7 (owner: «نفس دروس الدورة من جديد وأمام كل درس هل فيه ملاحظة ولا لا — بطريقة محترمة»): the course tree in its unit frames */
- if(tab==='les'){ const on=s.stu.nles||null, total=r.notes.length;
-  body=`<p class="sd-nsum">${total?`${G('كتبت','كتبتِ')} ${pl(total,['ملاحظة واحدة','ملاحظتين','ملاحظات','ملاحظة'])} على الدروس. اضغط الدرس اللي عليه ملاحظات وتنفتح تحته.`:`${G('ما كتبت','ما كتبتِ')} ملاحظات للحين — ${G('افتح','افتحي')} أي درس، و${G('أنت','أنتِ')} ${G('تشوف','تشوفين')} المقطع ${G('اكتب','اكتبي')} ملاحظتك عند دقيقتها.`}</p>
-  ${total?`<p class="sd-nall"><button type="button" class="sd-lnk2" data-sdnall aria-pressed="${!!s.stu.nall}">${s.stu.nall?'اعرض الوحدات اللي فيها ملاحظات بس':'اعرض كل الوحدات'}</button></p>`:''}<div class="sd-cntn"><div class="sd-units">${CM.map((m,u)=>{ const cnt=m[3].map((_,i)=>lnotes(u,i).filter(n=>!R||R.test(n.text))), un=cnt.reduce((a,x)=>a+x.length,0);
-   if(!un&&!s.stu.nall&&total) return ''; return `<section class="sd-unit op sd-nunit" style="--c:${uColor(u)};--cl:${uTint(u)}"><div class="mh"><span class="no">${u===0?LI.file:u===8?LI.flag:AR(u)}</span><span class="t"><b>${modName(u)}</b></span><em>${un?pl(un,['ملاحظة واحدة','ملاحظتان','ملاحظات','ملاحظة']):'بلا ملاحظات'}</em><span></span></div>
-    <ol class="ls">${m[3].map(([lt],i)=>{ const L=cnt[i], k=u+'.'+i, op=on===k&&L.length; if(!L.length) return ''; return `<li class="${L.length?'has':''}${op?' op':''}"><a ${L.length?`data-sdnles="${k}" aria-expanded="${!!op}"`:'aria-disabled="true"'} tabindex="${L.length?0:-1}" role="button"><span class="n">${L.length?AR(L.length):''}</span><span class="tt"><b>${esc(lt)}</b></span><i class="st">${L.length?pl(L.length,['ملاحظة واحدة','ملاحظتان','ملاحظات','ملاحظة']):'لا توجد ملاحظة'}</i></a>
-     ${op?`<div class="sd-nopen"><ol class="ls2">${L.map(n=>noteRow(n,u,i,0)).join('')}</ol><a class="sd-lnk" data-sdunit="${u}" data-sdles="${i}" tabindex="0" role="button">${G('افتح','افتحي')} الدرس${LI.chev}</a></div>`:''}</li>`; }).join('')}</ol></section>`; }).join('')}</div></div>`; }
+ /* round 13 (brief §7, round-12 leftover): the lesson notes as one list, text first — under it the unit, lesson, clip and minute; «افتح المقطع»
+    opens that clip at that minute; «عدّل» edits in place (save / cancel), the draft kept as she types; «احذف» with an undo that works.
+    Empty: one short line and one way to the course — not every unit saying «بلا ملاحظات». */
+ if(tab==='les'){ const all=r.notes.slice().sort((a,b)=>{ const [au,al]=a.key.split('.').map(Number), [bu,bl]=b.key.split('.').map(Number); return au-bu||al-bl||a.j-b.j||a.t-b.t; }), L=all.filter(n=>!R||R.test(n.text)), E=(g0=>g0&&g0.who===who()?g0:null)(s.stu.ned), U=s.stu.nlU;
+  const und=U?`<div class="sd-gnundo" role="status">${IC('check')}<span>حذفنا الملاحظة</span><button type="button" class="sd-lnk2" data-sdnlundo>تراجع</button></div>`:'';
+  const row=n=>{ const [u,i]=n.key.split('.').map(Number), c=clips(u,i)[n.j]||['video','',''], at=n.t<1?'من البداية':`عند ${mmss(n.t)}`, ed=E&&E.id===n.id;
+   return `<li class="sd-nl13${ed?' ed':''}" data-sdnid="${n.id}">${ed?`<textarea rows="3" data-sdnledv aria-label="عدّل ملاحظتك">${esc(E.text)}</textarea>${E.text!==n.text?'<small class="sd-gndr" role="status">تعديل ما انحفظ للحين</small>':''}`:`<p>${mtx(n.text,R)}</p>`}
+    <small class="src"><span>${modName(u)}</span><span>${esc(CM[u][3][i][0])}</span><span>المقطع ${AR(n.j+1)}${c[1]?`: ${esc(c[1])}`:''}، ${at}</span></small>
+    <footer>${ed?`<button type="button" class="sd-go sm" data-sdnlsave="${n.id}">${IC('check')}احفظ</button><button type="button" class="sd-lnk2" data-sdnlx>إلغاء</button>`:`<button type="button" class="sd-gh2 sm" data-sdnjump="${u}.${i}.${n.j}.${n.t}">${IC('play')}${G('افتح','افتحي')} المقطع</button><button type="button" class="sd-lnk2" data-sdnle="${n.id}">${LI.type}عدّل</button><button type="button" class="sd-lnk2 sd-dng" data-sdnldel="${n.id}">${IC('x')}احذف</button>`}</footer></li>`; };
+  body=und+(all.length?(L.length?`<p class="sd-nsum">${R?`${pl(L.length,['ملاحظة واحدة','ملاحظتان','ملاحظات','ملاحظة'])} فيها «${esc(q)}»`:`${pl(all.length,['ملاحظة واحدة','ملاحظتان','ملاحظات','ملاحظة'])} على الدروس، بترتيب الدورة`}</p><ol class="sd-nl13s">${L.map(row).join('')}</ol>`:`<p class="sd-mut sd-c">ما فيه ملاحظة على الدروس فيها «${esc(q)}».${elsewhere()}</p>`)
+   :`<div class="sd-nempty13">${empty('notes',`ما ${G('كتبت','كتبتِ')} ملاحظات على الدروس للحين`,`${G('افتح','افتحي')} أي درس، ووقت المقطع ${G('اكتب','اكتبي')} ملاحظتك — تنحفظ عند دقيقتها وتطلع هنا.`,`<button type="button" class="sd-go" data-go="course">${IC('play')}${G('افتح دورتي','افتحي دورتي')}</button>`)}</div>`); }
  else if(tab==='q'){ const L=r.bnotes.filter(n=>bnoteQ(n)&&(!R||R.test(n.text))).slice().sort((a,b)=>b.at-a.at);
   /* round 8 (owner: «السؤال كما هو… كبير وواضح، وملاحظتي أوضح مكتوبة تحتها، وإذا ضغطت ينقلني للمكان اللي كتبتها فيه») */
   const bU=S0().stu.bnU, und=bU?`<div class="sd-gnundo" role="status">${IC('check')}<span>حذفنا الملاحظة</span><button type="button" class="sd-lnk2" data-sdbnundo>تراجع</button></div>`:'';
@@ -25045,14 +25236,17 @@ const stnotes={n:'ملاحظاتي',h:()=>{ if(isFree()) return `<div class="sd-
   body=`${ed}${U?`<div class="sd-gnundo" role="status">${IC('check')}<span>حذفنا الملاحظة</span><button type="button" class="sd-lnk2" data-gnundo>تراجع</button></div>`:''}
    ${L.length?`${pins.length?`<h4 class="sd-gnh">${IC2('pin')}مثبّتة</h4><ol class="sd-gnl">${pins.map(card).join('')}</ol>`:''}${rest.length?`${pins.length?`<h4 class="sd-gnh">الباقي</h4>`:''}<ol class="sd-gnl">${rest.map(card).join('')}</ol>`:''}`
    :R?`<p class="sd-mut sd-c">ما فيه ملاحظة بهذا البحث.</p>`:C.open?'':`<div class="sd-gnempty"><span class="f">${ME('happy','wave','sd-fz')}</span><b>دفترك فاضي</b><p>${G('اكتب','اكتبي')} هنا اللي ${G('تبي تراجعه','تبين تراجعينه')} ليلة الاختبار. أمثلة ${G('تقدر','تقدرين')} تبدأ فيها:</p><div class="ex">${['دايم أنسى أقلب الكسر في القسمة','مساحة الدائرة = ط × نق²','أراجع أسئلة النسبة قبل النوم'].map(x=>`<button type="button" class="sd-chipb" data-gnex="${esc(x)}">${esc(x)}</button>`).join('')}</div></div>`}`; }
- return `<div class="sd-notesp">${tabs}<label class="sd-srch">${IC('search')}<input type="search" placeholder="ابحث في ملاحظاتك" aria-label="ابحث في ملاحظاتك" data-sdnq value="${esc(q)}" autocomplete="off"></label>${body}</div>`; },
+ return `<div class="sd-notesp">${tabs}<label class="sd-srch">${IC('search')}<input type="search" placeholder="${G('ابحث','ابحثي')} في «${T0.find(x=>x[0]===tab)[1]}»" aria-label="${G('ابحث','ابحثي')} في ملاحظاتك «${T0.find(x=>x[0]===tab)[1]}» — هذا التبويب فقط" data-sdnq value="${esc(q)}" autocomplete="off"></label>${body}</div>`; },
  on:el=>{ const s=S0(), re=()=>{ save(); el.innerHTML=stnotes.h(); stnotes.on2(el); }; stnotes.on2(el);
   /* audit BUG-17: what she types is kept as she types — leaving the page, a search, a tab or a reload never loses it; only «إلغاء» drops it */
-  let gnT=0; el.addEventListener('input',e=>{ const f=e.target.closest&&e.target.closest('[data-gnf]'); if(!f) return; const g=s.stu.gnc=s.stu.gnc||{open:1}; g.who=who(); g[f.dataset.gnf]=f.value; g.dirty=1; clearTimeout(gnT); gnT=setTimeout(save,250); });
+  let gnT=0; el.addEventListener('input',e=>{ const ev=e.target.closest&&e.target.closest('[data-sdnledv]'); if(ev&&s.stu.ned){ s.stu.ned.text=ev.value; clearTimeout(gnT); gnT=setTimeout(save,250); return; } const f=e.target.closest&&e.target.closest('[data-gnf]'); if(!f) return; const g=s.stu.gnc=s.stu.gnc||{open:1}; g.who=who(); g[f.dataset.gnf]=f.value; g.dirty=1; clearTimeout(gnT); gnT=setTimeout(save,250); });
   el.addEventListener('click',e=>{ const t=e.target;
    const tb=t.closest('[data-sdntab]'); if(tb){ s.stu.ntab=tb.dataset.sdntab; re(); return; }
-   if(t.closest('[data-sdnall]')){ s.stu.nall=!s.stu.nall; re(); const b=$('[data-sdnall]',el); if(b) b.focus(); return; }
-   const nl=t.closest('[data-sdnles]'); if(nl){ s.stu.nles=s.stu.nles===nl.dataset.sdnles?null:nl.dataset.sdnles; re(); return; }
+   const le=t.closest('[data-sdnle]'); if(le){ const n=REC().notes.find(x=>x.id===le.dataset.sdnle); if(n){ s.stu.ned={id:n.id,text:n.text,who:who()}; s.stu.nlU=null; re(); const f=$('[data-sdnledv]',el); if(f){ f.focus(); f.setSelectionRange(f.value.length,f.value.length); } } return; }
+   if(t.closest('[data-sdnlx]')){ const id=(s.stu.ned||{}).id; s.stu.ned=null; re(); const b=id&&$(`[data-sdnle="${id}"]`,el); if(b) b.focus(); return; }
+   const ls=t.closest('[data-sdnlsave]'); if(ls){ const n=REC().notes.find(x=>x.id===ls.dataset.sdnlsave), v=(($('[data-sdnledv]',el)||{}).value||'').trim(); if(!v){ toast(G('اكتب ملاحظتك أو احذفها','اكتبي ملاحظتك أو احذفيها')); return; } if(n){ n.text=v; n.ed=Date.now(); } s.stu.ned=null; toast('حفظنا التعديل'); re(); const b=n&&$(`[data-sdnle="${n.id}"]`,el); if(b) b.focus(); return; }
+   const ld=t.closest('[data-sdnldel]'); if(ld){ const r=REC(), n=r.notes.find(x=>x.id===ld.dataset.sdnldel); if(n){ r.notes=r.notes.filter(x=>x!==n); s.stu.nlU=n; if((s.stu.ned||{}).id===n.id) s.stu.ned=null; } re(); const u=$('[data-sdnlundo]',el); if(u) u.focus({preventScroll:true}); return; }
+   if(t.closest('[data-sdnlundo]')){ const n=s.stu.nlU; if(n){ REC().notes.push(n); s.stu.nlU=null; toast('رجّعنا الملاحظة'); } re(); return; }
    const nj=t.closest('[data-sdnjump]'); if(nj){ const [a,b,c,d]=nj.dataset.sdnjump.split('.').map(Number); s.stu.unit=a; s.stu.isl=a; s.stu.les=b; s.stu.clip=c; const p=phAt(a,b,c); p.t=d; s.stu.cjump=1; save(); go('unit'); return; }
    /* general notes board */
    const C=s.stu.gnc=s.stu.gnc||{}, keep=()=>{ $$('[data-gnf]',el).forEach(f=>{ C[f.dataset.gnf]=f.value; }); };
@@ -25151,14 +25345,16 @@ const SN=[5,10,20,30];
 const selChips=()=>{ const c=CS(), o=c.sel.map(p=>[p.length<=2?`${unitName(UIx(p))} كاملة`:node(p).name,TUC[UIx(p.slice(0,2))],'s:'+p]); if(c.qs.length) o.push([`أسئلة اخترتها (${AR(c.qs.length)})`,'#6E4FE0','q']); return o; };
 const totAv=()=>pool().length;
 const nQ=()=>{ const c=CS(), lim=isFree()?freeLeft():Infinity; return Math.max(0,Math.min(c.n,totAv(),lim)); };
+/* round 13 (brief §10, round-12 leftover): the number box never shows more than will start — asked 20 with 6 there, it reads ٦ and says
+   «طلبتِ ٢٠، والمتاح ٦ بس — يبدأ اختبارك بـ٦» (her 20 is kept for when the choice grows) */
 const sumPanel=()=>{ const c=CS(), av=totAv(), ch=selChips(), N=nQ(), lim=isFree()?freeLeft():Infinity, mx=Math.min(av,lim);
  if(c.way==='ai'||c.way==='cam') return `<aside class="sd-sum" aria-label="اختبارك"><h2 tabindex="-1">اختبارك</h2><p class="sd-mut">${c.way==='ai'?'قل للفطن وش تبغى، ويجهّزه لك.':'نجهّز أسئلة تشبه سؤالك.'} اختر الوقت والشكل هنا.</p>
   <div class="blk"><h3>الوقت</h3>${seg('data-sdtm',[['on','مثل يوم الاختبار'],['off','وقت مريح']],c.tm,'الوقت')}<small class="sd-tmh">«وقت مريح» يعطيك ١٠ دقائق لكل سؤال بدل دقيقة — العدّاد يظهر، بس ما يضغطك.</small></div><div class="blk"><h3>شكل الاختبار</h3>${themeCards('data-sdth')}</div></aside>`;
  return `<aside class="sd-sum" aria-label="اختبارك"><h2 tabindex="-1">اختبارك</h2>
   <div class="blk"><h3>اللي اخترته</h3>${ch.length?`<ul class="chips">${ch.map(([l,col,key])=>`<li style="--c:${col}"><i aria-hidden="true"></i><span>${esc(l)}</span><button type="button" data-sdrm="${esc(key)}" aria-label="شيل ${esc(l)}">×</button></li>`).join('')}</ul>${ch.length>1?`<button type="button" class="sd-lnk2 clr" data-sdclr>شيل الكل</button>`:''}`:`<p class="sd-mut">ما ${G('اخترت','اخترتِ')} شيئًا للحين — ${G('علّم','علّمي')} دروسك من القائمة.</p>`}</div>
-  <div class="blk"><h3>كم سؤال؟</h3><div class="sd-nq"><button type="button" class="sd-ib2" data-sdnstep="-1" aria-label="أقل"${c.n<=1?' disabled':''}>−</button><input type="text" inputmode="numeric" value="${AR(c.n)}" data-sdnin aria-label="عدد الأسئلة — اكتب أي رقم"><button type="button" class="sd-ib2" data-sdnstep="1" aria-label="أكثر"${totAv()&&c.n>=totAv()?' disabled':''}>+</button></div>
-   <div class="nums" role="group" aria-label="أعداد سريعة">${SN.map(k=>k>lim?`<button type="button" class="lk" data-sdlock="pro" data-sdlockw="n" aria-label="${AR(k)} — للمشتركين">${AR(k)}${LI.lock}</button>`:`<button type="button" data-sdn="${k}" aria-pressed="${c.n===k}">${AR(k)}</button>`).join('')}</div>
-   ${av?`<small class="sd-mut">${c.n>av?`المتاح من اختيارك ${pl(av,QW)} — نعطيك كلها`:`المتاح من اختيارك ${pl(av,QW)}`}${isFree()?`، وحدّك اليوم ${pl(freeLeft(),QW)}`:''}</small>`:''}</div>
+  <div class="blk"><h3>كم سؤال؟</h3><div class="sd-nq"><button type="button" class="sd-ib2" data-sdnstep="-1" aria-label="أقل"${c.n<=1?' disabled':''}>−</button><input type="text" inputmode="numeric" value="${AR(av&&c.n>av?av:c.n)}" data-sdnin aria-label="عدد الأسئلة — اكتب أي رقم"><button type="button" class="sd-ib2" data-sdnstep="1" aria-label="أكثر"${totAv()&&c.n>=totAv()?' disabled':''}>+</button></div>
+   <div class="nums" role="group" aria-label="أعداد سريعة">${SN.map(k=>k>lim?`<button type="button" class="lk" data-sdlock="pro" data-sdlockw="n" aria-label="${AR(k)} — للمشتركين">${AR(k)}${LI.lock}</button>`:`<button type="button" data-sdn="${k}" aria-pressed="${c.n===k&&(!av||k<=av)}">${AR(k)}</button>`).join('')}</div>
+   ${av?`<small class="sd-mut${c.n>av?' sd-nqw':''}">${c.n>av?`${G('طلبت','طلبتِ')} ${AR(c.n)}، والمتاح من اختيارك ${pl(av,QW)} بس — يبدأ اختبارك بـ${pl(N,QW)}`:`المتاح من اختيارك ${pl(av,QW)}`}${isFree()?`، وحدّك اليوم ${pl(freeLeft(),QW)}`:''}</small>`:''}</div>
   <div class="blk"><h3>الوقت</h3>${seg('data-sdtm',[['on','مثل يوم الاختبار'],['off','وقت مريح']],c.tm,'الوقت')}<small class="sd-tmh">«وقت مريح» يعطيك ١٠ دقائق لكل سؤال بدل دقيقة — العدّاد يظهر، بس ما يضغطك.</small></div>
   <div class="blk"><h3>شكل الاختبار</h3>${themeCards('data-sdth')}</div>
   <button type="button" class="sd-go lg wide" data-sdstart${N?'':' aria-disabled="true"'}>${IC('play')}ابدأ الاختبار</button><p class="tot">${N?`${pl(N,QW)}${c.tm==='on'?`، ${pl(N,MW)}`:`، وقت مريح ${pl(N*10,MW)}`}`:G('اختر وش تبغى أولًا','اختاري وش تبغين أولًا')}</p></aside>`; };
@@ -25255,8 +25451,11 @@ const copyTxt=(s,okm,cb)=>{ const old=()=>{ try{ const ta=D.createElement('texta
 /* round 9 part 3 (agents' pass): a wrong card field says so under the field and stays until fixed — not only a message that goes in two seconds;
    the expiry gets its «/» by itself */
 const cardBad=(box,sel,msg)=>{ const i=$(sel,box); if(i){ i.setAttribute('aria-invalid','true'); const l=i.closest('label'); if(l){ let e=$('.sd-ferr',l); if(!e){ e=D.createElement('small'); e.className='sd-ferr'; e.setAttribute('role','alert'); l.append(e); } e.textContent=gfTxtG(msg); } i.focus(); } toast(msg); };
+/* round 13 (brief §12): a field's error under the field (not inside its row), linked to it, the value kept; it goes when she types */
+const fieldBad=(box,sel,msg)=>{ const i=$(sel,box); if(!i) return toast(msg); const l=i.closest('label')||i, id='e'+Math.random().toString(36).slice(2,8); i.setAttribute('aria-invalid','true'); let e=l.nextElementSibling&&l.nextElementSibling.classList.contains('sd-ferr')?l.nextElementSibling:null; if(!e){ e=D.createElement('small'); e.className='sd-ferr sd-ferr13'; e.setAttribute('role','alert'); l.after(e); } e.id=e.id||id; i.setAttribute('aria-describedby',e.id); e.textContent=gfTxtG(msg); i.focus(); };
 const gfTxtG=s=>GEN()==='f'&&window.PT_GF?window.PT_GF(s):s;
 D.addEventListener('input',e=>{ const t=e.target; if(!t.matches) return; if(t.matches('[data-sdce]')){ const d=t.value.replace(/\D/g,'').slice(0,4); t.value=d.length>2?d.slice(0,2)+'/'+d.slice(2):d; }
+ if(t.matches('[data-sdpph2]')&&t.getAttribute('aria-invalid')){ t.removeAttribute('aria-invalid'); t.removeAttribute('aria-describedby'); const l=t.closest('label'), x=l&&l.nextElementSibling; if(x&&x.classList.contains('sd-ferr')) x.remove(); }
  if(t.matches('[data-sdcn],[data-sdce],[data-sdcv]')&&t.getAttribute('aria-invalid')){ t.removeAttribute('aria-invalid'); const l=t.closest('label'), x=l&&$('.sd-ferr',l); if(x) x.remove(); } });
 /* audit BUG-02: ONE door for the test on mistakes — every button goes through here, so the plan's rule is the same everywhere */
 const errQuiz=(list,title,step)=>isFree()?lockDlg('pro'):runTest(list.map(e=>e.q),title||'اختبرني على أخطائي','errors',true,step?{step}:{});
@@ -25277,36 +25476,38 @@ const EPER=[['all','كل الفترات'],['d','اليوم'],['w','آخر ٧ أ�
 /* round 7 (owner: «زر فلتر … فترات جاهزة، أو تحدد من كذا لكذا»): the period as one filter button */
 const eperLabel=s=>{ const ep=s.stu.ep||'all'; if(ep==='r'&&s.stu.efrom&&s.stu.eto){ const f=d=>{ const [y,m,x]=d.split('-').map(Number); return `${AR(x)} ${MN[m-1]}`; }; return `${f(s.stu.efrom)} – ${f(s.stu.eto)}`; } return (EPER.find(x=>x[0]===ep)||EPER[0])[1]; };
 const eperMenu=s=>{ const ep=s.stu.ep||'all'; return EPER.map(([k,l])=>`<button type="button" role="menuitemradio" class="sd-ddo${ep===k?' on':''}" data-sdep="${k}" aria-checked="${ep===k}"><span class="cb" aria-hidden="true">${ep===k?IC('check'):''}</span><span class="t">${l}</span></button>`).join('')+`<div class="sd-ddr sd-eprng"><b>فترة ${G('تحددها','تحددينها')}</b><div class="r"><span class="k">من</span>${dsel('efrom',s.stu.efrom)}</div><div class="r"><span class="k">إلى</span>${dsel('eto',s.stu.eto)}</div><button type="button" class="sd-go sm" data-sdeapply>طبّق</button></div>`; };
-const eList=()=>{ const s=S0(), ep=s.stu.ep||'all', et=s.stu.etest||null, eu=s.stu.eu??null, fx=s.stu.efix==='fixed';
+const eList=fx0=>{ const s=S0(), ep=s.stu.ep||'all', et=s.stu.etest||null, eu=s.stu.eu??null, fx=fx0===undefined?s.stu.efix==='fixed':fx0;
  let L=fx?MIS().filter(m=>!m.open&&QM[m.qid]).map(m=>{ const q=QM[m.qid]; return {key:m.qid,q,u:qU(q),les:qL(q),sk:q.skill,w:'',a:q.options[q.a],why:q.why,tid:m.wrongs[m.wrongs.length-1],tids:m.wrongs,at:m.fixedAt,fixed:1}; }):errItems();
  const age=e=>Math.floor((MS.dayMs(TODAY())-MS.dayMs(MS.dayKey(e.at)))/864e5);
  const inR=e=>{ const k=MS.dayKey(e.at); return ep!=='r'||(!s.stu.efrom||k>=s.stu.efrom)&&(!s.stu.eto||k<=s.stu.eto); };
  L=L.filter(e=>(!et||e.tids.includes(et))&&(eu===null||e.u===eu)&&(ep==='all'||ep==='r'?inR(e):age(e)<(ep==='d'?1:ep==='w'?7:30)));
  return isFree()&&!fx?L.slice(0,10):L; };
 /* round 7 (owner: «جدول منظم لكل سؤال: الوحدة كذا، الإجابة الخطأ كذا، الصحيحة كذا، الفكرة كذا» — not three loud colours) */
-/* round 12 (owner's review §9): the card rebuilt from inside — the source as two small layers (unit, lesson / test, date, how often), the question as
+/* round 13 (owner: «بطاقة الأخطاء غير منظمة إطلاقًا»): one quiet source line (unit · lesson · test, day) instead of five labelled fields; «غلطتِ فيه
+   مرتين» only when it repeats; the question, the options, the idea; then the acts in one row and one short line — the long sentence is gone.
+   round 12 (owner's review §9): the card rebuilt from inside — the source as two small layers (unit, lesson / test, date, how often), the question as
    the hero, the options on one grid (2×2 when they are short), the idea inside the same width, then one short primary act with its real count,
    «راجعي الدرس», and «ملاحظة». «لم تجيبي» when she did not answer — never «إجابتك» on nothing. */
 const errCard=(e,i,n)=>{ const [lu,ll]=lesCM(e.les), T=testById(e.tid), ch=e.fixed?null:e.q.options.indexOf(e.w), na=!e.fixed&&ch<0, nn=(REC().bnotes||[]).filter(x=>x.qid===e.key), sk=e.fixed||isFree()?null:skInfo(e.q), q=e.q, u=qU(q);
  const cell=(k,v,c)=>`<div${c?` class="${c}"`:''}><dt>${k}</dt><dd>${v}</dd></div>`, plain=x=>String(x).replace(/\$[^$]*\$/g,'xx'), short=q.options.every(o=>plain(o).length<=18);
  const tag=j=>j===q.a?`<small class="tg ok">${IC('check')}الصح</small>`:j===ch?`<small class="tg no">${IC('x')}${G('إجابتك','إجابتك')}</small>`:'';
- return `<div class="sd-ecard12" style="--c:${TUC[u]}"><div class="src"><dl class="l1">${cell('الوحدة',esc(ORD[u+1]))}${cell('الدرس',esc(lesName(qL(q))),'les')}</dl>
-  <dl class="l2">${cell('الاختبار',T?esc(tName(T)):'—')}${cell(e.fixed?G('صحّحته في','صحّحتِه في'):'التاريخ',e.fixed?(e.at?fdate(new Date(e.at)):'—'):(T?fdate(tDate(T)):'—'))}${cell(e.fixed?'الحالة':'التكرار',e.fixed?`<span class="okc">${IC('check')}صار صح</span>`:`<span class="noc">${e.tids.length>1?pl(e.tids.length,['مرة','مرتين','مرات','مرة']):'مرة واحدة'}</span>`)}</dl></div>
+ const when=e.fixed?(e.at?`${G('صحّحته','صحّحتِه')} ${fdate(new Date(e.at))}`:''):(T?`${tName(T)}، ${fdate(tDate(T))}`:'');
+ return `<div class="sd-ecard12 sd-ecard13" style="--c:${TUC[u]}"><p class="src"><span><i class="ud" aria-hidden="true"></i>الوحدة ${esc(ORD[u+1])}</span><span>${esc(lesName(qL(q)))}</span>${when?`<span>${when}</span>`:''}${e.fixed?`<b class="okc">${IC('check')}صار صح</b>`:e.tids.length>1?`<b class="noc">${G('غلطت فيه','غلطتِ فيه')} ${pl(e.tids.length,['مرة','مرتين','مرات','مرة'])}</b>`:''}</p>
   <p class="q">${mth(q.text)}</p>
   <ol class="op${short?' g2':''}">${q.options.map((op,j)=>`<li class="${j===q.a?'good':j===ch?'bad':''}"><i>${'أبجد'[j]}</i><span class="o">${mth(op)}</span>${tag(j)}</li>`).join('')}</ol>
   ${na?`<p class="sd-noans">${IC('x')}لم ${G('تُجب','تُجيبي')} على هذا السؤال</p>`:''}${q.why?`<div class="why">${IC('bulb')}<p><b>الفكرة:</b> ${mth(q.why)}</p></div>`:''}
   ${e.fixed?`<p class="sd-qimp">${IC('check')}<span>${G('جاوبته','جاوبتِه')} صح بعدها — يبقى هنا ${G('تراجعه','تراجعينه')} متى ما ${G('تبي','تبين')}.</span></p>`:''}${nn.length?`<div class="sd-qnote"><b>${LI.type}ملاحظتك</b>${nn.map(x=>`<p>${esc(x.text)}</p>`).join('')}</div>`:''}
   <footer class="nt">${e.fixed?'':isFree()?`<button type="button" class="sd-go" data-sdlock="pro" data-sdlockw="err">${LI.lock}${G('تدرّب على المهارة','تدرّبي على المهارة')} — للمشتركين</button>`:sk.n?`<button type="button" class="sd-go" data-sdeq1="${e.key}" aria-describedby="sdEqh${e.key}">${IC('tests')}${G('تدرّب على المهارة','تدرّبي على المهارة')}<span class="cnt">${pl(sk.n,QW)}</span></button>`:''}${hasCourse()?`<button type="button" class="sd-gh2" data-sdunit="${lu}" data-sdles="${ll}">${IC('play')}${G('راجع الدرس','راجعي الدرس')}</button>`:''}${isFree()?'':`<button type="button" class="sd-lnk2" data-sdenote="${e.key}">${LI.type}${(REC().bnotes||[]).some(n=>String(n.qid)===String(e.key))?G('عدّل ملاحظتك','عدّلي ملاحظتك'):G('أضف ملاحظة','أضيفي ملاحظة')}</button>`}
-  ${sk?`<small class="sd-eqh" id="sdEqh${e.key}">${esc(skName(q.skill))}: ${skLine(sk.n,sk.ns)}${sk.n?` — أسئلة جديدة؛ والخطأ نفسه يتصحّح في «اختبرني على هذه الأخطاء»`:''}</small>`:''}</footer></div>`; };
+  ${sk?`<small class="sd-eqh" id="sdEqh${e.key}">${sk.n?`«${esc(skName(q.skill))}»: ${skLine(sk.n,sk.ns)}`:skLine(0,0)}</small>`:''}</footer></div>`; };
 /* «من اختبار»: a clear list — the test, its date, and how many of its mistakes are still open (owner 2026-10-16) */
 const etMenu=(all,et)=>{ const ts=testRows().filter(r=>all.some(e=>e.tids.includes(r.id)));
  return `<button type="button" role="menuitemradio" class="sd-eto${!et?' on':''}" data-sdet="" aria-checked="${!et}"><span class="t"><b>كل الاختبارات</b></span><em>${AR(all.length)}</em></button>`+ts.map(r=>`<button type="button" role="menuitemradio" class="sd-eto${et===r.id?' on':''}" data-sdet="${r.id}" aria-checked="${et===r.id}"><span class="n">${AR(r.no)}</span><span class="t"><b>${esc(about(r))}</b><small>${fdate(tDate(r))}</small></span><em>${AR(all.filter(e=>e.tids.includes(r.id)).length)}</em></button>`).join(''); };
 const sterrors={n:'أخطائي',h:()=>{ const s=S0(), all=errItems(), et=s.stu.etest||null, eu=s.stu.eu??null, ep=s.stu.ep||'all', fx=s.stu.efix==='fixed';
  if(!testRows().length) return empty('errors','أخطاؤك تجي هنا','كل سؤال تغلط فيه يجي هنا مع الفكرة الصح.',`<button type="button" class="sd-go" data-sddiag>ابدأ التشخيص</button>`);
  const L=eList(), T=et?testById(et):null, i=Math.max(0,Math.min(L.length-1,s.stu.ei||0)), nf=MIS().filter(m=>!m.open).length;
- const eBtn=L.length&&!fx?`<button type="button" class="sd-go sd-eqb" ${isFree()?'data-sdlock="pro" data-sdlockw="err"':'data-sdeq'}>${isFree()?LI.lock:IC('tests')}اختبرني على ${L.length===1?'هذا الخطأ':'هذه الأخطاء'}${isFree()?' — للمشتركين':''}</button>`:'';
+ const eBtn=L.length&&!fx?`<button type="button" class="sd-gh2 sd-eqb" ${isFree()?'data-sdlock="pro" data-sdlockw="err"':'data-sdeq'}>${isFree()?LI.lock:IC('tests')}اختبرني على ${L.length===1?'هذا الخطأ':'هذه الأخطاء'}${isFree()?' — للمشتركين':''}</button>`:'';
  /* round 11 (audit UX-04): the tabs with one quiet line, the filters and the test in one row, «السؤال ١ من ٢١» in the card — the question starts high */
- return `<div class="sd-errs sd-errs10 sd-errs11"><div class="sd-etabs">${seg('data-sdefx',[['open',`تحتاج تدريب (${AR(all.length)})`],['fixed',`تحسّنت (${AR(nf)})`]],fx?'fixed':'open','الحالة')}${L.length?`<small class="sd-ehint">${isFree()&&!fx?'الباقة المجانية تعرض آخر ١٠ أخطاء':fx?'':G('كل خطأ تجاوبه صح ينتقل لـ«تحسّنت»','كل خطأ تجاوبينه صح ينتقل لـ«تحسّنت»')}${ep!=='all'||et||eu!==null?` — ${khata(L.length)} بهذه الفلاتر`:''}</small>`:''}</div><div class="sd-erow"><div class="sd-fbar sd-fbar7" role="group" aria-label="فلترة الأخطاء">
+ return `<div class="sd-errs sd-errs10 sd-errs11"><div class="sd-etabs">${seg('data-sdefx',[['open',`تحتاج تدريب (${AR(eList(false).length)})`],['fixed',`تحسّنت (${AR(eList(true).length)})`]],fx?'fixed':'open','الحالة')}${L.length?`<small class="sd-ehint">${isFree()&&!fx?'الباقة المجانية تعرض آخر ١٠ أخطاء':fx?'':G('كل خطأ تجاوبه صح ينتقل لـ«تحسّنت»','كل خطأ تجاوبينه صح ينتقل لـ«تحسّنت»')}${ep!=='all'||et||eu!==null?` — العدد بهذه الفلاتر`:''}</small>`:''}</div><div class="sd-erow"><div class="sd-fbar sd-fbar7" role="group" aria-label="فلترة الأخطاء">
   ${dd('ep','الفترة',eperLabel(s),eperMenu(s),ep!=='all')}
   ${dd('et','من اختبار',T?`${tName(T)}: ${esc(about(T))}`:'كل الاختبارات',etMenu(all,et),!!et)}
   ${eu!==null?`<button type="button" class="sd-fchip" data-sdeuclr>${UNO(eu)}<span aria-hidden="true">×</span><span class="sd-sr-only">شيل فلتر الوحدة</span></button>`:''}</div>${eBtn}</div>
@@ -25340,7 +25541,10 @@ const tanData=r=>{ const all=testRows(), k=all.findIndex(x=>x.id===r.id), prev=a
 const tCards=(r,D2)=>{ const ex=r.p>=80?['starry','celebrate','أداء قوي — كفو!']:r.p>=50?['determined','nod',G('زين، وفيه مجال تتحسن','زين، وفيه مجال تتحسنين')]:['determined','nod',testRows().length<=1?G('لا تشيل هم — من هنا تبدأ','لا تشيلين هم — من هنا تبدئين'):G('لا تشيل هم — راجع أخطاءك وترجع أقوى','لا تشيلين هم — راجعي أخطاءك وترجعين أقوى')];
  return [`<div class="sd-tc"><span class="f">${ME(ex[0],ex[1],'sd-fz')}</span><small>درجتك</small><b class="big ${sevC(r.p)}">${AR(r.ok)} من ${AR(r.n)}</b><p>${AR(r.p)}٪ — ${ex[2]}</p></div>`,
   `<div class="sd-tc"><small>إجاباتك</small><ul class="three"><li class="ok"><b>${AR(r.ok)}</b><span>صح</span></li><li class="no"><b>${AR(D2.wr)}</b><span>غلط</span></li><li class="sk"><b>${AR(D2.sk)}</b><span>ما جاوبت</span></li></ul></div>`,
-  `<div class="sd-tc"><small>فرق الدرجتين</small>${D2.prev?(()=>{ const df=r.ok/r.n-D2.prev.ok/D2.prev.n, dp=MS.p100(Math.abs(df)), same=r.n===D2.prev.n&&about(r)===about(D2.prev); /* audit §7: two different tests give a difference of scores, not a verdict on her level */ return dp?`<b class="big ${same?(df>0?'hi':'lo'):'md'}">${df>0?'▲':'▼'} ${AR(dp)}٪</b><p>${df>0?'أعلى':'أقل'} من`:`<b class="big">نفس الدرجة</b><p>مثل`; })()+`  ${tName(D2.prev)} (${AR(D2.prev.p)}٪)${r.n===D2.prev.n&&about(r)===about(D2.prev)?'':` — اختبار مختلف (${pl(D2.prev.n,QW)})، فالفرق ما يعني إن مستواك تغيّر`}</p>`:`<b class="big">أول اختبار</b><p>الاختبار الجاي نقارنه بهذا.</p>`}</div>`,
+  /* round 13 (brief §10, round-12 leftover): no «فرق الدرجتين» between unlike tests — the two tests' facts side by side (questions, kind, scope, day);
+     an arrow and a difference only when both had the same number of questions on the same scope; no statistical rule is made up here */
+  `<div class="sd-tc sd-tcmp"><small>${D2.prev?'مقارنة باختبارك اللي قبله':'المقارنة'}</small>${D2.prev?(()=>{ const P=D2.prev, same=r.n===P.n&&about(r)===about(P), df=r.ok/r.n-P.ok/P.n, dp=MS.p100(Math.abs(df)), f=x=>`<li><b>${tName(x)}</b><span>${AR(x.ok)} من ${pl(x.n,QWG)}</span><small>${esc(about(x))}، ${fdate(tDate(x))}</small></li>`;
+    return `<ul class="two">${f(r)}${f(P)}</ul><p>${same?(dp?`${df>0?'▲ أعلى':'▼ أقل'} بـ${AR(dp)}٪ — نفس عدد الأسئلة ونفس المحتوى`:'نفس الدرجة — نفس عدد الأسئلة ونفس المحتوى'):'اختباران مختلفان في العدد أو المحتوى — ما نقارن الدرجتين'}</p>`; })():`<b class="big">أول اختبار</b><p>الاختبار الجاي يطلع هنا جنبه.</p>`}</div>`,
   D2.hi?`<div class="sd-tc"><small>أقوى درس</small><b class="big hi">${esc(lesName(D2.hi.l))}</b><p>${AR(D2.hi.c)} صح من ${pl(D2.hi.n,QWG)}</p></div>`:'',
   D2.lo?`<div class="sd-tc"><small>تحتاج تدريب</small><b class="big lo">${esc(lesName(D2.lo.lesson))}</b><p>${AR(D2.lo.c)} صح من ${pl(D2.lo.n,QWG)}</p></div>`:(D2.sk?`<div class="sd-tc"><small>تحتاج تدريب</small><b class="big md">ما جاوبت ${pl(D2.sk,QWA)}</b><p>جاوبها كلها المرة الجاية ونعرف وش تحتاج.</p></div>`:`<div class="sd-tc"><small>تحتاج تدريب</small><b class="big hi">ولا درس</b><p>ما غلطت في شيء — كفو!</p></div>`),
   D2.sec!=null?`<div class="sd-tc"><small>وقتك</small><b class="big ${D2.sec<=60?'hi':'md'}">${D2.sec<1?'أقل من ثانية':pl(D2.sec,['ثانية واحدة','ثانيتان','ثوانٍ','ثانية'])}</b><p>لكل سؤال — ${D2.free?'بوقت مريح، ما نحكم على سرعتك':D2.sec<=60?'ضمن الوقت (دقيقة)':'أبطأ من المطلوب (دقيقة)'}</p></div>`:''].filter(Boolean); };
@@ -25415,17 +25619,20 @@ const lblAt=d=>{ if(LBC[d]) return LBC[d]; let o=LBP.map(p=>[p[0],p[1]]);
 const headSvg=(H,sel)=>{ const d=H?H.d:BLOB, U=um(), P=lblAt(d); return `<svg class="sd-head" viewBox="72 14 404 346" role="group" aria-label="عقل الفطن: سبع مناطق للوحدات السبع"><defs><clipPath id="sdHc"><path d="${d}"/></clipPath></defs>
   <path d="${d}" fill="#fff"/><g clip-path="url(#sdHc)">${REG.map((r,i)=>{ const m=U[i]; return `<g class="rg${m===null?' na':''}${i===sel?' on':''}" data-sdrg="${i}" tabindex="-1" role="button" aria-pressed="${i===sel}" aria-label="${UNO(i)}: ${unitName(i)}، ${m===null?'ما اختبرتها':AR(m)+'٪'}"><path d="${r}" fill="${TUC[i]}" fill-opacity="${op(m)}" stroke="#fff" stroke-width="5"/></g>`; }).join('')}</g>
   <path d="${d}" fill="none" stroke="#1E1B3A" stroke-width="8" stroke-linejoin="round" pointer-events="none"/>${H?`<g pointer-events="none">${H.face}</g>`:''}
-  <g class="sd-ovl" pointer-events="none">${P.map((p,i)=>{ const m=U[i], x=p[0].toFixed(1), y=p[1]; return `<circle cx="${x}" cy="${(y-11).toFixed(1)}" r="11" fill="${TUC[i]}" stroke="#fff" stroke-width="2.5"/><text x="${x}" y="${(y+5).toFixed(1)}" text-anchor="middle" class="bn">${AR(i+1)}</text>`; }).join('')}</g></svg>`; };
+  <g class="sd-ovl" pointer-events="none">${P.map((p,i)=>{ const m=U[i], x=p[0].toFixed(1), y=p[1]; return `<circle cx="${x}" cy="${(y-11).toFixed(1)}" r="11" fill="${TUC[i]}" stroke="#fff" stroke-width="2.5"/><text x="${x}" y="${(y-7).toFixed(1)}" text-anchor="middle" class="bn">${AR(i+1)}</text><text x="${x}" y="${(y+16).toFixed(1)}" text-anchor="middle" class="bv">${m===null?'—':AR(m)+'٪'}</text>`; }).join('')}</g></svg>`; }; /* round 13 (owner: «عقل الفطن — رجّع نسخة الجولة ١٠»): the number inside its circle again (round 12 had moved it under the circle) and the unit's value under it */
 const uerr=u=>errItems().filter(e=>e.u===u).length;
 /* round 12 (owner's review §11): the chosen unit — its number and name, ONE indicator and a short state; its lessons right under it (no fold),
    the weakest measured one marked with a «تدرّب» on its row; coverage as one small line; the counts and the formula in «تفاصيل القياس» */
 const unitPanel=u=>{ const M=MZ(), U=CT.tree[u], x=M.units[U.id], m=x.touched?MS.p100(x.m):null, ne=uerr(u), ls=U.lessons.map(l=>[l.id,l.name,M.lessons[l.id]]), lo=ls.filter(a=>a[2].touched).sort((a,b)=>a[2].m-b[2].m)[0], weak=lo&&MS.p100(lo[2].m)<80?lo[0]:null;
  return `<div class="sd-up sd-up12" style="--c:${TUC[u]};--cl:${TUCL[u]}" aria-live="polite"><header><div class="nm"><small>${UNO(u)}</small><h3>${U.name}</h3></div><p class="big"><small>مؤشر الوحدة</small><b>${m===null?'—':AR(m)+'٪'}</b><em class="sv ${sevC(m)}">${m===null?'لم تُختبر':sevT(m)}</em></p></header>
-  ${x.touched?`<p class="cov">قسنا ${AR(x.touched)} من ${AR(x.skills)} مهارة${x.n?` · صح ${AR(x.c)} من ${AR(x.n)} سؤالًا`:''}</p>`:''}
+  ${x.touched?`<p class="cov">قسنا ${AR(x.touched)} من ${AR(x.skills)} مهارة</p>`:''}
   <ul class="sd-bl sd-bl12" aria-label="دروس ${esc(U.name)}">${ls.map(([id,n,v])=>`<li class="${id===weak?'wk':''}"><span>${esc(n)}</span>${id===weak?`<button type="button" class="sd-go sm" data-sdtl="${id}" aria-label="${G('تدرّب','تدرّبي')} على ${esc(n)}">${G('تدرّب','تدرّبي')}</button>`:''}<b class="${v.touched?'':'na'}">${v.touched?AR(MS.p100(v.m))+'٪':'لم تُختبر'}</b></li>`).join('')}</ul>
-  ${x.n?`<details class="sd-uhow"><summary>تفاصيل القياس${LI.down}</summary><p>${G('جاوبت','جاوبتِ')} ${pl(x.n,QWA)} في هذه الوحدة، صح ${AR(x.c)} (${AR(MS.pct(x.c,x.n))}٪). المؤشر يحسب كل مهارة من آخر إجاباتك فيها، والمهارة اللي ما جاوبتِ فيها تنحسب صفر — فقد يختلف عن نسبة الصح.</p></details>`:''}
+  ${x.n?`<details class="sd-uhow"><summary>تفاصيل القياس${LI.down}</summary><dl class="sd-uhw13"><div><dt>المهارات اللي قسناها</dt><dd>${AR(x.touched)} من ${AR(x.skills)}${x.touched<x.skills?` — الباقية ما ${G('جاوبت','جاوبتِ')} فيها للحين`:''}</dd></div><div><dt>إجاباتك المسجّلة</dt><dd>صح ${AR(x.c)} من ${pl(x.n,QWA)} (${AR(MS.pct(x.c,x.n))}٪)</dd></div><div><dt>كيف نحسب مؤشر الوحدة</dt><dd>كل مهارة من آخر إجاباتك فيها، والمهارة اللي ما قسناها تنحسب صفر — فهو ليس نسبة الصح، ولا توقّعًا مؤكدًا لدرجتك.</dd></div></dl></details>`:''}
   <div class="ua"><button type="button" class="sd-go sm" data-sdbt="${U.id}">${IC('repeat')}${m===null?G('اختبرني عليها','اختبريني عليها'):G('تدرّب على الوحدة','تدرّبي على الوحدة')}</button>${ne?`<button type="button" class="sd-gh2 sm" data-sdbe="${u}">${IC('errors')}أخطائي فيها (${AR(ne)})</button>`:''}</div></div>`; };
 /* readiness (owner 2026-10-16): the seven units weigh the same; what he never answered counts zero; one right answer is not 100٪ */
+/* round 13: the Fitn's one line under the brain (round 10) — the strongest measured unit and where to look this week */
+const say=()=>{ const U=um(), t=U.map((m,i)=>[m,i]).filter(([m])=>m!==null); if(!t.length) return G('اختبر أول مرة، وأرسم لك عقلك وحدة وحدة.','اختبري أول مرة، وأرسم لك عقلك وحدة وحدة.'); const hi=t.reduce((a,b)=>b[0]>a[0]?b:a), lo=t.reduce((a,b)=>b[0]<a[0]?b:a);
+  return hi[1]===lo[1]?`بدأنا! ${unitName(hi[1])} ${AR(hi[0])}٪ — ${G('كمّل','كمّلي')} باقي الوحدات.`:`أقوى وحدة: <b>${unitName(hi[1])}</b> ${AR(hi[0])}٪. ${G('ركّز','ركّزي')} هالأسبوع على <b>${unitName(lo[1])}</b>.`; };
 const readySec=()=>{ const M=MZ(), U=um(), E=CFG().evidenceN, N=CFG().lastN; return sec('جاهزيتك للاختبار',`<div class="sd-rdy">${measured()?`<p class="big"><b>${AR(rdy())}٪</b><small>مؤشر جاهزيتك</small><i>غطّيت ${AR(M.touched)} من ${AR(M.skillsTotal)} مهارة</i></p>`:`<p class="big sd-rnone"><b>لم نقِس جاهزيتك بعد</b><small>${G('أول ما تجاوب أسئلة يطلع مؤشرك هنا','أول ما تجاوبين أسئلة يطلع مؤشرك هنا')}</small><button type="button" class="sd-go" data-sddiag>${G('ابدأ التشخيص المجاني','ابدئي التشخيص المجاني')}</button></p>`}
   <ul class="sd-rl">${CT.tree.map((T,u)=>`<li style="--c:${TUC[u]}"><span class="un"><i>${AR(u+1)}</i>${T.name}</span><span class="pr" aria-hidden="true"><u style="width:${U[u]||0}%"></u></span><b class="${U[u]===null?'na':''}">${U[u]===null?'لم تُختبر':AR(U[u])+'٪'}</b></li>`).join('')}</ul></div>
   <details class="sd-how"><summary>كيف نحسبها؟</summary><ol><li>كل مهارة: نسبة صحك في آخر ${AR(N)} سؤالًا منها، مضروبة في «كم جاوبت» — تكتمل عند ${AR(E)} أسئلة. سؤال واحد صح يعطي ${AR(Math.round(100/E))}٪ مو ١٠٠٪.</li><li>المهارة اللي ما جاوبت فيها = صفر، لأنك ما تضمنها في الاختبار.</li><li>الدرس = متوسط مهاراته، والوحدة = متوسط دروسها.</li><li>الجاهزية = متوسط الوحدات السبع، وكلها بنفس الوزن.</li></ol></details>`,{sub:'مؤشر جاهزيتك حسب إجاباتك — الوحدات السبع بنفس الوزن، والمهارة اللي ما جاوبت فيها تنحسب صفر'}); };
@@ -25434,7 +25641,7 @@ const stinsight={n:'تحليلاتي',h:()=>{ const s=S0(), U=um(), M=MZ(), u=s.
  const all=Object.entries(M.lessons).filter(([,v])=>v.touched).map(([id,v])=>[lesName(id),MS.p100(v.m),UIx(id.slice(0,2)),v,id]).sort((a,b)=>b[1]-a[1]);
  const weak=all.filter(a=>a[1]<50).reverse().slice(0,5), mid=all.filter(a=>a[1]>=50&&a[1]<80).reverse().slice(0,5), hiL=all.filter(a=>a[1]>=80), strong=(hiL.length?hiL:all.filter(a=>a[1]>=50)).slice(0,5), rel=!hiL.length;
  return `<div class="sd-ins">${sec('عقل الفطن',`<div class="sd-brainw"><div class="sd-bhead${HEAD?' ready':''}">${HEAD?headSvg(HEAD,u):`<span class="sd-bch" data-fitn data-fitn-variant="plain" data-fitn-ex="content" aria-hidden="true"></span><div class="sd-bsvg"></div>`}</div>${(()=>{ const U=um(); return `<ol class="sd-blg">${CT.tree.map((t,i)=>`<li data-sdrg="${i}" class="${i===u?'on':''}" tabindex="0" role="button" style="--c:${TUC[i]}"><i>${AR(i+1)}</i><span><small>${UNO(i)}</small><b>${esc(unitName(i))}</b></span><em>${U[i]===null?'—':AR(U[i])+'٪'}</em></li>`).join('')}</ol>`; })()}${unitPanel(u)}</div>
-`,{cls:'sd-bmap',sub:G('كل جزء وحدة — اضغط أي وحدة','كل جزء وحدة — اضغطي أي وحدة')})}
+   <div class="sd-say"><span class="f">${ME('happy','','sd-fz')}</span><p>${say()}</p></div>`,{cls:'sd-bmap',sub:G('كل جزء وحدة، والرقم مستواك فيها — اضغط أي جزء','كل جزء وحدة، والرقم مستواك فيها — اضغطي أي جزء')})}
  ${readySec()}
  ${sec('درجاتك',tr.length>1?scoreBars(tr):empty('insights','تظهر بعد اختبارين','التشخيص يحط أول درجة.'),{sub:tr.length>1?`آخر ${pl(tr.length,['اختبار','اختبارين','اختبارات','اختبارًا'])}`:''})}
  ${sec('دروسك',all.length?`<div class="sd-sw9">${(()=>{ const row=([n,v,x,,id],tr)=>`<li style="--c:${TUC[x]}"><span class="nm"><b>${esc(n)}</b><span class="bar" aria-hidden="true"><u style="width:${Math.max(3,v)}%"></u></span></span><em>${AR(v)}٪</em>${tr?`<button type="button" class="sd-go sm" data-sdtl="${id}" aria-label="${G('تدرّب','تدرّبي')} على ${esc(n)}">${G('تدرّب','تدرّبي')}</button>`:''}</li>`;
@@ -25887,7 +26094,7 @@ const NI={coin:CNI(20),receipt:SV('<path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path
 /* ---------- coins: every movement a fact; earnings are derived from the study facts, so they can never be typed in ---------- */
 const WHYC={topup:'شحن رصيد',parent:'من ولي أمرك',store:'المتجر',gift_out:'هدية لصاحبك',gift_in:'هدية من صاحبك',pro:'باقة احترافي',max:'باقة فاخر',course:'دورة الفطن',addon:'ميزة إضافية',week:'هدية أسبوع احترافي',level:'مستوى جديد',rank:'رتبة جديدة',daily:'تحدّي اليوم صح',invite:'صاحب اشترك بكودك',game:'ألعاب اللوبي والاستراحة',finish:'خلّصت اختبار',week7:'٧ أيام ورا بعض'};
 const coinRows=()=>memo('coins',r=>{ const o=[];
- (r.wallet||[]).forEach(x=>o.push({at:x.at,c:x.c!=null?x.c:Math.round((x.amt||0)*CR),why:x.why==='gift'?'gift_out':x.why==='topup'&&x.by&&x.by!=='أنت'?'parent':x.why,t:x.t||(x.to?`لـ ${x.to}`:''),by:x.by||'',sar:x.sar}));
+ (r.wallet||[]).forEach(x=>o.push({at:x.at,c:x.c!=null?x.c:Math.round((x.amt||0)*CR),why:x.why==='gift'?'gift_out':x.why==='topup'&&x.by&&x.by!=='أنت'?'parent':x.why,t:x.t||(x.to?`لـ ${x.to}`:''),by:x.by||'',sar:x.sar,rc:x.rc}));
  let acc=0, lv=1; const H=r.lvAt=r.lvAt||{}; XPL().forEach(x=>{ acc+=x.pts; const n=lvOf(acc); while(lv<n){ lv++; if(!H[lv]) H[lv]=x.at; } });
  Object.keys(H).forEach(k=>{ const n=+k, at=H[k]; o.push({at,c:EARN.level,why:'level',t:`وصلت المستوى ${AR(n)}`}); const rr=RK7.findIndex(q=>q[1]===n); if(rr>0) o.push({at:at+1,c:EARN.rank,why:'rank',t:`رتبة «${RK7[rr][0]}»`}); }); /* once earned, kept — even if a lesson is un-marked later */
  (r.daily||[]).forEach(x=>{ if(x.correct) o.push({at:x.at,c:EARN.daily,why:'daily',t:''}); });
@@ -26013,20 +26220,26 @@ const lockDlg=(k,w)=>{ const C=k==='course', L=LV(), out=k==='pro'&&isFree()&&!w
 const askDlg=k=>buyDlg(k==='wallet'?'top':k,{how:'parent'});
 
 /* ===================== محفظتي ===================== */
-const wRow=x=>`<li class="${x.c<0?'out':'in'}"><span class="ic">${x.c<0?NI.bag:x.why==='topup'||x.why==='parent'?NI.card:x.why==='level'||x.why==='rank'?NI.lvl:x.why==='gift_in'||x.why==='gift_out'?LI.gift:CNI(18)}</span><span class="tx"><b>${WHYC[x.why]||x.why}</b><small>${x.t?esc(x.t)+' — ':''}${fdate(new Date(x.at))}${x.by&&x.by!=='أنت'&&x.by!=='المحفظة'?` — ${esc(x.by)}`:''}</small></span><em>${x.c<0?'−':'+'}${NUM(x.c)}</em></li>`;
-const stwallet={n:'اشتراكي ورصيدي',h:()=>{ const s=S0(), f=s.stu.wf||'all', rows=coinRows().slice().reverse().filter(x=>f==='all'||(f==='in'?x.c>0:x.c<0)), c=coins(), L=LV();
+/* round 13 (owner: «سجل المشتريات شيله وخله في سجل الرصيد مع الإيصال»): one log — the coin movements, and the purchases paid in riyals beside
+   them; every purchase (riyals or coins, a top-up too) has «الإيصال» on its row. The riyal rows do not touch the coin balance and say so by their amount. */
+const rcptOf=x=>{ if(x.rcp) return x.rcp; const b=x.rc&&REC().buys.find(y=>y.rc===x.rc); if(b) return b; return (x.why==='topup'||x.why==='parent')&&x.sar?{k:'top',at:x.at,by:x.why==='parent'?'ولي أمرك':'',rc:x.rc,sar:x.sar,n:x.c}:null; };
+const logRows=()=>[...coinRows(),...REC().buys.filter(b=>!b.coins&&(b.price||b.sar)>0).map(b=>({at:b.at,c:0,why:b.k.startsWith('addon:')?'addon':b.k,t:b.k==='course'?'':`شهر${b.days&&b.days>30?` — ${pl(Math.round(b.days/30),['شهر','شهرين','أشهر','شهرًا'])}`:''}`,by:payBy(b),rcp:b,rs:b.price||b.sar}))].sort((a,b)=>a.at-b.at);
+const wRow=x=>`<li class="${x.rs?'buy':x.c<0?'out':'in'}"><span class="ic">${x.rs?NI.receipt:x.c<0?NI.bag:x.why==='topup'||x.why==='parent'?NI.card:x.why==='level'||x.why==='rank'?NI.lvl:x.why==='gift_in'||x.why==='gift_out'?LI.gift:CNI(18)}</span><span class="tx"><b>${WHYC[x.why]||x.why}</b><small>${x.t?esc(x.t)+' — ':''}${fdate(new Date(x.at))}${x.by&&x.by!=='أنت'&&x.by!=='المحفظة'?` — ${esc(x.by)}`:''}</small></span><em>${x.rs?`${SR(x.rs)} ر.س`:`${x.c<0?'−':'+'}${NUM(x.c)}`}</em>${rcptOf(x)?`<button type="button" class="sd-lnk2 sm" data-sdrcpt="${x.at}|${esc(x.why)}" aria-label="إيصال ${esc(WHYC[x.why]||x.why)}">الإيصال</button>`:''}</li>`;
+const stwallet={n:'اشتراكي ورصيدي',h:()=>{ const s=S0(), f=s.stu.wf||'all', rows=logRows().slice().reverse().filter(x=>f==='all'||(f==='buy'?!!rcptOf(x):f==='in'?x.c>0:x.c<0)), c=coins(), L=LV();
  return `<div class="sd-wal7">
  <section class="sd-whero"><div class="tx"><small>رصيدك</small><p class="big">${CNI(44)}${c?`<b>${NUM(c)}</b><span>عملة</span>`:`<b class="z">ما فيها عملات</b>`}</p><small class="eq">تساوي ${SR(c/CR)} ر.س داخل الفطن — كل ${AR(CR)} عملة = ١ ر.س</small></div>
   <div class="ac"><button type="button" class="sd-go lg" data-sdbuy="top">${IC('plus')}${G('اشحن','اشحني')} رصيدك</button><div class="r2"><button type="button" class="sd-gh2" data-sdreqtop>${NI.shield}${G('اطلب','اطلبي')} من ولي أمرك</button><button type="button" class="sd-gh2" data-sdgift>${LI.gift}${G('أهدِ','أهدي')} صاحبك</button></div></div></section>
  ${sec(`وين ${G('تصرفها','تصرفينها')}؟`,`<div class="sd-where sd-where8">${[['packs',tier()==='free'?'باقة':'باقتك',tier()==='max'?`تجديد «فاخر» شهر بـ${NUM(PRICE.max*CR)} عملة`:tier()==='free'?`«احترافي» شهر بـ${NUM(PRICE.pro*CR)} عملة`:hasCourse()&&!REC().buys.some(b=>b.k==='pro')?`«فاخر» شهر بـ${NUM(PRICE.max*CR)} عملة`:`تجديد «احترافي» شهر بـ${NUM(PRICE.pro*CR)} عملة`,IC('star')],['lobby','متجر اللوبي','أزياء وتفاعلات لفطنك',NI.bag],['@gift',G('هدية لصاحبك','هدية لصاحبتك'),`من ${NUM(100)} عملة`,LI.gift]].map(([g,t,d,i])=>`<button type="button" ${g==='@gift'?'data-sdgift':`data-go="${g}"`}><span class="ic">${i}</span><b>${t}</b><small>${d}</small>${LI.chev}</button>`).join('')}</div>
   <p class="sd-wnote8">${NI.lock}<span>المشحون <b>لا يُسترد</b> ولا يتحوّل إلى نقود. والعملات اللي ${G('تكسبها','تكسبينها')} من المستويات والدعوات تنضاف هنا بنفسها.</span></p>`)}
- ${sec('سجل المحفظة',`${seg('data-sdwf',[['all','الكل'],['in','دخل'],['out','صرف']],f,'السجل')}${rows.length?`<ol class="sd-wlog">${rows.slice(0,s.stu.wn||40).map(wRow).join('')}</ol>${rows.length>(s.stu.wn||40)?`<button type="button" class="sd-gh2 wide" data-sdwmore>${G('اعرض','اعرضي')} الأقدم (${AR(rows.length-(s.stu.wn||40))})</button>`:''}`:`<p class="sd-mut sd-wempty">${f==='out'?`ما ${G('صرفت','صرفتِ')} شي للحين.`:'ما فيه حركة للحين.'}</p>`}`,{sub:'كل حركة بتاريخها'})}</div>`; },
+ ${sec('سجل الرصيد',`${seg('data-sdwf',[['all','الكل'],['in','دخل'],['out','صرف'],['buy','مشتريات']],f,'السجل')}${rows.length?`<ol class="sd-wlog">${rows.slice(0,s.stu.wn||40).map(wRow).join('')}</ol>${rows.length>(s.stu.wn||40)?`<button type="button" class="sd-gh2 wide" data-sdwmore>${G('اعرض','اعرضي')} الأقدم (${AR(rows.length-(s.stu.wn||40))})</button>`:''}`:`<p class="sd-mut sd-wempty">${f==='out'?`ما ${G('صرفت','صرفتِ')} شي للحين.`:f==='buy'?'ما فيه مشتريات للحين.':'ما فيه حركة للحين.'}</p>`}`,{sub:'كل حركة بتاريخها، والمشتريات بإيصالها'})}
+ <p class="sd-pk7f">${IC('check')}الأسعار تشمل الضريبة · الباقة ما تتجدد من نفسها · الرصيد المشحون لا يُسترد</p></div>`; },
  on:el=>{ el.addEventListener('click',e=>{ const s=S0(), t=e.target;
   const wf=t.closest('[data-sdwf]'); if(wf){ s.stu.wf=wf.dataset.sdwf; save(); el.innerHTML=stwallet.h(); return; }
   if(t.closest('[data-sdwmore]')){ s.stu.wn=(s.stu.wn||40)+40; save(); el.innerHTML=stwallet.h(); return; } /* agents' pass: «كل حركة بتاريخها» — the older ones too, so the rows add up to the balance */
   if(t.closest('[data-sdreqtop]')){ if(pendingReq('top')) return toast(`عندك طلب شحن ينتظر ولي أمرك — ${G('شوف','شوفي')} «طلباتي منه»`); buyDlgParent('top',{i:1}); return; } if(0){ const S2={i:1}; openMod(`<header class="sd-mh2"><span class="ic">${NI.shield}</span><div><h2 id="sdRtT">اطلب شحن من ولي أمرك</h2><p>يوصله طلب على جواله ويدفع هو.</p></div><button type="button" class="sd-x" data-sdmx aria-label="سكّر">×</button></header><div class="sd-tops" role="radiogroup" aria-label="كم تبي؟">${TOPS.map(([c,s2],i)=>`<button type="button" role="radio" aria-checked="${i===1}" data-sdtop2="${i}">${CNI(30)}<b>${NUM(c)}</b><small>عملة</small><em>${SR(s2)} ر.س</em></button>`).join('')}</div><footer class="sd-mf"><button type="button" class="sd-lnk2" data-sdmx>رجوع</button><button type="button" class="sd-go lg" data-sdrtgo>${LI.send}كمّل</button></footer>`,
     box=>{ box.setAttribute('aria-labelledby','sdRtT'); box.addEventListener('click',ev=>{ const tp=ev.target.closest('[data-sdtop2]'); if(tp){ S2.i=+tp.dataset.sdtop2; $$('[data-sdtop2]',box).forEach(b=>b.setAttribute('aria-checked',String(b===tp))); return; } if(ev.target.closest('[data-sdrtgo]')){ closeMod(); const B=buyDlgParent('top',{i:S2.i}); } }); },'sd-msm'); return; }
-  if(t.closest('[data-sdgift]')){ giftDlg(); return; } }); }};
+  if(t.closest('[data-sdgift]')){ giftDlg(); return; }
+  const rp=t.closest('[data-sdrcpt]'); if(rp){ const [at,w]=rp.dataset.sdrcpt.split('|'), x=logRows().find(y=>String(y.at)===at&&y.why===w); const b=x&&rcptOf(x); if(b) rcptDlg(b); return; } }); }};
 /* the parent request straight away (from the wallet's «اطلب من ولي أمرك») */
 const buyDlgParent=(k,o)=>{ buyDlg(k,o); const b=$('.sd-mod [data-sdhow="parent"]'); if(b) b.click(); };
 /* a gift to a friend (owner: «أهدِ صاحبك» — from the wallet): coins, or a week of «احترافي»; to a friend from your list or by his username */
@@ -26050,43 +26263,38 @@ const giftDlg=()=>{ const S={k:'c250',to:''}, FR=friends(), GF=[['c100','١٠٠ 
    closeMod(); toast(`أرسلنا هديتك لـ${nm} — ننتظر توصل`); rerender(); } }); },'sd-msm'); };
 
 /* ===================== باقاتي — the very cards of the public page (GROW-PLANS-A, borrowed as approved), your plan marked on its card ===================== */
-const stpacks={n:'اشتراكي ورصيدي',h:()=>{ const T=tier(), e=T!=='free'?subEnd(T):null, ad=S0().stu.addons||[], B=REC().buys.slice().sort((a,b)=>b.at-a.at);
- /* round 12 (owner's review §12): the plan, its end and the act — no hero card, no character before the product's name, the balance only in «رصيدي»,
-    and the coins-to-riyals rule moved to where she chooses to pay with coins */
- return `<div class="sd-packs7 sd-packs12"><section class="sd-pnow"><div><small>باقتك الحين</small><h2>${T==='free'?'«أساسي» المجانية':`«${PLANS[T][0]}»`}${hasCourse()?' + دورة الفطن':''}</h2><p>${T==='free'?(()=>{ const L=REC().buys.filter(b=>b.k==='pro'||b.k==='max').sort((a,b)=>b.at-a.at)[0]; return L?`«${PLANS[L.k][0]}» انتهت ${fdate(subEnd(L.k))} — ${G('جدّدها','جدّديها')} من كرتها تحت. الحين: ${AR(CFG().freeDaily)} سؤالًا كل يوم`:`${AR(CFG().freeDaily)} سؤالًا كل يوم، وآخر ١٠ أخطاء`; })():e?`${e>new Date()?'تنتهي':'انتهت'} ${fdate(e)} — ما تتجدد من نفسها، ${G('جدّدها','جدّديها')} من هنا متى ما ${G('تبي','تبين')}`:who()==='review'?'حساب المراجعة: مفتوحة كلها، بلا تاريخ انتهاء':PLANS[T][1]}</p></div>
-  <div class="ac">${T!=='free'&&e?`<button type="button" class="sd-go" data-sdbuy="${T}">${G('جدّد','جدّدي')} «${PLANS[T][0]}»</button>`:''}${hasCourse()?'':`<button type="button" class="sd-gh2" data-sdbuy="course">${IC('play')}أضف دورة الفطن — ${AR(PRICE.course)} ر.س</button>`}</div></section></div>`; },
+/* round 13 (owner: «احذف باقتك الحين واكتفِ بالباقات اللي تحت كبطاقات، مع مراعاة باقة الطالب فعلًا — مجاني، احترافي، فاخر»): no block above the cards;
+   the card of her plan says «باقتك الحالية» with its end date, a plan that ended says «انتهت» on its card, and the course is one quiet line */
+const stpacks={n:'اشتراكي ورصيدي',h:()=>`<div class="sd-packs7 sd-packs13">${hasCourse()?'':`<p class="sd-pk13c">${IC('play')}<span>دورة الفطن ما هي في حسابك</span><button type="button" class="sd-lnk2" data-sdbuy="course">${G('أضفها','أضيفيها')} — ${AR(PRICE.course)} ر.س</button></p>`}</div>`,
  on:el=>{ /* the borrowed cards sit right after this block: mark your plan, and every button opens the one checkout (re-marked on every draw — the block can come back from the page cache) */
   const tok=String(Math.random());
   /* the borrowed cards speak like the public page (auto-renew, ٢٠ سؤالًا, a monthly report): here they say what the app does */
   const fixTxt=P=>{ const RX=[[/يتجدد كل شهر · ألغِه بضغطة/,'شهر واحد · ما يتجدد من نفسه'],[/ · يتجدد$/,' · ما يتجدد من نفسه'],[/بلا عقد، وتلغيها بضغطة/,'وما تتجدد من نفسها'],[/٢٠ سؤالًا/,`${AR(CFG().freeDaily)} سؤالًا`]], w=D.createTreeWalker(P,NodeFilter.SHOW_TEXT); let n; while((n=w.nextNode())){ let v=n.nodeValue; RX.forEach(([a,b])=>{ v=v.replace(a,b); }); if(v!==n.nodeValue) n.nodeValue=v; } $$('li',P).forEach(li=>{ if(/تقرير شهري لولي الأمر/.test(li.textContent)) li.remove(); }); };
   const wire=()=>{ const pg=el.closest('.pt-page')||D, P=$('[data-opt="GROW-PLANS-A"] .prA',pg)||$('.prA',pg); if(!P||P.dataset.sd7===tok) return !!P; P.dataset.sd7=tok; $$('.sd-minetag',P).forEach(x=>x.remove()); fixTxt(P); if(!P.dataset.sdfx){ P.dataset.sdfx=1; new MutationObserver(()=>fixTxt(P)).observe(P,{childList:true,characterData:true,subtree:true}); } const T=tier(), cards=$$('.prA-c',P);
-   cards.forEach((c,i)=>{ const k=['free','pro','max'][i], b=$('.pr-btn',c); const am=$(`[data-pr-amt="${k}"]`,P); if(am&&k!=='free'){ const sync=()=>{ let o=$('.sd-orc',c); if(!o){ o=D.createElement('small'); o.className='sd-orc'; (am.closest('.pr-price,.prA-p,.pr-p')||am.parentNode).after(o); } const v=+String(am.textContent).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[^\d.]/g,''); o.innerHTML=`${CNI(14)}أو ${NUM(Math.round(v*CR))} عملة`; }; sync(); new MutationObserver(sync).observe(am,{childList:true,characterData:true,subtree:true}); } c.classList.toggle('sd-mine',k===T); if(k===T){ const m=D.createElement('span'); m.className='sd-minetag'; m.innerHTML=`${IC('check')}باقتك الحالية`; c.prepend(m); }
+   cards.forEach((c,i)=>{ const k=['free','pro','max'][i], b=$('.pr-btn',c); const am=$(`[data-pr-amt="${k}"]`,P); if(am&&k!=='free'){ const sync=()=>{ let o=$('.sd-orc',c); if(!o){ o=D.createElement('small'); o.className='sd-orc'; (am.closest('.pr-price,.prA-p,.pr-p')||am.parentNode).after(o); } const v=+String(am.textContent).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[^\d.]/g,''); o.innerHTML=`${CNI(14)}أو ${NUM(Math.round(v*CR))} عملة`; }; sync(); new MutationObserver(sync).observe(am,{childList:true,characterData:true,subtree:true}); } c.classList.toggle('sd-mine',k===T); const E=k!=='free'&&k===T?subEnd(k):null, LP=T==='free'&&k!=='free'?REC().buys.filter(b=>b.k==='pro'||b.k==='max').sort((a,b)=>b.at-a.at)[0]:null;
+    if(k===T){ const m=D.createElement('span'); m.className='sd-minetag'; m.innerHTML=`${IC('check')}باقتك الحالية${E?` · ${E>new Date()?'تنتهي':'انتهت'} ${fdate(E)}`:who()==='review'&&k!=='free'?' · بلا تاريخ انتهاء':''}`; c.prepend(m); }
+    else if(LP&&LP.k===k){ const m=D.createElement('span'); m.className='sd-minetag sd-endtag'; m.textContent=`انتهت ${fdate(subEnd(k))}`; c.prepend(m); }
     if(b){ const nb=b.cloneNode(true); b.replaceWith(nb); const viaC=hasCourse()&&k==='pro'&&T==='pro'&&!REC().buys.some(b=>b.k==='pro'); nb.textContent=k==='free'?(T==='free'?'باقتك الحالية':'المجانية — بلا دفع'):viaC?'معك مع دورة الفطن':k===T?`${G('جدّد','جدّدي')} «${PLANS[k][0]}»`:T==='max'&&k==='pro'?'معك في «فاخر»':`اشترك في «${PLANS[k][0]}»`; nb.disabled=k==='free'||viaC||(T==='max'&&k==='pro');
      nb.addEventListener('click',ev=>{ ev.preventDefault(); ev.stopPropagation(); const amt=$(`[data-pr-amt="${k}"]`,P), per=$(`[data-pr-per="${k}"]`,P), bill=(($('[data-pr-seg="bill"] [aria-pressed="true"]',P)||{}).dataset||{}).v||'m', sar=amt?+String(amt.textContent).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[^\d.]/g,''):PRICE[k];
       buyDlg(k,{sar:sar||PRICE[k],per:per?per.textContent.trim():'شهريًا',days:bill==='q'?90:bill==='x'?30*(+((($('[data-pr-mo] [aria-pressed="true"]',P)||{}).dataset||{}).mo)||4):30}); },true); } }); return true; };
   if(!wire()){ const mo=new MutationObserver(()=>{ if(wire()) mo.disconnect(); }); mo.observe(el.closest('.pt-page')||D.body,{childList:true,subtree:true}); setTimeout(()=>mo.disconnect(),4000); } }};
-const buyRows=()=>[...REC().buys,...(REC().wallet||[]).filter(w=>(w.why==='topup'||w.why==='parent')&&w.sar).map(w=>({k:'top',at:w.at,by:w.why==='parent'||w.by?'ولي أمرك':'',rc:w.rc,sar:w.sar,n:w.c}))].sort((a,b)=>b.at-a.at);
 const payBy=b=>b.by==='المحفظة'?'من رصيدك':b.by==='ولي الأمر'||b.by==='ولي أمرك'?'دفعها ولي أمرك':G('دفعتها','دفعتِها');
-const stpacks2={n:'باقاتي — الإضافات والمشتريات',h:()=>{ const T=tier(), ad=S0().stu.addons||[], B=buyRows(); /* agents' pass: a paid top-up is a purchase too */
- return `<div class="sd-packs7">${''/* round 8: add-ons removed until those features exist (owner) */}<p class="sd-pk7f">${IC('check')}الأسعار تشمل الضريبة · الباقة ما تتجدد من نفسها — ${G('تجددها','تجددينها')} إذا ${G('تبي','تبين')} · الرصيد المشحون لا يُسترد</p>${false?sec('أضف ميزة من «فاخر»',`<ul class="sd-adds">${ADDONS.map(([k,t,i])=>{ const on=ad.includes(k); return `<li class="${on?'on':''}"><span class="ic">${ic(i)}</span><b>${t}</b>${on?`<em>${IC('check')}مضافة</em>`:`<span class="sd-soon">${AR(PRICE.addon)} ر.س<small>قريبًا — تُفتح مع إطلاق الميزة</small></span>`}</li>`; }).join('')}</ul>`,{sub:'بسعر ثابت حتى تنتهي باقتك — بدون ما تغيّر باقتك'}):''}
- ${sec('مشترياتي',B.length?`<ol class="sd-buys12" aria-label="مشترياتي">${B.map((b,i)=>{ const t=b.k==='top'?`${NUM(b.n||0)} عملة`:b.k==='course'?'دورة الفطن':b.k.startsWith('addon:')?`ميزة «${(ADDONS.find(a=>a[0]===b.k.slice(6))||['',''])[1]}»`:`«${(PLANS[b.k]||[b.k])[0]}»`, ty=b.k==='top'?'شحن رصيد':b.k==='course'?'دورة':'باقة', by=payBy(b), amt=b.coins?`${NUM(b.coins)} عملة`:`${SR(b.price||b.sar||0)} ر.س`;
-   return `<li><span class="ty">${ty}</span><span class="tx"><b>${t}</b><small>${fdate(new Date(b.at))}، ${by} · <i class="st">تمّت</i>${b.rc?` · <bdi dir="ltr">${b.rc}</bdi>`:''}</small></span><em>${amt}</em><button type="button" class="sd-lnk2 sm" data-sdrcpt="${i}" aria-label="إيصال ${ty} ${esc(t)}">الإيصال</button></li>`; }).join('')}</ol>`:`<p class="sd-mut">ما فيه مشتريات للحين.</p>`,{sub:'كل عملية وإيصالها'})}</div>`; },
- /* round 12 (§12): a purchase is a row; its receipt opens on request */
- on:el=>{ el.addEventListener('click',e=>{ const r=e.target.closest('[data-sdrcpt]'); if(!r) return; const b=buyRows()[+r.dataset.sdrcpt]; if(!b) return;
-   openMod(`<header class="sd-mh2"><span class="ic">${NI.receipt}</span><div><h2 id="sdRcT">الإيصال</h2><p>${b.k==='top'?`شحن ${NUM(b.n||0)} عملة`:b.k==='course'?'دورة الفطن':`باقة «${(PLANS[b.k]||[b.k])[0]}»`}</p></div><button type="button" class="sd-x" data-sdmx aria-label="سكّر">×</button></header><dl class="sd-rcpt"><div><dt>التاريخ</dt><dd>${fdate(new Date(b.at))}</dd></div><div><dt>المبلغ</dt><dd>${b.coins?`${NUM(b.coins)} عملة`:`${SR(b.price||b.sar||0)} ر.س`}</dd></div><div><dt>الدفع</dt><dd>${payBy(b)}${b.m?`، ${esc(b.m)}`:''}</dd></div><div><dt>رقم العملية</dt><dd dir="ltr">${b.rc||'—'}</dd></div><div><dt>الحالة</dt><dd>مدفوعة</dd></div></dl><footer class="sd-mf"><span></span><button type="button" class="sd-go" data-sdmx>تمام</button></footer>`,box=>box.setAttribute('aria-labelledby','sdRcT'),'sd-msm'); }); }};
+const rcptDlg=b=>{ openMod(`<header class="sd-mh2"><span class="ic">${NI.receipt}</span><div><h2 id="sdRcT">الإيصال</h2><p>${b.k==='top'?`شحن ${NUM(b.n||0)} عملة`:b.k==='course'?'دورة الفطن':`باقة «${(PLANS[b.k]||[b.k])[0]}»`}</p></div><button type="button" class="sd-x" data-sdmx aria-label="سكّر">×</button></header><dl class="sd-rcpt"><div><dt>التاريخ</dt><dd>${fdate(new Date(b.at))}</dd></div><div><dt>المبلغ</dt><dd>${b.coins?`${NUM(b.coins)} عملة`:`${SR(b.price||b.sar||0)} ر.س`}</dd></div><div><dt>الدفع</dt><dd>${payBy(b)}${b.m?`، ${esc(b.m)}`:''}</dd></div><div><dt>رقم العملية</dt><dd dir="ltr">${b.rc||'—'}</dd></div><div><dt>الحالة</dt><dd>مدفوعة</dd></div></dl><footer class="sd-mf"><span></span><button type="button" class="sd-go" data-sdmx>تمام</button></footer>`,box=>box.setAttribute('aria-labelledby','sdRcT'),'sd-msm'); };
 
 /* ===================== مستواي — levels unlock ranks; how to earn XP, as a simple guide ===================== */
 const XPW=[['correct','كل إجابة صح','tests'],['finish','اختبار كامل (١٠ أسئلة أو أكثر)','check'],['diag','التشخيص','target'],['lesson','درس كامل','play'],['planDay','يوم كامل من خطتك','cal'],['daily','تحدّي اليوم صح','spark'],['studyDay','يوم مذاكرة','flame'],['week7','٧ أيام ورا بعض','trophy'],['share','شاركت إنجازك (مرة في اليوم)','send']];
+/* round 13 (brief §12, round-12 leftover): on the phone the rank, the progress and the first way to earn XP sit above the fold — the hero is one
+   row there, and the XP/coins note moved into «سلّم الرتب وكل قواعد المكافآت» */
 const stlevel={n:'مستواي',h:()=>{ const L=LV(), P=CFG().points, by={}; XPL().forEach(x=>{ by[x.why]=(by[x.why]||0)+x.pts; }); const tot=Math.max(1,L.xp);
  return `<div class="sd-lvl7">
  <section class="sd-lhero" style="--rc:${L.col}"><div class="ring" style="--p:${L.pct}"><span class="f">${ME('proud','','sd-fz')}</span></div>
   <div class="tx"><small>المستوى</small><p class="big">${AR(L.n)}</p><p class="rk">${RKI(L.r,30)}<b>${L.rank}</b></p>
    <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="${L.need}" aria-valuenow="${L.into}" aria-label="للمستوى الجاي"><u style="width:${L.pct}%"></u></div><small>${NUM(L.into)} من ${NUM(L.need)} خبرة على المستوى ${AR(L.n+1)}${L.next?` — رتبة «${L.next[0]}» عند المستوى ${AR(L.next[1])}`:''}</small></div></section>
- <p class="sd-wnote">${IC('star')}<span><b>الخبرة</b> ترفع مستواك ورتبتك — من المذاكرة والألعاب، وما تنشرى ولا تنصرف. <b>العملات</b> رصيدك داخل الفطن (ما تتحوّل لفلوس) — تكسبها أو تشحنها وتشتري فيها.</span></p>
  ${(()=>{ /* round 10 (brief §15): first what she can do now to earn XP, each with its way in; the full ladder and every rule fold under it */
   const X=ECON.xp, C=ECON.coins, Gm=ECON.games, w=(ic0,tt,xp,cn,at,lbl)=>`<li><span class="ic">${ic0}</span><span class="t"><b>${tt}</b><small><span class="xp">${XPI(14)}+${AR(xp)} خبرة</span>${cn?` <span class="cn">${CNI(14)}+${NUM(cn)} عملة</span>`:''}</small></span><button type="button" class="sd-gh2 sm" ${at}>${lbl}</button></li>`;
   return sec(G('كيف ترفع مستواك اليوم','كيف ترفعين مستواك اليوم'),`<ul class="sd-lvw">${[w(IC('tests'),'خلّص اختبار من ١٠ أسئلة أو أكثر',X.finish,C.finish,'data-go="create"',G('أنشئ اختبار','أنشئي اختبار')),w(IC('star'),G('جاوب تحدّي اليوم صح','جاوبي تحدّي اليوم صح'),X.daily,C.daily,'data-go="home"','تحدّي اليوم'),hasCourse()?w(IC('play'),'خلّص درس',CFG().points.lesson,0,'data-go="course"','دورتي'):'',w(IC('errors'),'صحّح خطأ قديم',X.fixBonus,0,'data-go="errors"','أخطائي'),w(IC('users'),G('العب مع أصحابك وافز','العبي مع صاحباتك وافزي'),Gm.party.win.xp,Gm.party.win.coins,'data-go="lobby"','اللوبي')].join('')}</ul><p class="sd-mut">${G('الألعاب لها حد في اليوم','الألعاب لها حد في اليوم')} (${AR(Gm.capXp)} خبرة) — بعده ${G('تقدر تكمل لعب ومذاكرة','تقدرين تكملين لعب ومذاكرة')} بلا خبرة إضافية من الألعاب. الخبرة ما تنشرى.</p>`,{sub:'كل وحدة منها تجيب خبرة الحين'}); })()}
  <details class="sd-lvx"><summary>سلّم الرتب وكل قواعد المكافآت${LI.down}</summary>
+  <p class="sd-wnote">${IC('star')}<span><b>الخبرة</b> ترفع مستواك ورتبتك — من المذاكرة والألعاب، وما تنشرى ولا تنصرف. <b>العملات</b> رصيدك داخل الفطن (ما تتحوّل لفلوس) — تكسبها أو تشحنها وتشتري فيها.</span></p>
  ${sec('الرتب',`<ol class="sd-ranks">${RK7.map(([t,lv,c],i)=>`<li class="${i<L.r?'ok':i===L.r?'now':''}" style="--rc:${c}">${RKI(i,34)}<b>${t}</b><small>من المستوى ${AR(lv)}</small>${i?`<em>${RKGIFT[i]}</em>`:'<em>البداية</em>'}</li>`).join('')}</ol>`,{sub:'كل رتبة تفك لفطنك قطعة ما تنشرى'})}
  ${(()=>{ const X=ECON.xp, C=ECON.coins, Gm=ECON.games, row=(t,x,c,k)=>`<tr><th>${t}${k&&by[k]?`<small>${G('جمعت','جمعتِ')} منها ${NUM(by[k])}</small>`:''}</th><td>${x?`<span class="sd-rw"><span class="xp">${XPI(14)}<b>${AR(x)}</b></span></span>`:'—'}</td><td>${c?`<span class="sd-rw"><span class="cn">${CNI(14)}<b>${NUM(c)}</b></span></span>`:'—'}</td></tr>`, tb=(h,rows)=>`<table class="sd-econ"><thead><tr><th>${h}</th><th>خبرة</th><th>عملات</th></tr></thead><tbody>${rows}</tbody></table>`;
   return sec('طريقة جمع الخبرة والعملات',tb('المذاكرة',row('كل إجابة صح',X.correct,0,'correct')+row('صحّحت خطأ قديم (زيادة)',X.fixBonus,0,'fix')+row('خلّصت اختبار (١٠ أسئلة أو أكثر)',X.finish,C.finish,'finish')+row('التشخيص',X.diag,0,'diag')+row('تحدّي اليوم صح',X.daily,C.daily,'daily')+(hasCourse()?row('خلّصت درس',X.lesson,0,'lesson')+row('خلّصت يوم خطتك',X.planDay,0,'planDay'):'')+row('ذاكرت اليوم',X.studyDay,0,'studyDay')+row('٧ أيام ورا بعض',X.week7,C.week7,'week7')+row('شاركت إنجازك ستوري (مرة في اليوم)',X.share,0,'share'))
@@ -26122,12 +26330,12 @@ const stparent={n:'ولي الأمر',h:()=>{ PVPREV=0; const p=PAR(), ps=parSt(
    :ps==='wait'?`<button type="button" class="sd-go lg" data-sdpresend>${LI.send}أرسل الرابط مرة ثانية</button><button type="button" class="sd-lnk2" data-sdpchg>غيّر الرقم</button>`
    :`<button type="button" class="sd-go lg" data-sdpvprev>${IC('eye')}${G('شوف','شوفي')} صفحته</button><button type="button" class="sd-gh2 lg" data-sdrep>${LI.file}تقريرك الأسبوعي</button>`}</div></section>
  <section class="sd-p9s">${H(`وش يشوف ولي ${G('أمرك','أمرك')}؟`,`${G('تختار','تختارين')} هذي الثلاث — والتقرير يتبعها`)}<ul class="sd-tg">${[['days','أيام مذاكرتك'],['res','درجات اختباراتك'],['err','نقاط ضعفك']].map(([k,t])=>`<li><b>${t}</b><em class="sw-t${sh[k]?' on':''}">${sh[k]?'يشوفها':'مخفية'}</em><button type="button" class="sd-sw" role="switch" data-sdpsh="${k}" aria-checked="${!!sh[k]}" aria-label="${t}"><i></i></button></li>`).join('')}<li class="al"><b>يشوفها دائمًا</b><em>الجاهزية وتقدّم الدورة</em></li></ul>${ps==='linked'?'':`<div class="sd-prow"><button type="button" class="sd-gh2" data-sdrep>${LI.file}شوف تقريرك الأسبوعي</button><button type="button" class="sd-gh2" data-sdpvprev>${IC('eye')}${G('شوف','شوفي')} صفحته ${G('كأنك','كأنكِ')} هو</button></div>`}</section>
- <section class="sd-p9s">${H('طلباتي منه',rq.length?'':'')}${rq.length?`<div class="sd-rqs7">${rq.slice(0,6).map(r=>reqCard(r,'me')).join('')}</div>`:`<p class="sd-mut">ما ${G('طلبت','طلبتِ')} شي للحين — ${G('اطلب','اطلبي')} من «طلب جديد».</p>`}</section>
- <section class="sd-p9s">${H(`طلب جديد`,'يوصله الطلب على جواله ويدفع من صفحته')}<div class="sd-p9ask">${asks.map(([k,a,ic0,t2,d])=>`<button type="button" class="sd-p9a" data-sdask="${a}"><span class="ic">${ic0}</span><b>${t2}</b><small>${d}</small></button>`).join('')}</div></section>
+ <section class="sd-p9s sd-prq13">${H(`${G('اطلب','اطلبي')} من ولي أمرك`,'يوصله الطلب على جواله ويدفع من صفحته')}<div class="sd-p9ask sd-p13ask" role="list">${asks.map(([k,a,ic0,t2,d])=>`<button type="button" class="sd-p9a" role="listitem" data-sdask="${a}"><span class="ic">${ic0}</span><span class="t"><b>${t2}</b><small>${d}</small></span>${LI.chev}</button>`).join('')}</div>
+  <h3 class="sd-p13h">طلباتك</h3>${rq.length?`<div class="sd-rqs7">${rq.slice(0,6).map(r=>reqCard(r,'me')).join('')}</div>`:`<p class="sd-mut">ما ${G('طلبت','طلبتِ')} شي للحين — أول طلب يطلع هنا بحالته.</p>`}</section>
  ${m&&ps==='linked'?`<section class="sd-p9s">${H('آخر رسالة منه')}${msgBubble(m)}</section>`:''}
  ${ps==='linked'?`<details class="sd-pinfo sd-p9s"><summary>${IC('bulb')}كيف يشتغل ربط ولي الأمر؟${LI.down}</summary>${info}</details>`:`<section class="sd-p9s">${H(`وش يوصل ولي ${G('أمرك','أمرك')}؟`,'بلا تطبيق ولا حساب — رقم جواله يكفي')}${info}</section>`}</div>`; },
  on:el=>{ el.addEventListener('click',e=>{ const t=e.target, p=PAR(), re=()=>{ save(); el.innerHTML=stparent.h(); };
-  if(t.closest('[data-sdpadd]')){ const v=(($('[data-sdpph2]',el)||{}).value||'').trim().replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)); if(!/^05\d{8}$/.test(v)) return toast('اكتب رقم جواله: ١٠ أرقام يبدأ بـ ٠٥'); p.phone=v; p.st='sent'; st().user.pphone=v; toast('أرسلنا له رسالة فيها الرابط'); re(); return; }
+  if(t.closest('[data-sdpadd]')){ const v=(($('[data-sdpph2]',el)||{}).value||'').trim().replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)); if(!/^05\d{8}$/.test(v)) return fieldBad(el,'[data-sdpph2]','رقم جوال ولي أمرك: ١٠ أرقام يبدأ بـ ٠٥ — مثل 0551234567'); /* round 13 (brief §12): under its field, the number kept */ p.phone=v; p.st='sent'; st().user.pphone=v; toast('أرسلنا له رسالة فيها الرابط'); re(); return; }
   if(t.closest('[data-sdpresend]')){ toast('أرسلناها مرة ثانية'); return; }
   /* agents' pass: changing a LINKED parent's number asks first — it ends the link until the new number confirms */
   if(t.closest('[data-sdpchg]')){ const doit=()=>{ p.phone=''; p.st='none'; st().user.pphone=''; S0().stu.pin=0; re(); }; if(p.st!=='linked') return doit();
@@ -26257,7 +26465,7 @@ const stinvite={n:'ادعُ أصحابك',h:()=>{ const R=REC(), inv=R.invites, 
  <section class="trk" aria-label="مكافآتك"><header><h3>مكافآتك</h3><small>${n?`${G('اشترك معك','اشتركت معك')} ${pl(n,PALS())}`:'ما اشترك أحد بكودك للحين'}</small></header>
   <div class="line"><span class="bar" aria-hidden="true"><u style="width:${fill}%"></u></span><ol>${steps.map(([k])=>{ const got=n>=k, nxt=nx&&nx[0]===k; return `<li class="${got?'ok':nxt?'nx':''}"><span class="md">${MEDAL[k]()}${got?`<i class="ck">${IC('check')}</i>`:''}</span><b>${lbl[k]}</b><small>${k===1?sub[1]:`لما ${G('يشترك','تشترك')} ${sub[k]}`}</small>${nxt?`<em>باقي ${AR(k-n)}</em>`:got?`<em class="ok">${G('حصلتها','حصلتيها')}</em>`:''}</li>`; }).join('')}</ol></div></section>
  <section class="ppl"><header><h3>اللي ${G('دعوتهم','دعوتيهم')}</h3></header>${inv.length?`<ul>${inv.slice().reverse().map(x=>`<li class="${x.paid?'ok':''}"><b>${esc(x.name||G('صاحب','صاحبة'))}</b><em>${x.paid?`${IC('check')}${G('اشترك','اشتركت')}`:G('سجّل — ما اشترك','سجّلت — ما اشتركت')}</em>${x.paid?`<span class="plus">${CNI(14)}+${NUM(EARN.invite)}</span>`:''}</li>`).join('')}</ul>`:`<p class="sd-mut">أول ما ${G('أحد يسجّل','وحدة تسجّل')} بكودك ${G('يطلع','تطلع')} هنا.</p>`}</section>
- <section class="amb amb11 amb12${hasAmb?' got':''}"><div class="stage"><i class="rays" aria-hidden="true"></i><span class="sd-fz" data-fitn data-fitn-variant="${esc(lk.variant||G('boy','girl'))}" data-fitn-outfit="amb" data-fitn-ex="proud" data-fitn-play="nod" aria-hidden="true"></span><span class="ttl">سفير الفطن</span></div>
+ <section class="amb amb11 amb12 amb13${hasAmb?' got':''}"><div class="stage"><i class="rays" aria-hidden="true"></i><span class="sd-fz" data-fitn data-fitn-variant="${esc(lk.variant||G('boy','girl'))}" data-fitn-outfit="amb" data-fitn-ex="proud" data-fitn-play="nod" aria-hidden="true"></span><span class="ttl">سفير الفطن</span></div>
   <div class="tx"><span class="k">${IC('star')}حصري — ما ينباع في المتجر</span><h3>زي «سفير الفطن»</h3><p>عباءة خضراء ووسام ذهبي، ${G('يلبسه فطنك','تلبسه فطنتك')} في الرئيسية واللوبي، ويشوفه كل أصحابك.</p>
    ${hasAmb?`<button type="button" class="sd-go lg" data-sdward>${IC('check')}${G('صار لك — البسه من خزانتك','صار لك — البسيه من خزانتك')}</button>`:`<div class="pg"><span class="bar"><u style="width:${Math.min(100,n/3*100)}%"></u></span><b>${AR(Math.min(n,3))} من ٣</b></div><small>${G('ادعُ','ادعي')} ${pl(3-n,PALS())} ${n?'كمان ':''}${G('ويصير لك','ويصير لكِ')}</small>`}</div></section></div>`; },
  on:el=>{ el.addEventListener('click',e=>{ const t=e.target; /* audit BUG-06: the copy counts only when it worked; WhatsApp opens for real (wa.me with the message) — opening it is not a send, so it is kept apart */
@@ -26349,10 +26557,10 @@ const A=(n,nav,blocks,o)=>Object.assign({n,g:'المنصة',shell:'app',nav,v:3,
 const LOB=A('اللوبي','lobby',[B('nat','stlobby')]);
 const SCREENS={home:A('الرئيسية','home',[B('nat','sthome')]),course:A('دورتي','course',[B('nat','stcourse')]),unit:A('الدرس','course',[B('nat','stunit')]),lesson:A('الدرس','course',[B('nat','stunit')]),
  create:A('أنشئ اختبار','create',[B('nat','stcreate')]),tests:A('اختباراتي','tests',[B('nat','sttests')]),testan:A('تحليل الاختبار','tests',[B('nat','sttestan')]),errors:A('أخطائي','errors',[B('nat','sterrors')]),notes:A('ملاحظاتي','notes',[B('nat','stnotes')]),insights:A('تحليلاتي','insights',[B('nat','stinsight')]),
- lobby:LOB,duel:LOB,store:LOB,break:LOB,parent:A('ولي الأمر','parent',[B('nat','stparent')]),invite:A('ادعُ أصحابك','invite',[B('nat','stinvite')]),packs:A('اشتراكي ورصيدي','packs',[B('nat','stpacks'),B('id','GROW-PLANS-A','full'),B('nat','stpacks2')]),points:A('مستواي','level',[B('nat','stlevel')]),level:A('مستواي','level',[B('nat','stlevel')]),wallet:A('اشتراكي ورصيدي','wallet',[B('nat','stwallet')]),account:A('الإعدادات','account',[B('nat','staccount')]),
+ lobby:LOB,duel:LOB,store:LOB,break:LOB,parent:A('ولي الأمر','parent',[B('nat','stparent')]),invite:A('ادعُ أصحابك','invite',[B('nat','stinvite')]),packs:A('اشتراكي ورصيدي','packs',[B('nat','stpacks'),B('id','GROW-PLANS-A','full')]),points:A('مستواي','level',[B('nat','stlevel')]),level:A('مستواي','level',[B('nat','stlevel')]),wallet:A('اشتراكي ورصيدي','wallet',[B('nat','stwallet')]),account:A('الإعدادات','account',[B('nat','staccount')]),
  about:{n:'عرّفنا عليك',g:'البداية',shell:'bare',step:2,blocks:[B('nat','stabout','full')]},
  result:A('النتيجة','tests',[B('nat','stresult')]),parentview:A('صفحة ولي الأمر','parent',[B('nat','stparentview')],{solo:'parent'}),join:A('التسجيل بدعوة','invite',[B('nat','stjoin')],{solo:'invite'})};
-const nat={sthome,stcourse,stunit,stcreate,sttests,sttestan,sterrors,stnotes,stinsight,stlobby,stparent,stparentview,stinvite,stjoin,stpacks,stpacks2,stlevel,stwallet,staccount,stresult,stabout};
+const nat={sthome,stcourse,stunit,stcreate,sttests,sttestan,sterrors,stnotes,stinsight,stlobby,stparent,stparentview,stinvite,stjoin,stpacks,stlevel,stwallet,staccount,stresult,stabout};
 return {nat,noFit:Object.keys(nat),screens:SCREENS,shell,stage}; };
 
 /* ---- proto ---- */
