@@ -8752,7 +8752,7 @@ h1,h2,h3,.sd-sh h2,.sd-empty p,.pr-d,.sd-isl .lb b{text-wrap:balance}p,small{tex
 .sd-mod .sd-frme.sd-frme14>b{display:grid;place-items:center;min-height:44px;padding:0 16px;border-radius:12px;background:var(--sd-soft);font:800 19px/1 var(--f-ui);letter-spacing:0;color:var(--sd-ink)}
 .sd-mod .sd-frme.sd-frme14>button{min-height:44px;min-width:120px;justify-content:center}
 @container ptapp (max-width:760px){ .sd-mod .sd-frme.sd-frme14{grid-template-columns:1fr 1fr} .sd-mod .sd-frme.sd-frme14>b{grid-column:1/-1} .sd-mod .sd-frme.sd-frme14>button{min-width:0} }
-@container ptapp (min-width:761px){ .sd-app .sd-lob .ft-lb .ft-lb-dock{transform:translateY(16px)} } /* round 14: the buttons sit a little lower so the fire shows above them */
+@container ptapp (min-width:761px){ .sd-app .sd-lob .ft-lb .ft-lb-dock .dk>:not(.sd-lgame){transform:translateY(16px)} } /* round 14: the buttons sit a little lower so the fire shows above them; round 16 (owner's video): only the buttons — the game column stays whole on the screen when a game is chosen */
 /* round 14: ادعي صاحبتك — a soft violet card, her Fitn, the two gifts as tiles */
 .sd-app .sd-inv9 .ih14{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:16px 24px;padding:24px;border-radius:16px;border:1px solid color-mix(in srgb,var(--sd-v) 22%,transparent);background:linear-gradient(135deg,#F3EEFF,#FFF6E3);box-shadow:none}
 .sd-app .sd-inv9 .ih14>.f{width:96px;height:96px}
@@ -8901,7 +8901,7 @@ h1,h2,h3,.sd-sh h2,.sd-empty p,.pr-d,.sd-isl .lb b{text-wrap:balance}p,small{tex
 @media (prefers-reduced-motion:no-preference){
  .sd-mod15 .sd-modin{animation:sdPop15 .4s cubic-bezier(.2,1.4,.4,1)}
   }
-@media (prefers-reduced-motion:reduce){ @keyframes sdPop15{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:none}}
+@keyframes sdPop15{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:none}}
 /* round 15 (owner: «العلم مقلوب» — in محتوى الدورة of الاختبارات): the rule that turns the open group's arrow upside down turned the unit's own
    icon too (the flag, the file); the icon in the coloured circle never turns and stays white */
 .sd-app .sd-crs10 .sd-cntn .sd-unit>.mh.mh .no svg,.sd-app .sd-les10 .sd-ltree .lg>.lgh.lgh .no svg,.sd-app .sd-ltree .lg .lgh .no svg,.sd-app .sd-unit .mh .no svg{transform:none!important;color:#fff!important}
@@ -8981,6 +8981,28 @@ h1,h2,h3,.sd-sh h2,.sd-empty p,.pr-d,.sd-isl .lb b{text-wrap:balance}p,small{tex
  .sd-app .sd-qn16 .sd-qnote{margin:0 16px 12px}
 }
 .sd-app .sd-player .bar .ctl.sk[data-sdskp="5"] svg{order:2}
+/* round 16 (owner's video: «أختار لعبة والشاشة كبيرة — تنزل تحت وتختفي»): on a computer the dock keeps its idle place in the scene and what is in it
+   grows upward, so a chosen game (its card, the line under it and its button) always stays on the screen, whatever the window's height */
+@container ptapp (min-width:761px){ .sd-app .sd-lob .ft-lb>.ft-lb-dock{position:relative;height:80px;z-index:3} .sd-app .sd-lob .ft-lb>.ft-lb-dock>.dk{position:absolute;bottom:0;left:0;right:0} }
+/* round 16 (owner): أخطائي › «من اختبار» is a table — رقم | الاختبار | التاريخ | الأخطاء, each in its column */
+.sd-app [data-sdpop="et"] .sd-ddm{width:min(600px,calc(100vw - 32px));padding:8px}
+.sd-app .sd-eth,.sd-app .sd-eto.sd-eto16{display:grid;grid-template-columns:48px minmax(0,1fr) 136px 64px;align-items:center;gap:12px;width:100%;text-align:start}
+.sd-app .sd-eth{padding:8px 12px;border-bottom:1px solid var(--sd-line);font:800 12px/1.4 var(--f-ui);color:var(--sd-mut)}
+.sd-app .sd-eth span:nth-child(4),.sd-app .sd-eto.sd-eto16 em{justify-self:center;text-align:center}
+.sd-app .sd-eto.sd-eto16{min-height:48px;padding:8px 12px;border:0;border-bottom:1px solid var(--sd-line);border-radius:0}
+.sd-app .sd-eto.sd-eto16:last-child{border-bottom:0}
+.sd-app .sd-eto.sd-eto16.on,.sd-app .sd-eto.sd-eto16:hover{border-radius:12px;background:var(--sd-soft)}
+.sd-app .sd-eto.sd-eto16 .n{font:800 16px/1.4 var(--f-ui);color:var(--sd-ink2)}
+.sd-app .sd-eto.sd-eto16 .t{min-width:0}
+.sd-app .sd-eto.sd-eto16 .t b{display:block;overflow:visible;white-space:normal;font:800 16px/1.5 var(--f-ui);color:var(--sd-ink)}
+.sd-app .sd-eto.sd-eto16 .d{font:600 14px/1.4 var(--f-ui);color:var(--sd-mut);white-space:nowrap}
+.sd-app .sd-eto.sd-eto16 em{display:inline-grid;place-items:center;min-width:32px;height:28px;padding:0 8px;border-radius:999px;background:#FBE9E7;color:#B3261E;font:800 14px/1 var(--f-ui);font-style:normal}
+@container ptapp (max-width:760px){
+ .sd-app .sd-eth,.sd-app .sd-eto.sd-eto16{grid-template-columns:40px minmax(0,1fr) 56px}
+ .sd-app .sd-eth span:nth-child(3),.sd-app .sd-eto.sd-eto16 .d{display:none}
+}
+.sd-app .sd-eto.sd-eto16 .n:empty{background:none;box-shadow:none}
+@container ptapp (min-width:761px){ .sd-app [data-sdpop="et"].sd-dd .sd-ddm{left:0!important;right:auto!important} }
 /* ==== /ux10 ==== */
 /* ==== land9: generated — a phone held sideways uses the phone layout (do not edit by hand) ==== */
 @media (pointer:coarse) and (max-height:500px) and (orientation:landscape){
@@ -9426,6 +9448,10 @@ h1,h2,h3,.sd-sh h2,.sd-empty p,.pr-d,.sd-isl .lb b{text-wrap:balance}p,small{tex
  .sd-app .sd-nl16 .ac{grid-column:1/-1;justify-content:flex-end}
  .sd-app .sd-qn16 .sd-qnote{margin:0 16px 12px}
 
+
+ .sd-app .sd-eth,.sd-app .sd-eto.sd-eto16{grid-template-columns:40px minmax(0,1fr) 56px}
+ .sd-app .sd-eth span:nth-child(3),.sd-app .sd-eto.sd-eto16 .d{display:none}
+
 }
 @container ptapp (min-width:761px) and (max-width:900px){
 
@@ -9869,6 +9895,10 @@ h1,h2,h3,.sd-sh h2,.sd-empty p,.pr-d,.sd-isl .lb b{text-wrap:balance}p,small{tex
  .sd-app .sd-nl16 .th{width:80px}
  .sd-app .sd-nl16 .ac{grid-column:1/-1;justify-content:flex-end}
  .sd-app .sd-qn16 .sd-qnote{margin:0 16px 12px}
+
+
+ .sd-app .sd-eth,.sd-app .sd-eto.sd-eto16{grid-template-columns:40px minmax(0,1fr) 56px}
+ .sd-app .sd-eth span:nth-child(3),.sd-app .sd-eto.sd-eto16 .d{display:none}
 
 }
 /* ==== /land9 ==== */
@@ -25969,8 +25999,10 @@ const errCard=(e)=>{ const [lu,ll]=lesCM(e.les), T=testById(e.tid), ch=e.fixed?n
    tag:e.fixed?`<b class="tg">${IC('check')}صار صح</b>`:e.tids.length>1?`<b class="tg">${G('غلطت فيه','غلطتِ فيه')} ${pl(e.tids.length,['مرة','مرتين','مرات','مرة'])}</b>`:''})}
  <div class="sd-ea15">${e.fixed?'':isFree()?`<button type="button" class="sd-gh2" data-sdlock="pro" data-sdlockw="err">${LI.lock}${G('تدرّب على المهارة','تدرّبي على المهارة')}</button>`:sk&&sk.n?`<button type="button" class="sd-gh2" data-sdeq1="${e.key}" title="«${esc(skName(q.skill))}»: ${esc(skLine(sk.n,sk.ns))}">${IC('tests')}${G('تدرّب على المهارة','تدرّبي على المهارة')}</button>`:sk?`<small class="sd-eqh">${skLine(0,0)}</small>`:''}${hasCourse()?`<button type="button" class="sd-gh2" data-sdunit="${lu}" data-sdles="${ll}">${IC('play')}${G('راجع الدرس','راجعي الدرس')}</button>`:''}${isFree()?'':`<button type="button" class="sd-gh2" data-sdenote="${e.key}">${LI.type}${nn.length?G('عدّل ملاحظتك','عدّلي ملاحظتك'):G('أضف ملاحظة','أضيفي ملاحظة')}</button>`}</div>`; };
 /* «من اختبار»: a clear list — the test, its date, and how many of its mistakes are still open (owner 2026-10-16) */
+/* round 16 (owner: «كانت جدول — صفوف وأعمدة: الرقم، اسم الاختبار، التاريخ… كل عنصر في خليته»): a real table — a head row, then one row per test,
+   each value in its own aligned column; the name is never cut */
 const etMenu=(all,et)=>{ const ts=testRows().filter(r=>all.some(e=>e.tids.includes(r.id)));
- return `<button type="button" role="menuitemradio" class="sd-eto${!et?' on':''}" data-sdet="" aria-checked="${!et}"><span class="t"><b>كل الاختبارات</b></span><em>${AR(all.length)}</em></button>`+ts.map(r=>`<button type="button" role="menuitemradio" class="sd-eto${et===r.id?' on':''}" data-sdet="${r.id}" aria-checked="${et===r.id}"><span class="n">${AR(r.no)}</span><span class="t"><b>${esc(about(r))}</b><small>${fdate(tDate(r))}</small></span><em>${AR(all.filter(e=>e.tids.includes(r.id)).length)}</em></button>`).join(''); };
+ return `<div class="sd-eth" aria-hidden="true"><span>رقم</span><span>الاختبار</span><span>التاريخ</span><span>الأخطاء</span></div><button type="button" role="menuitemradio" class="sd-eto sd-eto16${!et?' on':''}" data-sdet="" aria-checked="${!et}"><span class="n"></span><span class="t"><b>كل الاختبارات</b></span><span class="d"></span><em>${AR(all.length)}</em></button>`+ts.map(r=>`<button type="button" role="menuitemradio" class="sd-eto sd-eto16${et===r.id?' on':''}" data-sdet="${r.id}" aria-checked="${et===r.id}" aria-label="${tName(r)}: ${esc(about(r))} — ${fdate(tDate(r))} — ${pl(all.filter(e=>e.tids.includes(r.id)).length,['خطأ واحد','خطأين','أخطاء','خطأ'])}"><span class="n">${AR(r.no)}</span><span class="t"><b>${esc(about(r))}</b></span><span class="d">${fdate(tDate(r))}</span><em>${AR(all.filter(e=>e.tids.includes(r.id)).length)}</em></button>`).join(''); };
 const sterrors={n:'أخطائي',h:()=>{ const s=S0(), all=errItems(), et=s.stu.etest||null, eu=s.stu.eu??null, ep=s.stu.ep||'all', fx=s.stu.efix==='fixed';
  if(!testRows().length) return empty('errors','أخطاؤك تجي هنا','كل سؤال تغلط فيه يجي هنا مع الفكرة الصح.',`<button type="button" class="sd-go" data-sddiag>ابدأ التشخيص</button>`);
  const L=eList(), T=et?testById(et):null, i=Math.max(0,Math.min(L.length-1,s.stu.ei||0));
