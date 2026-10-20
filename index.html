@@ -8802,9 +8802,6 @@ h1,h2,h3,.sd-sh h2,.sd-empty p,.pr-d,.sd-isl .lb b{text-wrap:balance}p,small{tex
 .sd-app .sd-player .bar{flex-wrap:wrap;gap:8px}
 .sd-app .sd-player .bar input[type=range]{order:-1;flex:1 1 100%;margin:0}
 .sd-app .sd-player .bar b[data-sdtime]{margin-inline:8px auto}
-.sd-app .sd-player .bar .ctl.sk{position:relative;padding:0 4px}
-.sd-app .sd-player .bar .ctl.sk small{position:absolute;inset:0;display:grid;place-items:center;padding-top:2px;font:800 12px/1 var(--f-ui)}
-.sd-app .sd-player .bar .ctl.sk svg{width:32px;height:32px}
 .sd-app .sd-player .bar .ctl.sp.on{background:#fff;color:var(--sd-vd)}
 .sd-app .sd-player .spw{position:relative;flex:none}
 .sd-app .sd-player .spm{position:absolute;inset-block-end:calc(100% + 8px);inset-inline-start:50%;z-index:5;display:grid;gap:4px;width:136px;padding:8px;border-radius:16px;background:#fff;box-shadow:0 12px 32px rgba(14,10,38,.35);transform:translateX(50%)}
@@ -8901,25 +8898,16 @@ h1,h2,h3,.sd-sh h2,.sd-empty p,.pr-d,.sd-isl .lb b{text-wrap:balance}p,small{tex
 .sd-pm15 .sd-go{width:100%;justify-content:center}
 .sd-pm15 .sd-x{position:absolute;inset-block-start:8px;inset-inline-end:8px;z-index:2;display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;border-radius:12px;background:none;box-shadow:none;color:#6B5A9E;font:600 24px/1 var(--f-ui);cursor:pointer}
 .sd-pm15 .sd-x:hover{background:rgba(42,36,112,.08)}
-.sd-pm15 .cf{position:absolute;inset:0 0 auto;height:168px;overflow:hidden;pointer-events:none}
-.sd-pm15 .cf i{position:absolute;inset-block-start:-12px;width:8px;height:12px;border-radius:8px;background:#5A3BD0;opacity:.8}
-.sd-pm15 .cf i:nth-child(3n+1){background:#FFC94A}.sd-pm15 .cf i:nth-child(3n+2){background:#1F9D6B}.sd-pm15 .cf i:nth-child(4n){background:#E0661B}
-.sd-pm15 .cf i:nth-child(1){left:8%}.sd-pm15 .cf i:nth-child(2){left:16%}.sd-pm15 .cf i:nth-child(3){left:24%}.sd-pm15 .cf i:nth-child(4){left:32%}.sd-pm15 .cf i:nth-child(5){left:40%}.sd-pm15 .cf i:nth-child(6){left:48%}
-.sd-pm15 .cf i:nth-child(7){left:56%}.sd-pm15 .cf i:nth-child(8){left:64%}.sd-pm15 .cf i:nth-child(9){left:72%}.sd-pm15 .cf i:nth-child(10){left:80%}.sd-pm15 .cf i:nth-child(11){left:88%}.sd-pm15 .cf i:nth-child(12){left:94%}
 @media (prefers-reduced-motion:no-preference){
  .sd-mod15 .sd-modin{animation:sdPop15 .4s cubic-bezier(.2,1.4,.4,1)}
- .sd-pm15 .cf i{animation:sdCf15 1.8s ease-in forwards}
- .sd-pm15 .cf i:nth-child(2n){animation-delay:.2s;animation-duration:1.5s}.sd-pm15 .cf i:nth-child(3n){animation-delay:.4s;animation-duration:2s}
-}
-@media (prefers-reduced-motion:reduce){ .sd-pm15 .cf{display:none} }
-@keyframes sdPop15{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:none}}
-@keyframes sdCf15{from{transform:translateY(0) rotate(0)}to{transform:translateY(180px) rotate(320deg);opacity:0}}
+  }
+@media (prefers-reduced-motion:reduce){ @keyframes sdPop15{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:none}}
 /* round 15 (owner: «العلم مقلوب» — in محتوى الدورة of الاختبارات): the rule that turns the open group's arrow upside down turned the unit's own
    icon too (the flag, the file); the icon in the coloured circle never turns and stays white */
 .sd-app .sd-crs10 .sd-cntn .sd-unit>.mh.mh .no svg,.sd-app .sd-les10 .sd-ltree .lg>.lgh.lgh .no svg,.sd-app .sd-ltree .lg .lgh .no svg,.sd-app .sd-unit .mh .no svg{transform:none!important;color:#fff!important}
 /* round 15 (owner: «العقل يبقى ثابت فوق حتى لو لوحة الوحدة طويلة مثل الهندسة»): the brain sits at the top of its row and stays in view while the panel scrolls */
 .sd-app .sd-brainw{align-items:start}
-.sd-app .sd-brainw>.sd-bhead{align-self:start;position:sticky;inset-block-start:80px}
+.sd-app .sd-brainw>.sd-bhead{align-self:start} /* round 16 (owner): it stays where it is — it does not follow the page down */
 /* round 15 (owner: «الفطن في زي سفير الفطن يكون في نص إطاره»): the Fitn is placed by the frame itself, not by the flow — centred both ways, lifted a little so its feet sit inside */
 .sd-app .sd-inv9 .amb13 .stage{position:relative}
 .sd-app .sd-inv9 .amb13 .stage>.sd-fz{position:absolute;inset:-8px 0 8px;margin:auto;width:112px;height:112px}
@@ -8932,6 +8920,67 @@ h1,h2,h3,.sd-sh h2,.sd-empty p,.pr-d,.sd-isl .lb b{text-wrap:balance}p,small{tex
 .sd-app[data-mode="space"] .sd-wk .dy.moved *,.sd-app[data-mode="space"] .sd-dayc .sd-carry *{color:#FFE2A0}
 .sd-app[data-mode="space"] .sd-wk .dy.moved em{color:#FFC94A}
 .sd-app[data-mode="space"] .sd-dayc .sd-carry .sd-from{background:rgba(255,201,74,.16)}
+/* ---------- round 16 (owner's last notes) ---------- */
+/* the parent's message: «رسالة تشجيعية من ولي أمرك» and the message, clear */
+.sd-pm15 h2{display:inline-flex;align-items:center;gap:8px;font-size:24px}
+.sd-pm15 h2 svg{width:24px;height:24px;color:#5A3BD0}
+.sd-pm15 .f,.sd-pm15 .f .sd-fz{width:96px;height:96px}
+.sd-pm15 blockquote p{font-size:24px;line-height:1.7}
+/* today's challenge: where the coins went */
+.sd-app .sd-qd .rs.ok16{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:12px 0 0;padding:12px 16px;border-radius:12px;background:#E3F6EE;color:#14513A;font:600 16px/1.6 var(--f-ui)}
+.sd-app .sd-qd .rs.ok16>svg{flex:none;width:20px;height:20px;color:#1B7A54}
+.sd-app .sd-qd .rs.ok16>span{flex:1 1 240px}
+.sd-app[data-mode="space"] .sd-qd .rs.ok16{background:rgba(31,157,107,.2);color:#E3F6EE}
+.sd-app[data-mode="space"] .sd-qd .rs.ok16>svg{color:#8EE0BC}
+/* the player: ◀◀ ٥ث · play · ٥ث ▶▶ as one group */
+.sd-app .sd-player .bar .pg{display:inline-flex;align-items:center;gap:8px}
+.sd-app .sd-player .bar .ctl.sk{gap:4px;padding:0 12px}
+.sd-app .sd-player .bar .ctl.sk svg{width:16px;height:16px}
+.sd-app .sd-player .bar .ctl.sk small{font:800 14px/1 var(--f-ui)}
+/* full screen: the lesson body, showing the player only — every control stays */
+.sd-app .sd-lbody:fullscreen{display:grid;padding:0;background:#0E0A26;overflow:auto}
+.sd-app .sd-lbody:fullscreen>:not(.sd-l1),.sd-app .sd-lbody:fullscreen .sd-l1>:not(.sd-clips){display:none!important}
+.sd-app .sd-lbody:fullscreen .sd-l1,.sd-app .sd-lbody:fullscreen .sd-clips{display:grid;margin:0;padding:0;gap:0}
+.sd-app .sd-lbody:fullscreen .sd-clip{margin:0;padding:0;border:0;border-radius:0;background:none;box-shadow:none}
+.sd-app .sd-lbody:fullscreen .sd-player{display:grid;grid-template-rows:minmax(0,1fr) auto auto;height:100vh;border-radius:0}
+.sd-app .sd-lbody:fullscreen .sd-player .scr{height:auto;min-height:0;aspect-ratio:auto;border-radius:0}
+.sd-app .sd-lbody:fullscreen .sd-player .bar .ctl.wd{display:none}
+.sd-app .sd-lbody:fullscreen .sd-pnote{max-height:40vh;overflow:auto}
+/* محتوى الدورة: its sticky head covers what scrolls under it, also in the frame's top padding */
+.sd-app .sd-ltree .th{box-shadow:0 -48px 0 var(--sd-card)}
+/* ملاحظاتي › على دروسي: the notes under their lesson; on each, a small dark clip with ▶ and the minute */
+.sd-app .sd-nlg16{display:grid;margin:0 0 16px;border:1px solid var(--sd-line);border-radius:16px;background:var(--sd-card);overflow:hidden}
+.sd-app .sd-nlg16>header{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:12px 16px;border-inline-start:4px solid var(--c);background:color-mix(in srgb,var(--c) 8%,var(--sd-card))}
+.sd-app .sd-nlg16>header small{font:800 12px/1.4 var(--f-ui);color:var(--sd-mut)}
+.sd-app .sd-nlg16>header b{font:800 16px/1.5 var(--f-ui);color:var(--sd-ink)}
+.sd-app .sd-nlg16>header em{margin-inline-start:auto;font:600 14px/1.4 var(--f-ui);font-style:normal;color:var(--sd-mut)}
+.sd-app .sd-nlg16 .sd-nl13s{display:grid;margin:0;padding:0;list-style:none}
+.sd-app .sd-nl16{display:grid;grid-template-columns:96px minmax(0,1fr) auto;align-items:center;gap:12px 16px;margin:0;padding:12px 16px;border:0;border-top:1px solid var(--sd-line);border-radius:0;background:none;box-shadow:none}
+.sd-app .sd-nl16:first-child{border-top:0}
+.sd-app .sd-nl16 .th{display:grid;justify-items:center;align-content:center;gap:4px;width:96px;height:56px;padding:0;border:0;border-radius:12px;background:linear-gradient(160deg,#2A2470,#0E0A26);color:#fff;cursor:pointer;box-shadow:none}
+.sd-app .sd-nl16 .th .pl{display:grid;place-items:center;width:24px;height:24px;border-radius:999px;background:rgba(255,255,255,.2)}
+.sd-app .sd-nl16 .th .pl svg{width:16px;height:16px}
+.sd-app .sd-nl16 .th b{font:800 12px/1 var(--f-ui);direction:ltr}
+.sd-app .sd-nl16 .th:hover{background:linear-gradient(160deg,#5A3BD0,#2A2470)}
+.sd-app .sd-nl16 .tx{display:grid;gap:4px;min-width:0}
+.sd-app .sd-nl16 .tx p{margin:0;font:800 16px/1.7 var(--f-ui);color:var(--sd-ink)}
+.sd-app .sd-nl16 .tx small{font:600 12px/1.4 var(--f-ui);color:var(--sd-mut)}
+.sd-app .sd-nl16 .tx textarea{width:100%;padding:8px 12px;border:2px solid #CFC6F5;border-radius:12px;font:600 16px/1.7 var(--f-ui)}
+.sd-app .sd-nl16 .ac{display:flex;align-items:center;gap:4px}
+.sd-app .sd-nl16 .ac .sd-ib2{width:44px;height:44px}
+.sd-app .sd-nl16.ed{grid-template-columns:96px minmax(0,1fr)}
+.sd-app .sd-nl16.ed .ac{grid-column:2;justify-content:flex-end}
+/* ملاحظاتي › على أسئلتي: the أخطائي card, the note under the question, two buttons under the card */
+.sd-app .sd-qnl.sd-qnl16{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;width:100%;max-width:760px;margin-inline:auto}
+.sd-app .sd-qn16{display:grid;gap:12px}
+.sd-app .sd-qn16 .sd-qnote{margin:0 24px 16px}
+@container ptapp (max-width:760px){
+ .sd-app .sd-nl16{grid-template-columns:80px minmax(0,1fr);padding:12px}
+ .sd-app .sd-nl16 .th{width:80px}
+ .sd-app .sd-nl16 .ac{grid-column:1/-1;justify-content:flex-end}
+ .sd-app .sd-qn16 .sd-qnote{margin:0 16px 12px}
+}
+.sd-app .sd-player .bar .ctl.sk[data-sdskp="5"] svg{order:2}
 /* ==== /ux10 ==== */
 /* ==== land9: generated — a phone held sideways uses the phone layout (do not edit by hand) ==== */
 @media (pointer:coarse) and (max-height:500px) and (orientation:landscape){
@@ -9371,6 +9420,12 @@ h1,h2,h3,.sd-sh h2,.sd-empty p,.pr-d,.sd-isl .lb b{text-wrap:balance}p,small{tex
  .sd-app .h15-tasks>h2 .f,.sd-app .h15-tasks>h2 .f .sd-fz{width:48px;height:48px}
 
  .sd-app .sd-inv9 .amb13 .stage>.sd-fz{width:96px;height:96px} 
+
+ .sd-app .sd-nl16{grid-template-columns:80px minmax(0,1fr);padding:12px}
+ .sd-app .sd-nl16 .th{width:80px}
+ .sd-app .sd-nl16 .ac{grid-column:1/-1;justify-content:flex-end}
+ .sd-app .sd-qn16 .sd-qnote{margin:0 16px 12px}
+
 }
 @container ptapp (min-width:761px) and (max-width:900px){
 
@@ -9809,6 +9864,12 @@ h1,h2,h3,.sd-sh h2,.sd-empty p,.pr-d,.sd-isl .lb b{text-wrap:balance}p,small{tex
  .sd-app .h15-tasks>h2 .f,.sd-app .h15-tasks>h2 .f .sd-fz{width:48px;height:48px}
 
  .sd-app .sd-inv9 .amb13 .stage>.sd-fz{width:96px;height:96px} 
+
+ .sd-app .sd-nl16{grid-template-columns:80px minmax(0,1fr);padding:12px}
+ .sd-app .sd-nl16 .th{width:80px}
+ .sd-app .sd-nl16 .ac{grid-column:1/-1;justify-content:flex-end}
+ .sd-app .sd-qn16 .sd-qnote{margin:0 16px 12px}
+
 }
 /* ==== /land9 ==== */
 
@@ -24717,7 +24778,7 @@ const G=(m,f)=>GEN()==='f'?f:m;
    banners and toasts too — speaks to a girl in the feminine. Only a command counts: a word at the start of a sentence or after «—، : « ( !»,
    or joined to a command by و/ف («اضغط أي جزيرة وافتح…»), so «خالد غيّر اللعبة» stays as it is. Question content and the exam are never touched. */
 const GF_M=(()=>{ const m={}; `اضغط اضغطي|قل قولي|شيل شيلي|شغّل شغّلي|شغل شغلي|وقّف وقّفي|وقف وقفي|بدّل بدّلي|بدل بدلي|اطلب اطلبي|حط حطي|اختار اختاري|أهد أهدي|أنشئ أنشئي|حلّل حلّلي|حلل حللي|اختر اختاري|ادع ادعي|ادعُ ادعي|ابدأ ابدئي|جرّب جرّبي|جرب جربي|شوف شوفي|كمّل كمّلي|ارجع ارجعي|اكتب اكتبي|افتح افتحي|تدرّب تدرّبي|راجع راجعي|ادخل ادخلي|العب العبي|اشحن اشحني|ادفع ادفعي|سجّل سجّلي|خذ خذي|تعال تعالي|انضم انضمي|اطلب اطلبي|أرسل أرسلي|أضف أضيفي|انسخ انسخي|شارك شاركي|غيّر غيّري|احفظ احفظي|اقرأ اقرئي|ركّز ركّزي|تابع تابعي|ذاكر ذاكري|حدّد حدّدي|اطلع اطلعي|خلّص خلّصي|اسأل اسألي|تأكّد تأكّدي|استمر استمري|اقترح اقترحي|ثبّت ثبّتي|فعّل فعّلي|ادرس ادرسي|حمّل حمّلي|اعرف اعرفي|قيّم قيّمي|بلّغ بلّغي|أكمل أكملي|أكّد أكّدي|اترك اتركي|عدّل عدّلي|احذف احذفي|اكتم اكتمي|ارفع ارفعي|اشتر اشتري|اربح اربحي|اجمع اجمعي|وفّر وفّري|امسح امسحي|أعد أعيدي|ابحث ابحثي|اسحب اسحبي|اعرض اعرضي|استعمل استعملي|اربط اربطي|نزّل نزّلي|افهم افهمي|لاحظ لاحظي|توقّف توقّفي|ابعث ابعثي|اقفل اقفلي|سكّر سكّري|اختبر اختبري|اشترك اشتركي|ادعه ادعيه|ادعها ادعيها|دخّله دخّليه|دخّلها دخّليها|خلّه خلّيه|خلّها خلّيها|طلّعه طلّعيه|طلّعها طلّعيها|أضفه أضيفيه|أضفها أضيفيها|اختره اختاريه|اخترها اختاريها|قيّمنا قيّمينا|عرّفنا عرّفينا|بلّغنا بلّغينا|علّمنا علّمينا|خبّرنا خبّرينا|ادخله ادخليه|كبّر كبّري|صغّر صغّري|تمرّن تمرّني|حاول حاولي|انتبه انتبهي|انتظر انتظري|صوّر صوّري|حطّ حطّي|ضيف ضيفي|اسمع اسمعي|ارسم ارسمي|اشرح اشرحي|فكّر فكّري|ألغِ ألغي|الغ الغي|اقرا اقري|ادخلها ادخليها`.split('|').forEach(p=>{ const [a,b]=p.split(' '); m[a.replace(/[ً-ِْ]/g,'')]=b; }); return m; })();
-const GF_SKIP='.wq-stem,.wq-op,.sd-lplay .box,.katex,[data-nogf],.sd-nl13>p,.sd-pm15 blockquote p,.sd-qnote p,.sd-gncard h3,.sd-gncard>p,.sd-cnotes .ls p,.sd-lnotes .ls p,.sd-nopen p,script,style,.sd-rev,input,textarea,[contenteditable="true"]';
+const GF_SKIP='.wq-stem,.wq-op,.sd-lplay .box,.katex,[data-nogf],.sd-nl13 .tx>p,.sd-pm15 blockquote p,.sd-qnote p,.sd-gncard h3,.sd-gncard>p,.sd-cnotes .ls p,.sd-lnotes .ls p,.sd-nopen p,script,style,.sd-rev,input,textarea,[contenteditable="true"]';
 const GF_P=/[—\-–،,.:;«»"()!؟?\n|·•+…]/;
 const GF_PH=[['لأنك ما تضمنها','لأنكِ ما تضمنينها'],['كم تشحن؟','كم تشحنين؟'],['عشان تذاكر','عشان تذاكرين'],['أنت تحدد المدة','أنتِ تحددين المدة'],['وتعرف مستواك','وتعرفين مستواك'],['تكسبها أو تشحنها وتشتري فيها','تكسبينها أو تشحنينها وتشترين فيها'],['اللي اخترته','اللي اخترتِه'],['اطلبي تنضم','اطلبي تنضمين'],['رجوع لحساب الطالب','رجوع لحساب الطالبة'],['تقدر تغيّر رأيك','تقدرين تغيّرين رأيك']];
 const GF_PHR=GF_PH.map(([m,f])=>[new RegExp(m.replace(/[?؟]/g,'\\$&')+'(?![\u0600-\u06FF])','g'),f]); /* whole words only — the feminine must not match again (it would grow forever) */
@@ -25137,14 +25198,14 @@ const revBar=()=>revHid()?`<button type="button" class="sd-revshow" data-sdrevsh
  ${who()==='real'&&(REC().attempts.length||REC().lessons.length)?`<button type="button" class="sd-lnk2" data-sdreset>ابدأ من جديد</button>`:''}
  ${who()==='real'?`<span class="sd-revlob">${IC('users')}${(()=>{ try{ return sessionStorage.getItem('pt.pid'); }catch(e){ return null; } })()?'هذا التبويب: <b>الطالب الثاني</b>':'جرّب اللوبي الحقيقي مع نفسك: افتح الرابط في جهاز ثاني، أو'} <button type="button" class="sd-lnk2" data-sdpid>${(()=>{ try{ return sessionStorage.getItem('pt.pid'); }catch(e){ return null; } })()?'رجوع للطالب الأول':'طالب ثاني في هذا التبويب'}</button></span>`:''}
  <span class="sd-revlob">${LI.users||IC('users')}<button type="button" class="sd-lnk2" data-sdlobdemo>جرّب اللوبي بأصحاب عيّنة</button><small>يدخلون معك، ويضغطون «جاهز»، وتبدأ اللعبة فعلًا</small></span></div>`;
-/* round 15 (owner: «رسالة استثناء — بطاقة كبيرة في نص الشاشة، الخلفية معتمة، الفطن يحتفل ويرحّب، ثم رسالة ولي الأمر»): the parent's newest
-   message pops once, the first time the interface opens after it arrived; × or «شكرًا» puts it aside (nothing is sent to the parent). */
+/* round 15 (owner: «رسالة استثناء — بطاقة كبيرة في نص الشاشة، الخلفية معتمة»), round 16 (owner: «لا تقول هلا يا بطلة ولا أبوك — قل رسالة تشجيعية
+   من ولي أمرك، وتعرض الرسالة بشكل واضح»): the parent's newest message pops once, the first time the interface opens after it arrived; × or «شكرًا»
+   puts it aside (nothing is sent to the parent). */
 const pmsgShow=()=>{ const m=lastMsg(), s=S0(); if(!m||parSt()!=='linked'||(s.stu.pthx||{})[who()]>=m.at||$('.sd-mod')) return;
  s.stu.pthx=s.stu.pthx||{}; s.stu.pthx[who()]=m.at; save();
  openMod(`<section class="sd-pm15" aria-labelledby="sdPmT"><button type="button" class="sd-x" data-sdmx aria-label="سكّر الرسالة">×</button>
-  <div class="cf" aria-hidden="true">${'<i></i>'.repeat(12)}</div><span class="f">${ME('starry','celebrate','sd-fz')}</span>
-  <h2 id="sdPmT">${G('يا هلا يا بطل!','يا هلا يا بطلة!')}</h2><p class="who">${LI.mail}وصلتك رسالة من ${esc(m.from)}</p>
-  <blockquote><p>${esc(m.t)}</p></blockquote><button type="button" class="sd-go lg" data-sdmx>${G('شكرًا، يلّا نكمل','شكرًا، يلّا نكمل')}</button></section>`,null,'sd-mod15'); };
+  <span class="f">${ME('happy','wave','sd-fz')}</span><h2 id="sdPmT">${LI.mail}رسالة تشجيعية من ولي أمرك</h2>
+  <blockquote><p>${esc(m.t)}</p></blockquote><button type="button" class="sd-go lg" data-sdmx>شكرًا، يلّا نكمل</button></section>`,null,'sd-mod15'); };
 /* round 7 (owner: «ترحب بسارة: أهلًا سارة، وش سويتِ اليوم» — not «سارة ورتبتك»): a greeting and one line from what he really did today */
 const todayDid=()=>{ const r=REC(), k=TODAY(), qs=r.attempts.filter(a=>MS.dayKey(a.endedAt)===k).reduce((s,a)=>s+a.items.filter(x=>x.outcome==='correct'||x.outcome==='wrong').length,0), ls=r.lessons.filter(x=>x.at&&MS.dayKey(x.at)===k).length; return {qs,ls}; };
 const helloLine=()=>{ if(stage()==='new') return G('حيّاك في الفطن — أول خطوة تشخيصك المجاني','حيّاك في الفطن — أول خطوة تشخيصك المجاني');
@@ -25232,6 +25293,7 @@ const qdaySec=()=>{ const q=dayQ(); if(!q) return ''; const A=dayAns(), P=CFG().
  const a=A?(A.chosen??null):null, ok=A&&A.correct, [lu,ll]=cmLes(q);
  return `<section class="sd-sec sd-qday" aria-labelledby="sdQdT" aria-live="polite"><header class="sd-qdh"><span class="f">${ME(A?(ok?'starry':'oops'):'happy',A?(ok?'celebrate':'sad'):'wave','sd-fz')}</span><div><h2 id="sdQdT">تحدّي اليوم</h2><p>${A?(ok?`صح! كفو — ${REW(P,EARN.daily)}`:'حظ أوفر — بكرة تحدّي جديد'):`سؤال واحد كل يوم. ${G('جاوبه','جاوبيه')} صح و${G('خذ','خذي')} ${REW(P,EARN.daily)}`}</p></div></header>
   <div class="sd-qd"><p class="q">${mth(q.text)}</p><div class="op" role="group" aria-label="الخيارات">${q.options.map((o,j)=>`<button type="button" data-sdqd="${j}" class="${!A?'':j===q.a?'ok':j===a?'no':'off'}"${A?' disabled':''}><i>${'أبجد'[j]}</i>${mth(o)}</button>`).join('')}</div>
+  ${A&&ok?`<p class="rs ok16">${IC('check')}<span><b>ألف مبروك!</b> عملاتك انضافت — ${G('تلقاها','تلقينها')} في اللوبي ${G('تشتري','تشترين')} فيها أزياء وتلعب مع أصحابك.</span><button type="button" class="sd-gh2 sm" data-go="lobby">${IC('users')}${G('روح اللوبي','روحي اللوبي')}</button></p>`:''}
   ${A&&!ok?`<p class="rs no"><span><b>الصح (${'أبجد'[q.a]}):</b> ${mth(q.options[q.a])} — ${mth(q.why)}</span>${hasCourse()?`<button type="button" class="sd-gh2 sm" data-sdunit="${lu}" data-sdles="${ll}">${IC('play')}${G('راجع','راجعي')} الدرس</button>`:''}</p>`:''}</div></section>`; };
 /* ===================== الرئيسية — round 15, rebuilt from nothing (owner: «ابدأ ابنِ من جديد، مو تحافظ على أساس مرفوض»).
    Top to bottom: «أهلًا …» with one line, and on its other side two small equal tiles — the days to the exam and the streak; «مهامك اليوم يا فطن»
@@ -25248,11 +25310,11 @@ const top15=()=>{ const n=dLeft(), S=STRK().now, ex=exDate();
  return `<header class="h15-top"><div class="hi"><h1>أهلًا ${NAME()}</h1><p>${helloLine()}</p></div><div class="tiles">${exT}${stage()==='post'?stT:''}</div></header>`; };
 /* a row of the day: its tag, what to do (it opens the book, the lesson, أخطائي or the test), and the circle she presses */
 const row15=(done,ck,tag,tagC,what,sub,go)=>`<li class="${done?'ok':''}"><span class="tag" style="--b:${tagC}">${tag}</span><${go?'a':'span'} class="t"${go?` ${go} tabindex="0" role="button"`:''}><b>${what}</b>${sub?`<small>${sub}</small>`:''}</${go?'a':'span'}><button type="button" class="ck" ${ck} aria-pressed="${done}" aria-label="${done?G('خلّصتها — اضغط ترجعها','خلّصتِها — اضغطي ترجعينها'):G('علّمها خلصت','علّميها خلصت')}: ${what.replace(/<[^>]+>/g,'')}"><i aria-hidden="true">${IC('check')}</i><span>${done?G('خلّصتها','خلّصتِها'):G('خلّصتها؟','خلّصتِها؟')}</span></button></li>`;
-const tasks15=()=>{ const SS=sessSteps(), F=k=>(SS.find(s=>s.k===k)||{}).done, on=HTK(), P=hasCourse()?plan():null, x=P&&P.at(TODAY()), pd=x?x.pds[x.pds.length-1]:null, its=pd!=null?items(pd):[], tk=pd!=null?pdTicks(pd).map(q=>q.item):[], dt=new Date();
+const tasks15=()=>{ const on=HTK(), /* round 16 (owner: «محددة as default وما ترضى تنشال — لا»): a row is green only by her own press */ P=hasCourse()?plan():null, x=P&&P.at(TODAY()), pd=x?x.pds[x.pds.length-1]:null, its=pd!=null?items(pd):[], tk=pd!=null?pdTicks(pd).map(q=>q.item):[], dt=new Date();
  const books=its.map(([b,tt,d],i)=>row15(tk.includes(i),`data-sdtk="${pd}.${i}"`,`كتاب ال${BOOK[b][0]}`,BOOK[b][1],esc(tt.replace(/^كتاب [^:]+: /,'')),esc(d),(L=>L?`data-sdunit="${L[0]}" data-sdles="${L[1]}"`:b==='f'&&PLAN[pd]&&PLAN[pd][0]?`data-sdbook="${PLAN[pd][0]}"`:'')(itLes(pd,i))));
  const EL=errLes(), lr=hasCourse()&&REC().lessons.length, QN=isFree()?Math.min(10,freeLeft()):10;
- const rest=[EL?row15(!!on.ev||!!F('ev'),'data-sdhtk="ev"','أخطائي','#C2413A',`${G('حسّن','حسّني')} أخطاءك في درس «${esc(lesName(EL.les))}»`,pl(EL.n,['خطأ واحد','خطأين','أخطاء','خطأ']),`data-sdhles="${esc(EL.les)}"`):'',
-  QN?row15(!!on.qt||!!F('qt'),'data-sdhtk="qt"','اختبار سريع','#5A3BD0',lr?`${G('اختبر','اختبري')} نفسك على الدروس اللي ${G('خلّصتها','خلّصتِها')}`:`${G('اختبر','اختبري')} نفسك من البنك`,`${pl(QN,QW)}${isFree()&&QN<10?' — اللي باقي من حدّك اليوم':''}`,`data-sdquick="${lr?'les':'all'}"`):''].filter(Boolean);
+ const rest=[EL?row15(!!on.ev,'data-sdhtk="ev"','أخطائي','#C2413A',`${G('حسّن','حسّني')} أخطاءك في درس «${esc(lesName(EL.les))}»`,pl(EL.n,['خطأ واحد','خطأين','أخطاء','خطأ']),`data-sdhles="${esc(EL.les)}"`):'',
+  QN?row15(!!on.qt,'data-sdhtk="qt"','اختبار سريع','#5A3BD0',lr?`${G('اختبر','اختبري')} نفسك على الدروس اللي ${G('خلّصتها','خلّصتِها')}`:`${G('اختبر','اختبري')} نفسك من البنك`,`${pl(QN,QW)}${isFree()&&QN<10?' — اللي باقي من حدّك اليوم':''}`,`data-sdquick="${lr?'les':'all'}"`):''].filter(Boolean);
  const all=books.length+rest.length, nd=tk.length+rest.filter(r=>r.startsWith('<li class="ok"')).length;
  return `<section class="sd-sess h15-tasks" aria-labelledby="h15T"><h2 id="h15T"><span>مهامك اليوم يا ${G('فطن','فطنة')}</span><span class="f">${ME(nd&&nd===all?'starry':'happy',nd&&nd===all?'celebrate':'wave','sd-fz')}</span></h2>
   <div class="card"><header class="dh"><span class="dn"><b>${AR(dt.getDate())}</b><small>${MN[dt.getMonth()]}</small></span><div><small>${DN[dt.getDay()]}</small><b>${x?`اليوم ${AR(P.di+1)} من خطتك`:'مهام اليوم'}</b></div><em class="pg${nd&&nd===all?' all':''}">${nd&&nd===all?`${IC('check')}خلّصتِ كل شي`:`${AR(nd)} من ${AR(all)}`}</em></header>
@@ -25488,7 +25550,7 @@ const phAt=(u,i,j)=>{ const p=PH(), k=u+'.'+i+'.'+j; if(p.k!==k){ p.k=k; p.t=0; 
 const lnotes=(u,i)=>REC().notes.filter(n=>n.key===u+'.'+i).sort((a,b)=>a.j-b.j||a.t-b.t);
 /* icons the shared set lacks (round 9) */
 const SVI=d=>`<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
-const ICX={pin:SVI('<path d="M9 4h6l-1 5 3 3v2H7v-2l3-3z"/><path d="M12 14v6"/>'),target:SVI('<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/>'),expand:SVI('<path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/>'),back5:SVI('<path d="M4 12a8 8 0 1 0 2.3-5.6"/><path d="M4 4v4h4"/>'),fwd5:SVI('<path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v4h-4"/>'),grow:SVI('<rect x="3" y="6" width="18" height="12" rx="2"/><path d="M8 10v4M16 10v4"/>'),shrink:SVI('<rect x="6" y="8" width="12" height="8" rx="2"/>')};
+const ICX={pin:SVI('<path d="M9 4h6l-1 5 3 3v2H7v-2l3-3z"/><path d="M12 14v6"/>'),target:SVI('<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/>'),expand:SVI('<path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/>'),back5:SVI('<path d="M11 6 4 12l7 6zM20 6l-7 6 7 6z" fill="currentColor"/>'),fwd5:SVI('<path d="M13 6l7 6-7 6zM4 6l7 6-7 6z" fill="currentColor"/>'),shrinkfs:SVI('<path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/>'),grow:SVI('<rect x="3" y="6" width="18" height="12" rx="2"/><path d="M8 10v4M16 10v4"/>'),shrink:SVI('<rect x="6" y="8" width="12" height="8" rx="2"/>')};
 const IC2=n=>ICX[n]||IC(n);
 const GNC=[['أبيض','#FFFFFF'],['أصفر','#FFF6D6'],['أخضر','#E6F6EC'],['أزرق','#E6F0FD'],['وردي','#FDE8EF']];
 /* round 9 (owner image 16: «المقطع والوقت والملاحظة كل شيء متداخل»): one clean note card — a small line saying where (clip · moment · date) with a play button, then the note itself, then its actions */
@@ -25515,8 +25577,10 @@ const clipCard=(u,i,j,on)=>{ const cl=clips(u,i), c=cl[j], dur=clipMin(u,i,j)*60
       the player's own bar — play, back 5 s, forward 5 s, where she is, the time, the speed (a short list from ٠٫٥× to ٢×), «ملاحظة» (with how
       many she wrote here), a bigger player (the course contents fold away) and full screen; the note opens inside the player at this minute */
    const so=!!s.stu.spo, wd=!!s.stu.wide, SPD=[0.5,0.75,1,1.25,1.5,2], sx=v=>AR(String(v).replace('.','٫'));
-   return `<div class="bar"><button type="button" class="pp" data-sdpp aria-pressed="${p.on}" aria-label="${p.on?'وقّف':'شغّل'} المقطع ${AR(j+1)}">${p.on?'<i class="ps"></i>':IC('play')}</button><button type="button" class="ctl sk" data-sdskp="-5" aria-label="رجّع ٥ ثواني" title="رجّع ٥ ثواني">${IC2('back5')}<small>٥</small></button><button type="button" class="ctl sk" data-sdskp="5" aria-label="قدّم ٥ ثواني" title="قدّم ٥ ثواني">${IC2('fwd5')}<small>٥</small></button><input type="range" min="0" max="${dur}" value="${Math.min(p.t,dur)}" data-sdseek aria-label="وين وصلت في المقطع ${AR(j+1)}"><b dir="ltr" data-sdtime>${mmss(Math.min(p.t,dur))} / ${mmss(dur)}</b>
-    <span class="spw"><button type="button" class="ctl sp${so?' on':''}" data-sdspd aria-haspopup="menu" aria-expanded="${so}" aria-label="السرعة ${sx(sp)} — ${G('اختر','اختاري')} سرعة ثانية" title="السرعة"><span dir="ltr">${sx(sp)}×</span></button>${so?`<div class="spm" role="menu" aria-label="سرعة المقطع">${SPD.map(v=>`<button type="button" role="menuitemradio" aria-checked="${v===sp}" data-sdspv="${v}"><span dir="ltr">${sx(v)}×</span>${v===1?'<small>عادي</small>':v<1?'<small>أبطأ</small>':''}</button>`).join('')}</div>`:''}</span><button type="button" class="ctl nt${op?' on':''}" data-sdpnote="${k}" aria-pressed="${op}" aria-label="${G('سجّل','سجّلي')} ملاحظة عند هذي الدقيقة${nn?` — ${pl(nn,['ملاحظة واحدة','ملاحظتان','ملاحظات','ملاحظة'])} على هذا المقطع`:''}" title="ملاحظة">${LI.type}<span>ملاحظة</span>${nn?`<i class="n">${AR(nn)}</i>`:''}</button><button type="button" class="ctl wd" data-sdwide aria-pressed="${wd}" aria-label="${wd?'صغّر المشغّل':'كبّر المشغّل'}" title="${wd?'تصغير':'تكبير'}">${IC2(wd?'shrink':'grow')}</button><button type="button" class="ctl fs" data-sdfs aria-label="ملء الشاشة" title="ملء الشاشة">${IC2('expand')}</button></div>${op?`<div class="sd-pnote" role="region" aria-label="ملاحظاتي على هذا المقطع">${clipNotes(u,i,j)}</div>`:''}`; })():''}</div></li>`; };
+   const fs=!!D.fullscreenElement;
+   /* round 16 (owner: «أيقونات التقديم والتأخير تلخبط — خلها أسهم واضحة»): ◀◀ ٥ث · play · ٥ث ▶▶, laid left to right like the time line */
+   return `<div class="bar"><span class="pg" dir="ltr"><button type="button" class="ctl sk" data-sdskp="-5" aria-label="رجّع ٥ ثواني" title="رجّع ٥ ثواني">${IC2('back5')}<small>٥ث</small></button><button type="button" class="pp" data-sdpp aria-pressed="${p.on}" aria-label="${p.on?'وقّف':'شغّل'} المقطع ${AR(j+1)}">${p.on?'<i class="ps"></i>':IC('play')}</button><button type="button" class="ctl sk" data-sdskp="5" aria-label="قدّم ٥ ثواني" title="قدّم ٥ ثواني"><small>٥ث</small>${IC2('fwd5')}</button></span><input type="range" min="0" max="${dur}" value="${Math.min(p.t,dur)}" data-sdseek aria-label="وين وصلت في المقطع ${AR(j+1)}"><b dir="ltr" data-sdtime>${mmss(Math.min(p.t,dur))} / ${mmss(dur)}</b>
+    <span class="spw"><button type="button" class="ctl sp${so?' on':''}" data-sdspd aria-haspopup="menu" aria-expanded="${so}" aria-label="السرعة ${sx(sp)} — ${G('اختر','اختاري')} سرعة ثانية" title="السرعة"><span dir="ltr">${sx(sp)}×</span></button>${so?`<div class="spm" role="menu" aria-label="سرعة المقطع">${SPD.map(v=>`<button type="button" role="menuitemradio" aria-checked="${v===sp}" data-sdspv="${v}"><span dir="ltr">${sx(v)}×</span>${v===1?'<small>عادي</small>':v<1?'<small>أبطأ</small>':''}</button>`).join('')}</div>`:''}</span><button type="button" class="ctl nt${op?' on':''}" data-sdpnote="${k}" aria-pressed="${op}" aria-label="${G('سجّل','سجّلي')} ملاحظة عند هذي الدقيقة${nn?` — ${pl(nn,['ملاحظة واحدة','ملاحظتان','ملاحظات','ملاحظة'])} على هذا المقطع`:''}" title="ملاحظة">${LI.type}<span>ملاحظة</span>${nn?`<i class="n">${AR(nn)}</i>`:''}</button><button type="button" class="ctl wd" data-sdwide aria-pressed="${wd}" aria-label="${wd?'صغّر المشغّل':'كبّر المشغّل'}" title="${wd?'تصغير':'تكبير'}">${IC2(wd?'shrink':'grow')}</button><button type="button" class="ctl fs" data-sdfs aria-label="${fs?'اطلع من ملء الشاشة':'ملء الشاشة'}" title="${fs?'صغّر الشاشة':'ملء الشاشة'}">${IC2(fs?'shrinkfs':'expand')}</button></div>${op?`<div class="sd-pnote" role="region" aria-label="ملاحظاتي على هذا المقطع">${clipNotes(u,i,j)}</div>`:''}`; })():''}</div></li>`; };
 /* round 12 (owner's review §8): one viewing unit, top to bottom — the lesson's name once with its clips and minutes (and a small «خلّصتِه» when
    done), the note bar over the player, the clip's own line, the player, then «المقطع السابق / ٢ من ٣ / المقطع التالي» that change the clip,
    the lesson's clips as a plain list (number, name, minutes, state), and under a thin line the lesson's actions: «اختبري فهمك» and «خلّصت
@@ -25557,6 +25621,7 @@ const stunit={n:'الدرس',h:()=>{ if(!hasCourse()) return lockedCourse(); con
   const tsc=TREESC; TREESC=null; if(tsc!==null){ const put=()=>{ const tr=$('.sd-ltree',el); if(tr) tr.scrollTop=tsc; }; put(); requestAnimationFrame(put); setTimeout(put,150); } else requestAnimationFrame(()=>{ const tr=$('.sd-ltree',el), on=$('.sd-ltree li.on',el); if(tr&&on) tr.scrollTop+=on.getBoundingClientRect().top-tr.getBoundingClientRect().top-120; });
   const pickCard=t=>{ const cj=t.closest&&t.closest('[data-sdcj]'); if(!cj) return; const jj=+cj.dataset.sdcj; if(jj===(s.stu.clip||0)&&PH().k===lesNow().join('.')+'.'+jj) return; const [u,i]=lesNow(); PH().on=false; s.stu.clip=jj; phAt(u,i,jj); $$('.sd-clip',el).forEach(x=>{ x.classList.toggle('on',x===cj); if(x!==cj){ const b=$('[data-sdpp]',x); if(b){ b.setAttribute('aria-pressed','false'); b.innerHTML=IC('play'); } } }); const na=$('[data-sdnadd]',el); if(na) na.innerHTML=`${IC('plus')}أضف للمقطع ${AR(jj+1)} عند <b data-sdnat>البداية</b>`; };
   el.addEventListener('input',e=>{ const r=e.target.closest('[data-sdseek]'); if(r){ pickCard(r); PH().t=+r.value; tickUI(); } });
+  const fsc=()=>{ if(!el.isConnected){ D.removeEventListener('fullscreenchange',fsc); return; } paint(); const b=$('[data-sdfs]',el); if(b) b.focus({preventScroll:true}); }; D.addEventListener('fullscreenchange',fsc);
   el.addEventListener('change',e=>{ if(e.target.closest('[data-sdseek]')) save(); });
   el.addEventListener('click',e=>{ const t=e.target, [u,i]=lesNow(), n=clips(u,i).length;
    /* round 9 part 3 (agents' pass): the big ▶ in the middle of the picture plays and pauses too, like any video */ { const sc=t.closest('.sd-clip .scr'); if(sc&&!t.closest('button')){ const b=$('[data-sdpp]',sc.closest('.sd-clip')); if(b){ b.click(); return; } } }
@@ -25575,7 +25640,7 @@ const stunit={n:'الدرس',h:()=>{ if(!hasCourse()) return lockedCourse(); con
    const sv=t.closest('[data-sdspv]'); if(sv){ s.stu.spd=+sv.dataset.sdspv; s.stu.spo=false; save(); paint(); const b=$('[data-sdspd]',el); if(b) b.focus({preventScroll:true}); toast(`السرعة ${AR(String(s.stu.spd).replace('.','٫'))}×`); return; }
    const sk=t.closest('[data-sdskp]'); if(sk){ const [u0,i0]=lesNow(), j0=s.stu.clip||0, dur=clipMin(u0,i0,j0)*60, p=phAt(u0,i0,j0); p.t=Math.max(0,Math.min(dur,p.t+ +sk.dataset.sdskp)); save(); tickUI(); return; }
    if(t.closest('[data-sdwide]')){ s.stu.wide=!s.stu.wide; save(); $('.sd-les',el).classList.toggle('wide',!!s.stu.wide); paint(); const b=$('[data-sdwide]',el); if(b) b.focus({preventScroll:true}); return; }
-   if(t.closest('[data-sdfs]')){ const pl0=t.closest('.sd-player'); try{ D.fullscreenElement?D.exitFullscreen():pl0&&pl0.requestFullscreen&&pl0.requestFullscreen(); }catch(x){} return; }
+   if(t.closest('[data-sdfs]')){ /* round 16 (owner: «إذا كبرت الشاشة وأسرع يطلعني»): the lesson body goes full screen, not the player — the player is redrawn on every change, the body stays */ const lb=t.closest('.sd-lbody'); try{ D.fullscreenElement?D.exitFullscreen():lb&&lb.requestFullscreen&&lb.requestFullscreen(); }catch(x){} return; }
    const cn=t.closest('[data-sdcnote]'); if(cn){ s.stu.cnf=cn.dataset.sdcnote||null; if(s.stu.cnf){ pickCard(cn); } save(); paint(); const ta=$('[data-sdnote]',el); if(ta) ta.focus({preventScroll:true}); return; }
    const na=t.closest('[data-sdnadd]'); if(na){ const jj=+na.dataset.sdnadd, ta=$('[data-sdnote]',na.closest('.sd-cnotes')), v=ta.value.trim(); if(!v) return toast(G('اكتب ملاحظتك أولًا','اكتبي ملاحظتك أولًا')); const p=phV(u,i,jj); REC().notes.push({id:'n'+Date.now().toString(36),key:u+'.'+i,j:jj,t:Math.round(p.t),text:v,at:Date.now()}); s.stu.cnf=null; save(); toast(`حفظنا ملاحظتك على المقطع ${AR(jj+1)}${p.t>=1?` عند ${mmss(p.t)}`:''}`); paint(); return; }
    const nj=t.closest('[data-sdnjump]'); if(nj){ const [a,b,c,d]=nj.dataset.sdnjump.split('.').map(Number); s.stu.unit=a; s.stu.les=b; s.stu.clip=c; const p=phAt(a,b,c); p.t=d; p.on=false; save(); paint(); const cc=card(); if(cc&&cc.scrollIntoView) cc.scrollIntoView({block:'center',behavior:'smooth'}); return; }
@@ -25606,19 +25671,22 @@ const stnotes={n:'ملاحظاتي',h:()=>{ if(isFree()) return `<div class="sd-
     Empty: one short line and one way to the course — not every unit saying «بلا ملاحظات». */
  if(tab==='les'){ const all=r.notes.slice().sort((a,b)=>{ const [au,al]=a.key.split('.').map(Number), [bu,bl]=b.key.split('.').map(Number); return au-bu||al-bl||a.j-b.j||a.t-b.t; }), L=all.filter(n=>!R||R.test(n.text)), E=(g0=>g0&&g0.who===who()?g0:null)(s.stu.ned), U=s.stu.nlU;
   const und=U?`<div class="sd-gnundo" role="status">${IC('check')}<span>حذفنا الملاحظة</span><button type="button" class="sd-lnk2" data-sdnlundo>تراجع</button></div>`:'';
-  const row=n=>{ const [u,i]=n.key.split('.').map(Number), c=clips(u,i)[n.j]||['video','',''], at=n.t<1?'من البداية':`عند ${mmss(n.t)}`, ed=E&&E.id===n.id;
-   return `<li class="sd-nl13${ed?' ed':''}" data-sdnid="${n.id}">${ed?`<textarea rows="3" data-sdnledv aria-label="عدّل ملاحظتك">${esc(E.text)}</textarea>${E.text!==n.text?'<small class="sd-gndr" role="status">تعديل ما انحفظ للحين</small>':''}`:`<p>${mtx(n.text,R)}</p>`}
-    <small class="src"><span>${modName(u)}</span><span>${esc(CM[u][3][i][0])}</span><span>المقطع ${AR(n.j+1)}${c[1]?`: ${esc(c[1])}`:''}، ${at}</span></small>
-    <footer>${ed?`<button type="button" class="sd-go sm" data-sdnlsave="${n.id}">${IC('check')}احفظ</button><button type="button" class="sd-lnk2" data-sdnlx>إلغاء</button>`:`<button type="button" class="sd-gh2 sm" data-sdnjump="${u}.${i}.${n.j}.${n.t}">${IC('play')}${G('افتح','افتحي')} المقطع</button><button type="button" class="sd-lnk2" data-sdnle="${n.id}">${LI.type}عدّل</button><button type="button" class="sd-lnk2 sd-dng" data-sdnldel="${n.id}">${IC('x')}احذف</button>`}</footer></li>`; };
-  body=und+(all.length?(L.length?`<p class="sd-nsum">${R?`${pl(L.length,['ملاحظة واحدة','ملاحظتان','ملاحظات','ملاحظة'])} فيها «${esc(q)}»`:`${pl(all.length,['ملاحظة واحدة','ملاحظتان','ملاحظات','ملاحظة'])} على الدروس، بترتيب الدورة`}</p><ol class="sd-nl13s">${L.map(row).join('')}</ol>`:`<p class="sd-mut sd-c">ما فيه ملاحظة على الدروس فيها «${esc(q)}».${elsewhere()}</p>`)
+  /* round 16 (owner: «طريقة عرض الملاحظة على الدروس مرفوضة — تتعدل بطريقة أوضح، مثلًا أيقونة المقطع، افتح المقطع»): the notes under their lesson,
+     each one a row — on its side a small dark clip with ▶ and the minute (it opens that clip there), then the note, then «عدّل» and «احذف» */
+  const row=n=>{ const [u,i]=n.key.split('.').map(Number), c=clips(u,i)[n.j]||['video','',''], at=n.t<1?'البداية':mmss(n.t), ed=E&&E.id===n.id;
+   return `<li class="sd-nl13 sd-nl16${ed?' ed':''}" data-sdnid="${n.id}"><button type="button" class="th" data-sdnjump="${u}.${i}.${n.j}.${n.t}" aria-label="${G('افتح','افتحي')} المقطع ${AR(n.j+1)} عند ${at}" title="${G('افتح','افتحي')} المقطع عند دقيقتها"><span class="pl">${IC('play')}</span><b>${at}</b></button>
+    <div class="tx">${ed?`<textarea rows="3" data-sdnledv aria-label="عدّل ملاحظتك">${esc(E.text)}</textarea>${E.text!==n.text?'<small class="sd-gndr" role="status">تعديل ما انحفظ للحين</small>':''}`:`<p>${mtx(n.text,R)}</p>`}<small>المقطع ${AR(n.j+1)}${c[1]?`: ${esc(c[1])}`:''}${n.at?` · ${fdate(new Date(n.at))}`:''}</small></div>
+    <div class="ac">${ed?`<button type="button" class="sd-go sm" data-sdnlsave="${n.id}">${IC('check')}احفظ</button><button type="button" class="sd-lnk2" data-sdnlx>إلغاء</button>`:`<button type="button" class="sd-ib2" data-sdnle="${n.id}" title="عدّل" aria-label="عدّل الملاحظة">${LI.type}</button><button type="button" class="sd-ib2 sd-dng" data-sdnldel="${n.id}" title="احذف" aria-label="احذف الملاحظة">${IC('x')}</button>`}</div></li>`; };
+  const grp=L2=>{ const G0=[]; L2.forEach(n=>{ const g=G0[G0.length-1]; if(g&&g.k===n.key) g.n.push(n); else G0.push({k:n.key,n:[n]}); });
+   return G0.map(g=>{ const [u,i]=g.k.split('.').map(Number); return `<section class="sd-nlg16" style="--c:${uColor(u)}"><header><small>${modName(u)}</small><b>${esc(CM[u][3][i][0])}</b><em>${pl(g.n.length,['ملاحظة واحدة','ملاحظتان','ملاحظات','ملاحظة'])}</em></header><ol class="sd-nl13s">${g.n.map(row).join('')}</ol></section>`; }).join(''); };
+  body=und+(all.length?(L.length?`<p class="sd-nsum">${R?`${pl(L.length,['ملاحظة واحدة','ملاحظتان','ملاحظات','ملاحظة'])} فيها «${esc(q)}»`:`${pl(all.length,['ملاحظة واحدة','ملاحظتان','ملاحظات','ملاحظة'])} على الدروس، بترتيب الدورة`}</p>${grp(L)}`:`<p class="sd-mut sd-c">ما فيه ملاحظة على الدروس فيها «${esc(q)}».${elsewhere()}</p>`)
    :`<div class="sd-nempty13">${empty('notes',`ما ${G('كتبت','كتبتِ')} ملاحظات على الدروس للحين`,`${G('افتح','افتحي')} أي درس، ووقت المقطع ${G('اكتب','اكتبي')} ملاحظتك — تنحفظ عند دقيقتها وتطلع هنا.`,`<button type="button" class="sd-go" data-go="course">${IC('play')}${G('افتح دورتي','افتحي دورتي')}</button>`)}</div>`); }
  else if(tab==='q'){ const L=r.bnotes.filter(n=>bnoteQ(n)&&(!R||R.test(n.text))).slice().sort((a,b)=>b.at-a.at);
   /* round 8 (owner: «السؤال كما هو… كبير وواضح، وملاحظتي أوضح مكتوبة تحتها، وإذا ضغطت ينقلني للمكان اللي كتبتها فيه») */
   const bU=S0().stu.bnU, und=bU?`<div class="sd-gnundo" role="status">${IC('check')}<span>حذفنا الملاحظة</span><button type="button" class="sd-lnk2" data-sdbnundo>تراجع</button></div>`:'';
-  body=und+(L.length?`<div class="sd-qnl">${L.map((n,k)=>{ const qq=bnoteQ(n), T=n.tid?testById(n.tid):null, wh=n.from==='testan'&&T?`تحليل ${tName(T)} — ${fdate(tDate(T))}`:'أخطائي';
-   /* round 9 part 4 (owner: «تحط لي فوق زي هيدر أخطائي»): the same row of labelled cells as a mistake — which note, unit, lesson, where it was written, when */
-   return qBig(qq,{cols:'20fr 40fr 20fr 20fr',meta:[['الوحدة',esc(UNO(qU(qq)))],['الدرس',esc(lesName(qL(qq))),'les'],[G('كتبتها في','كتبتيها في'),n.from==='testan'&&T?esc(tName(T)):'أخطائي'],['التاريخ',fdate(new Date(n.at))]],why:false,after:`<div class="sd-qnote big"><b>${LI.type}ملاحظتي</b><p>${esc(n.text)}</p></div>`,
-    foot:`<button type="button" class="sd-lnk" data-sdnsrc="${n.id}">${IC('eye')}كتبتها في: ${wh}${LI.chev}</button><span class="sp"></span><button type="button" class="sd-ib2" data-sdbndel="${n.id}" aria-label="احذف الملاحظة">×</button>`}); }).join('')}</div>`
+  body=und+(L.length?`<div class="sd-qnl sd-qnl16">${L.map(n=>{ const qq=bnoteQ(n), T=n.tid?testById(n.tid):null, wh=n.from==='testan'&&T?`تحليل ${tName(T)}`:'أخطائي', er=errItems().find(e=>e.key===n.qid), ch=er?qq.options.indexOf(er.w):-1;
+   return `<div class="sd-qn16">${qCard15(qq,{ch,when:fdate(new Date(n.at)),mid:`<div class="sd-qnote big"><b>${LI.type}ملاحظتي</b><p>${esc(n.text)}</p></div>`})}
+    <div class="sd-ea15"><button type="button" class="sd-gh2" data-sdnsrc="${n.id}">${IC('eye')}${G('كتبتها','كتبتِها')} في: ${wh}</button><button type="button" class="sd-gh2 sd-dng" data-sdbndel="${n.id}" aria-label="احذف الملاحظة">${IC('x')}احذف</button></div></div>`; }).join('')}</div>`
    :empty('notes',R?G('ما فيه ملاحظة على سؤال فيها هذي الكلمة — جرّب «ملاحظاتي» أو «دروسي»، أو امسح البحث','ما فيه ملاحظة على سؤال فيها هذي الكلمة — جرّبي «ملاحظاتي» أو «دروسي»، أو امسحي البحث'):`ما ${G('كتبت','كتبتِ')} ملاحظة على سؤال للحين`,`من «أخطائي» أو من أسئلة أي اختبار في «اختباراتي» — زر «ملاحظة» تحت السؤال.`,`<button type="button" class="sd-gh2" data-go="errors">${G('افتح','افتحي')} أخطائي</button>`)); }
  else { /* round 9 (owner: «الملاحظات العامة مرفوضة… تنعاد من الصفر»): a calm notes board — one inviting bar that opens into a small editor (title, text, colour, pin), then the notes as cards: pinned first, newest next; every action answers on screen */
   const L=r.bnotes.filter(n=>!bnoteQ(n)&&(!R||R.test((n.title||'')+' '+n.text))).slice().sort((a,b)=>(b.pin?1:0)-(a.pin?1:0)||(b.ed||b.at)-(a.ed||a.at)), C=(g0=>g0&&(g0.who||who())===who()?g0:{})(S0().stu.gnc), U=S0().stu.gnu; /* audit BUG-17: the draft is this account's own */
@@ -25889,14 +25957,16 @@ const eList=fx0=>{ const s=S0(), ep=s.stu.ep||'all', et=s.stu.etest||null, eu=s.
 /* round 15 (owner: «انسخ الرسم بالضبط مع تحسين — ألوان أقل، شيل الفكرة»): the card is the question in the middle, a rule, the options with no
    fills — only a green ✓ on the right one and a red ✗ on hers — then a dark strip in the unit's colour with «الوحدة › الدرس» and the day in
    white. The three buttons sit centred under it. Her own note on the question stays (it is hers); the idea is gone from here. */
-const errCard=(e)=>{ const [lu,ll]=lesCM(e.les), T=testById(e.tid), ch=e.fixed?null:e.q.options.indexOf(e.w), na=!e.fixed&&ch<0, nn=(REC().bnotes||[]).filter(x=>x.qid===e.key), sk=e.fixed||isFree()?null:skInfo(e.q), q=e.q, u=qU(q);
+/* round 16 (owner: «في ملاحظاتي نفس بطاقة أخطائي بنفس التصميم، اللهم تحتها الملاحظة»): ONE question card for both pages */
+const qCard15=(q,o)=>{ const u=qU(q), ch=o.ch??-1, short=q.options.every(x=>String(x).replace(/\$[^$]*\$/g,'xx').length<=24);
  const mk=j=>j===q.a?`<b class="mk ok" title="الإجابة الصحيحة">${IC('check')}<span class="sd-sr-only">الإجابة الصحيحة</span></b>`:j===ch?`<b class="mk no" title="${G('إجابتك','إجابتك')}">${IC('x')}<span class="sd-sr-only">${G('إجابتك','إجابتك')}</span></b>`:'';
- const when=e.fixed?(e.at?fdate(new Date(e.at)):''):(T?fdate(tDate(T)):'');
- const short=q.options.every(o=>String(o).replace(/\$[^$]*\$/g,'xx').length<=24);
  return `<article class="sd-ec15" style="--c:${TUC[u]}"><p class="q">${mth(q.text)}</p><hr>
   <ol class="op${short?' two':''}">${q.options.map((op,j)=>`<li class="${j===q.a?'good':j===ch?'bad':''}"><i>${'أبجد'[j]}</i><span class="o">${mth(op)}</span>${mk(j)}</li>`).join('')}</ol>
-  ${na?`<p class="sd-noans">${IC('x')}لم ${G('تُجب','تُجيبي')} على هذا السؤال</p>`:''}${nn.length?`<div class="sd-qnote"><b>${LI.type}ملاحظتك</b>${nn.map(x=>`<p>${esc(x.text)}</p>`).join('')}</div>`:''}
-  <footer class="src"><span class="ul">${esc(UNO(u))}<i aria-hidden="true">›</i>${esc(lesName(qL(q)))}</span>${e.fixed?`<b class="tg">${IC('check')}صار صح</b>`:e.tids.length>1?`<b class="tg">${G('غلطت فيه','غلطتِ فيه')} ${pl(e.tids.length,['مرة','مرتين','مرات','مرة'])}</b>`:''}<span class="dt">${when}</span></footer></article>
+  ${o.mid||''}<footer class="src"><span class="ul">${esc(UNO(u))}<i aria-hidden="true">›</i>${esc(lesName(qL(q)))}</span>${o.tag||''}<span class="dt">${o.when||''}</span></footer></article>`; };
+const errCard=(e)=>{ const [lu,ll]=lesCM(e.les), T=testById(e.tid), ch=e.fixed?null:e.q.options.indexOf(e.w), na=!e.fixed&&ch<0, nn=(REC().bnotes||[]).filter(x=>x.qid===e.key), sk=e.fixed||isFree()?null:skInfo(e.q), q=e.q;
+ const when=e.fixed?(e.at?fdate(new Date(e.at)):''):(T?fdate(tDate(T)):'');
+ return `${qCard15(q,{ch,when,mid:`${na?`<p class="sd-noans">${IC('x')}لم ${G('تُجب','تُجيبي')} على هذا السؤال</p>`:''}${nn.length?`<div class="sd-qnote"><b>${LI.type}ملاحظتك</b>${nn.map(x=>`<p>${esc(x.text)}</p>`).join('')}</div>`:''}`,
+   tag:e.fixed?`<b class="tg">${IC('check')}صار صح</b>`:e.tids.length>1?`<b class="tg">${G('غلطت فيه','غلطتِ فيه')} ${pl(e.tids.length,['مرة','مرتين','مرات','مرة'])}</b>`:''})}
  <div class="sd-ea15">${e.fixed?'':isFree()?`<button type="button" class="sd-gh2" data-sdlock="pro" data-sdlockw="err">${LI.lock}${G('تدرّب على المهارة','تدرّبي على المهارة')}</button>`:sk&&sk.n?`<button type="button" class="sd-gh2" data-sdeq1="${e.key}" title="«${esc(skName(q.skill))}»: ${esc(skLine(sk.n,sk.ns))}">${IC('tests')}${G('تدرّب على المهارة','تدرّبي على المهارة')}</button>`:sk?`<small class="sd-eqh">${skLine(0,0)}</small>`:''}${hasCourse()?`<button type="button" class="sd-gh2" data-sdunit="${lu}" data-sdles="${ll}">${IC('play')}${G('راجع الدرس','راجعي الدرس')}</button>`:''}${isFree()?'':`<button type="button" class="sd-gh2" data-sdenote="${e.key}">${LI.type}${nn.length?G('عدّل ملاحظتك','عدّلي ملاحظتك'):G('أضف ملاحظة','أضيفي ملاحظة')}</button>`}</div>`; };
 /* «من اختبار»: a clear list — the test, its date, and how many of its mistakes are still open (owner 2026-10-16) */
 const etMenu=(all,et)=>{ const ts=testRows().filter(r=>all.some(e=>e.tids.includes(r.id)));
@@ -25932,10 +26002,6 @@ const sterrors={n:'أخطائي',h:()=>{ const s=S0(), all=errItems(), et=s.stu.
 
 /* ===================== a test's own analysis — three tabs: the summary cards you flip, the questions, «وش بعدها» (two equal cards) ===================== */
 const tItems=r=>r.a.items.slice().sort((x,y)=>x.pos-y.pos).map(x=>({x,q:QM[x.qid]})).filter(o=>o.q);
-/* round 8 (owner: «أبى أشوفها بنفس الطريقة — السؤال كبير وواضح»): ONE question card everywhere — the test analysis's own.
-   o: {head, sub, badge:[cls,html], chosen, why, after (html under the options), foot (buttons)} */
-const qBig=(q,o={})=>`<div class="sd-tq sd-qbig" style="--c:${TUC[qU(q)]}">${o.meta?`<header class="sd-emh sd-emh10"><dl style="--cols:${o.cols||o.meta.map(()=>'1fr').join(' ')}">${o.meta.map(([k,v,c])=>`<div class="${c||''}"><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl></header>`:`<header><b>${o.head||''}</b><small>${o.sub||`${UNO(qU(q))} — ${esc(lesName(qL(q)))}`}</small>${o.badge?`<em class="${o.badge[0]}">${o.badge[1]}</em>`:''}${o.tm||''}</header>`}<p class="q">${mth(q.text)}</p>
- <ol class="op">${q.options.map((op,j)=>`<li class="${j===q.a?'good':j===o.chosen?'bad':''}"><i>${'أبجد'[j]}</i>${mth(op)}${j===q.a?`<small>${IC('check')}الصح</small>`:j===o.chosen?`<small>${IC('x')}إجابتك</small>`:''}</li>`).join('')}</ol>${o.why!==false&&q.why?`<p class="why">${IC('bulb')}<span><b>الفكرة:</b> ${mth(q.why)}</span></p>`:''}${o.after||''}${o.foot?`<footer class="nt">${o.foot}</footer>`:''}</div>`;
 const tqBox=(o,i)=>{ const {x,q}=o, ok=x.outcome==='correct', na=x.chosen==null; return `<div class="sd-tq" style="--c:${TUC[qU(q)]}"><header><b>السؤال ${AR(i+1)}</b><small>${esc(lesName(qL(q)))}</small><em class="${ok?'ok':na?'sk':'no'}">${ok?`${IC('check')}صح`:na?'ما جاوبت':`${IC('x')}غلط`}</em>${x.t!=null?`<i class="tm">${IC('clock')}${AR(x.t)} ث</i>`:''}</header><p class="q">${mth(q.text)}</p>
  <ol class="op">${q.options.map((op,j)=>`<li class="${j===q.a?'good':j===x.chosen?'bad':''}"><i>${'أبجد'[j]}</i>${mth(op)}${j===q.a?`<small>${IC('check')}الصح</small>`:j===x.chosen?`<small>${IC('x')}إجابتك</small>`:''}</li>`).join('')}</ol>${q.why?`<p class="why">${IC('bulb')}<span><b>الفكرة:</b> ${mth(q.why)}</span></p>`:''}${(()=>{ const nn=(REC().bnotes||[]).filter(b=>b.qid===q.id); return nn.length?`<div class="sd-qnote"><b>${LI.type}ملاحظتك</b>${nn.map(b=>`<p>${esc(b.text)}</p>`).join('')}</div>`:''; })()}${isFree()?'':`<footer class="nt"><button type="button" class="sd-gh2 sm" data-sdenote="${q.id}">${LI.type}${G('أضف','أضيفي')} ملاحظة على هذا السؤال</button></footer>`}</div>`; };
 const TTABS=[['sum','الخلاصة','spark'],['qs','الأسئلة','list'],['next','الخطوة الجاية','flag']];
