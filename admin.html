@@ -4827,7 +4827,7 @@ A.searchProvider({id:'questions', label:'الأسئلة', icon:'bank', max:4, fi
    until «احفظ التعديلات»; publishing (now / schedule / back to draft) asks A.secure and writes A.D.contentUpdates — a CONTENT
    update, separate from code releases (both shown in «التقنية»).
    «قاعدة الحاسم والثانوي»: a LESSON quiz (quiz.lessonId) takes only questions whose DECISIVE skill is in that lesson and matches
-   our book (التأسيس/التجميعات reference); unit quizzes, practice without a lesson and the simulator («العموميات») also take
+   our book (its كتاب التأسيس page reference); unit quizzes, practice without a lesson and the simulator («العموميات») also take
    questions linked by a SECONDARY skill. Extra data added here (non-clobbering): unit/lesson .status, lesson .treeSkills,
    quiz .lessonId + rule.mix, two demo lesson quizzes, question .secondary (only if no other page set it), kill switches
    «دروس الدورة» / «اختبارات الدورة» in A.D.features. */
@@ -11609,7 +11609,7 @@ function today(el){
    Base wrappers (documented workaround — base has no lesson-level decisive / secondary / proposed nodes):
      A.canPublish (adds: excluded, proposed node, lesson-level decisive) · A.treeRecount (adds counts.sec, lesson-level decisive) ·
      A.unclear (no decisive and not excluded) · A.navCount('tree') = the same unclear count.
-   Data added (non-clobbering): node.refs [{book:'ta'|'tj', page}] · node.status 'proposed' · A.D.treeArchive · A.D.treeProposals ·
+   Data added (non-clobbering): node.refs [{book:'ta', page}] (التأسيس only) · node.status 'proposed' · A.D.treeArchive · A.D.treeProposals ·
      q.secondary [ids] · q.node (lesson-level decisive) · q.outside {group, suggested, conf} · q.excluded {reason, at, by} · q.search {…}. */
 (function(){
 'use strict';
@@ -11662,7 +11662,7 @@ F.proposedUp = id => chain(id).some(n => n.status === 'proposed');
 F.dec = q => q ? q.skill || q.node || null : null;
 F.secs = q => (q && q.secondary) || [];
 F.lessonOf = id => { const x = F.loc(id); return x && x.lesson ? x.lesson : null; };
-/* the standard: every node references its Al-Fitn source (كتاب التأسيس pages from tree.json; التجميعات demo refs) */
+/* the standard: every node references its Al-Fitn source (the tree comes from كتاب التأسيس — page refs from tree.json; التجميعات questions are classified ONTO these nodes, they are not a second reference) */
 F.refs = n => { if (!n) return [];
   if (n.refs) return n.refs;
   const kids = n.skills ? n.skills : n.lessons ? n.lessons.flatMap(l => l.skills) : [];
@@ -11762,7 +11762,7 @@ A.navCount('tree', () => F.unclear().length);
 (function seed(){
   const T = D().tree; let k = 0;
   T.forEach(u => u.lessons.forEach(l => l.skills.forEach(s => { k++;
-    if (!s.refs) s.refs = [{book:'ta', page:s.page}].concat(k % 3 === 0 ? [{book:'tj', page:12 + (k * 37) % 200}] : []); })));
+    if (!s.refs) s.refs = [{book:'ta', page:s.page}]; })));
   D().treeArchive = D().treeArchive || [];
   const skills = T.flatMap(u => u.lessons.flatMap(l => l.skills));
   /* secondary (ق11): ~1 in 4 classified questions links 1–2 secondary skills from another lesson */
@@ -12152,23 +12152,22 @@ F.hideNode = id => { if (!canEdit()) return noEdit(); const n = F.loc(id).node, 
     F.commit(s, {action:'tree.hide', target:id, targetLabel:'شجرة الفطن', summary:(hide ? 'إخفاء ' : 'إظهار ') + KW[lv] + ' «' + n.name + '» ' + (hide ? 'عن' : 'في') + ' فلتر الطالب' + (hide && pub ? ' (فيه ' + pubTxt(pub) + ')' : ''),
       before:{الظهور:hide ? 'ظاهر' : 'مخفي'}, after:{الظهور:hide ? 'مخفي' : 'ظاهر'}, reason:r.reason}, hide ? 'أُخفي «' + n.name + '» عن الطالب.' : 'ظهر «' + n.name + '» للطالب.'); }); };
 /* add a child — the standard: no source reference (book + page), no node; new nodes start «مقترحة» unless the owner activates now */
-const refFields = (book, page) => [[{name:'book', label:'المرجع — الكتاب', type:'select', value:book || 'ta', options:[{v:'ta', label:'كتاب التأسيس'}, {v:'tj', label:'كتاب التجميعات'}]},
-  {name:'page', label:'الصفحة', type:'number', value:page === undefined ? '' : page, placeholder:'مثل ١٢٢', required:true, requiredMsg:'لا عنصر بلا مرجع: اكتب رقم الصفحة.'}]];
+const refFields = (book, page) => [{name:'page', label:'الصفحة في كتاب التأسيس', type:'number', value:page === undefined ? '' : page, placeholder:'مثل ١٢٢', required:true, requiredMsg:'لا عنصر بلا مرجع: اكتب صفحة التأسيس.'}];
 const refErr = v => !v.page || v.page < 1 || v.page > 400 || Math.round(v.page) !== v.page ? ['page', 'لا عنصر بلا مرجع: صفحة صحيحة من الكتاب (١–٤٠٠).'] : '';
 F.addNode = (parentId, pre = {}) => { if (!canEdit()) return noEdit();
   const pick = parentId ? Promise.resolve(parentId) : F.pick({title:'أين تضيف؟', text:'اختر وحدة لإضافة درس، أو درسًا لإضافة مهارة.', level:'node', confirmLabel:'التالي'}).then(id => id && (F.loc(id).level === 'skill' ? F.loc(id).lesson.id : id));
   return pick.then(pid => { if (!pid) return null; const par = F.loc(pid).node, lv = par.lessons ? 'lesson' : 'skill';
-    return U.confirm({title:'إضافة ' + (lv === 'lesson' ? 'درس' : 'مهارة') + ' في «' + par.name + '»', text:'المعيار: كل عنصر في الشجرة يرجع إلى ملفات الفطن (التأسيس أو التجميعات). بلا مرجع لا يُضاف.', reason:false, confirmLabel:'أضف', size:'lg',
+    return U.confirm({title:'إضافة ' + (lv === 'lesson' ? 'درس' : 'مهارة') + ' في «' + par.name + '»', text:'المعيار: الشجرة من كتاب التأسيس — كل عنصر يرجع إلى صفحته في التأسيس. بلا مرجع لا يُضاف.', reason:false, confirmLabel:'أضف', size:'lg',
       fields:[{name:'name', label:'الاسم', value:pre.name || '', required:true}].concat(lv === 'skill' ? [{name:'desc', label:'الوصف (القاعدة كما في الكتاب)', type:'textarea', value:pre.desc || ''}] : [], refFields(pre.book, pre.page),
         isOwner() ? [{name:'act', label:'فعّله الآن (قرارك كمالك) — وإلا يبقى «مقترحًا» ولا يراه الطالب', type:'toggle', value:false}] : [{html:h`<p class="mut tr-small">يُضاف «مقترحًا» ولا يراه الطالب حتى يفعّله المالك.</p>`}]),
       validate:v => v.name.length < 2 ? ['name', 'اكتب اسمًا واضحًا.'] : refErr(v)}).then(v => { if (!v) return null;
       const s = snap(), list = lv === 'lesson' ? par.lessons : par.skills, pre2 = lv === 'lesson' ? par.id + 'L' : par.id + 'S';
       let k = list.length + 1; const all = new Set(D().tree.flatMap(u => [u.id, ...u.lessons.flatMap(l => [l.id, ...l.skills.map(x => x.id)])]).concat(D().treeArchive.map(a => a.node.id)));
       while (all.has(pre2 + String(k).padStart(2, '0'))) k++;
-      const id = pre2 + String(k).padStart(2, '0'), ref = [{book:v.book, page:v.page}], act = !!v.act;
-      const node = lv === 'lesson' ? {id, name:v.name, cm:null, course:false, hidden:false, refs:ref, skills:[], status:act ? undefined : 'proposed'} : {id, name:v.name, desc:v.desc || '', page:v.book === 'ta' ? v.page : null, hidden:false, refs:ref, status:act ? undefined : 'proposed'};
+      const id = pre2 + String(k).padStart(2, '0'), ref = [{book:'ta', page:v.page}], act = !!v.act;
+      const node = lv === 'lesson' ? {id, name:v.name, cm:null, course:false, hidden:false, refs:ref, skills:[], status:act ? undefined : 'proposed'} : {id, name:v.name, desc:v.desc || '', page:v.page, hidden:false, refs:ref, status:act ? undefined : 'proposed'};
       if (!node.status) delete node.status; list.push(node); if (pre.onNode) pre.onNode(node);
-      F.commit(s, {action:pre.action || 'tree.add', target:id, targetLabel:'شجرة الفطن', summary:'إضافة ' + (lv === 'lesson' ? 'الدرس' : 'المهارة') + ' «' + v.name + '» في «' + par.name + '» — ' + BOOK[v.book] + ' ص ' + A.n(v.page) + (act ? '' : ' (مقترحة)'),
+      F.commit(s, {action:pre.action || 'tree.add', target:id, targetLabel:'شجرة الفطن', summary:'إضافة ' + (lv === 'lesson' ? 'الدرس' : 'المهارة') + ' «' + v.name + '» في «' + par.name + '» — ' + 'التأسيس ص ' + A.n(v.page) + (act ? '' : ' (مقترحة)'),
         before:{الحالة:'غير موجود'}, after:{الحالة:act ? 'فعّالة' : 'مقترحة'}, reason:pre.reason}, act ? 'أُضيف «' + v.name + '» ويراه الطالب الآن.' : 'أُضيف «' + v.name + '» مقترحًا — يظهر للطالب بعد تفعيلك.');
       return node; }); }); };
 F.activate = id => { const n = F.loc(id).node;
@@ -12211,7 +12210,7 @@ const quietQ = patch => { const nq = Object.assign({}, A.cur.q, patch); Object.k
 const UC = ['#5A3BD0', '#1B7A54', '#3C6492', '#9A5F06', '#B4321C', '#4A4466', '#7A4FB8'];
 function treeTab(el){
   const v = A.mem('tr:view', {mode:'admin'}), open = A.mem('tr:open', {});
-  el.innerHTML = String(h`<div class="tr-top"><p class="tr-src">${I('link', 's16')}<span>هذه الشجرة نفسها التي يقرأ منها فلتر «أنشئ اختبار» عند الطالب — أي تعديل هنا يراه الطالب كما هو.</span></p>
+  el.innerHTML = String(h`<div class="tr-top"><p class="tr-src">${I('link', 's16')}<span>الشجرة من كتاب التأسيس، وأسئلة التجميعات مصنّفة عليها. وهي نفسها التي يقرأ منها فلتر «أنشئ اختبار» عند الطالب — أي تعديل هنا يراه الطالب كما هو.</span></p>
     <div class="tr-vw" role="group" aria-label="طريقة العرض">${[['admin', 'الإدارة'], ['student', 'كما يراها الطالب']].map(([k, t]) => h`<button type="button"${U.run(() => { v.mode = k; A.changed(); })} aria-pressed="${v.mode === k}">${t}</button>`)}</div></div>
     <div class="tr-main"></div>`);
   const host = el.querySelector('.tr-main');
@@ -12322,7 +12321,7 @@ const bTxt = qs => { const nb = new Set(qs.map(q => q.batch)).size; return nb ==
 const avgConf = qs => qs.length ? Math.round(qs.reduce((a, q) => a + q.outside.conf, 0) / qs.length) : 0;
 function outsideTab(el){
   U.listPage(el, {id:'tr-out', unit:'مقترح',
-    intro:'لا نخترع مكانًا لسؤال لا يناسب شجرتنا: يبقى في أقرب درس بثقة منخفضة حتى تقرّر. المعيار: التأسيس والتجميعات.',
+    intro:'لا نخترع مكانًا لسؤال لا يناسب شجرتنا: يبقى في أقرب درس بثقة منخفضة حتى تقرّر. المعيار: كتاب التأسيس.',
     toolbar:{search:'ابحث باسم المقترح أو نص أسئلته', selects:[{key:'st', label:'الحالة', options:Object.entries(PST).map(([v, [label]]) => ({v, label}))}],
       segments:[{id:'p', label:'بانتظار قرارك', filter:g => g.status === 'pending'}, {id:'big', label:'تكرّر كثيرًا', filter:g => g.status === 'pending' && gQs(g).length >= 5}]},
     columns:[{key:'name', label:'المقترح', render:g => { const qs = gQs(g); return h`<span class="tr-gx"><b>${g.name}</b>${qs[0] ? h`<small class="q">مثال: ${plain(qs[0].text)}</small>` : h`<small>${g.status === 'merged' ? 'انتقلت أسئلته إلى «' + F.name(g.result) + '»' : ''}</small>`}</span>`; }},
@@ -12337,7 +12336,7 @@ function outsideTab(el){
     export:{name:'مقترحات خارج دورتنا', file:'outside', columns:[{key:'name', label:'المقترح'}, {key:'n', label:'الأسئلة', value:g => gQs(g).length || g.n || 0}, {key:'lesson', label:'الدرس الأقرب', value:g => F.name(g.lesson)}, {key:'status', label:'الحالة', value:g => PST[g.status][0]}]},
     empty:{icon:'tree', title:'لا مقترحات خارج دورتنا', text:'حين تجد مهارة التصنيف سؤالًا بلا مكان مناسب يظهر هنا مقترحًا لتقرّر فيه.', action:{label:'افتح الدفعات', icon:'bank', href:A.href('bank', {tab:'batches'})}}});
 }
-const OPTS = [['add', 'أضِفه للشجرة', 'مهارة جديدة تحت درس تختاره — بمرجع إلزامي من التأسيس أو التجميعات. تُضاف «مقترحة» ولا تظهر للطالب حتى تفعّلها.', 'plus'],
+const OPTS = [['add', 'أضِفه للشجرة', 'مهارة جديدة تحت درس تختاره — بمرجع إلزامي من كتاب التأسيس (الصفحة). تُضاف «مقترحة» ولا تظهر للطالب حتى تفعّلها.', 'plus'],
   ['merge', 'ادمجه في مهارة موجودة', 'تنتقل الأسئلة إلى مهارة تختارها من الشجرة.', 'link'],
   ['keep', 'أبقِه في الدرس الأقرب', 'لا عنصر جديد. تبقى الأسئلة على مستوى الدرس وتُنشر منه.', 'check'],
   ['out', 'خارج المنهج', 'تبقى الأسئلة في البنك مع السبب، ولا تظهر في فلتر الطالب.', 'eyeOff']];
